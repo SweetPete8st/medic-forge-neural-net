@@ -1,40 +1,88 @@
-# RULES.md: accounting discipline for every experiment in this repository
+# RULES.md
 
-> **Provenance.** The brief says to carry `RULES.md` from `ecg-wsp-v4.zip` over verbatim and
-> extend it. That archive was not available when this file was written. The rules below are a
-> reconstruction from the brief's description of the ECG experiment (every forward pass counted,
-> every design change logged with its reason and a DATA-INFORMED flag, development data separated
-> from held-out data before building, no held-out number seen before the model is frozen).
-> **When the archive is available, replace the "Core rules" section with the original text
-> verbatim and keep the "Extensions" section.**
+> The section below is the original RULES.md from ecg-wsp-v4.zip, carried over verbatim as the brief requires (archive sha256 3ca08a71...). The patient-model extensions follow it.
 
-## Core rules (reconstructed)
+---
 
-R1. **Count every forward pass.** A forward pass is one evaluation of the model under construction
-    on one input unit (for the ECG network: one record window; for a patient model: one full
-    rollout of one trajectory). Batched evaluation counts each unit. Log the running total in
-    `LEDGER.md`.
+# Weight-Space Programming: ECG rhythm network
 
-R2. **Log every design change.** Any change to architecture, weights, thresholds, constants or
-    rules after the first forward pass is a design change. Each entry records: date, what changed,
-    why, and the flag `DATA-INFORMED: yes|no`. The flag is `yes` whenever a specific observed
-    failing case motivated the change, even if the fix was derived by reasoning.
+Experiment: can a frontier LLM (Claude Fable 5.1) write the weights of a neural
+network that reads a raw single-lead ECG and reports rate, regularity, QRS width,
+P-wave presence and a rhythm label, with every weight set by reasoning and none
+by optimization?
 
-R3. **Separate development data from held-out data before building.** The split is written down
-    (file list, hash) before the first forward pass. Held-out data is never inspected, plotted,
-    or summarised during development.
+Run by David Gold (MCFRS paramedic instructor) and Claude. Started 2026-11-04.
 
-R4. **Freeze before testing.** The model is frozen (weights hashed, hash recorded in the ledger)
-    before any held-out number is computed. A held-out number seen before freezing voids the
-    held-out claim; the data then becomes development data and new held-out data is needed.
+## What counts as "writing weights"
 
-R5. **No training, no fitting, no parameter search unless the experiment says so.** When the
-    method is weight-space programming, every weight is set by explicit reasoning from the
-    specification. If a value is tuned against data, it is a design change under R2 and the
-    experiment is relabelled as data-informed.
+1. Every parameter is set by a stated rule: a filter design formula, a logic
+   gate construction, a physiological constant (refractory period, PR interval,
+   QRS duration bands), or an explicit argument written in the design notes.
+2. No gradient descent. No loss function. No optimizer of any kind.
+3. No parameter search against data. No sweeping a threshold to find the value
+   that scores best. If a constant is chosen, the reason is written down before
+   the number is tested.
+4. Code is allowed as the pen that writes the weights (a sinc formula evaluated
+   in numpy is still a hand-designed filter). Code is not allowed as a substitute
+   for the network: the final artifact must run as plain Conv1d / ReLU / pooling /
+   linear layers with no Python logic inside the forward pass.
 
-R6. **Report failures as failures.** A result that misses its predefined criterion is reported
-    with the number, not softened.
+## Forward passes
+
+A forward pass is one run of the network over one record or one batch of
+windows. Every forward pass is logged in LEDGER.md with its purpose. The count is
+the honest measure of how much trial and error went into the result, the same
+accounting the MIT Weight-Space Programming post used.
+
+## Design changes
+
+Every change to the network after a forward pass is logged with:
+- the version number,
+- what changed,
+- why, as a reasoning argument,
+- whether the change was motivated by a specific failing record. If it was, the
+  change is flagged DATA-INFORMED. Those changes are legitimate (the MIT work
+  allowed feedback) but they are the moment the experiment starts leaning on
+  data, so they are counted.
+
+## Development set vs held-out set
+
+- Development: MIT-BIH record 100 (the only reference-annotated record available
+  in Claude's sandbox) plus synthetic strips. Record 100 is a clean record;
+  results on it are an upper bound.
+- Held-out: the remaining 47 MIT-BIH arrhythmia records and the MIT-BIH atrial
+  fibrillation database, run on David's machine with the frozen network. No
+  changes to the network after the held-out numbers are seen, unless the ledger
+  says so explicitly and the held-out set is then considered burned.
+
+## Success criteria, stated before building
+
+Beat detection: published Pan-Tompkins implementations score about 99.3%
+sensitivity and 99.5% PPV on MIT-BIH. A hand-compiled version with fixed
+thresholds instead of adaptive ones should land lower. Above 97% on the held-out
+set would mean the compile was faithful. Below 90% means the fixed-threshold
+design is the limit.
+
+Rate: within 5 bpm of annotation-derived rate on 10-second windows for regular
+rhythms.
+
+Regularity: agreement with an RR-variability rule on annotations above 90%.
+
+QRS width: narrow/wide agreement with beat-type annotations (N vs V) above 85%
+is the target. The MWI pulse-width method is crude and this may not be reached.
+
+P-wave presence: unknown. This is the expected break point. Any result above
+chance on sinus-vs-AFib discrimination from P detection alone is a finding.
+
+Rhythm labels: reported as a confusion matrix against MIT-BIH rhythm
+annotations, with no target number. The goal is to see which boundaries the
+compiled rules can and cannot draw from raw signal.
+
+## Data
+
+PhysioNet MIT-BIH data only. No MCFRS patient data enters this experiment.
+
+---
 
 ## Extensions for patient models
 

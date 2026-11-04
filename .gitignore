@@ -7,5 +7,6 @@ dist/
 .venv/
 experiments/**/results/*.npz
 experiments/exp1_calibration/data/
-experiments/exp1_calibration/ecg-wsp-v4/
+experiments/exp1_calibration/ecg-wsp-v4/*.pt
+experiments/exp1_calibration/ecg-wsp-v4/*.png
 *.zip
