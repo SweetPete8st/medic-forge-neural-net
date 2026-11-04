@@ -1,0 +1,38 @@
+# One-compartment PK with first-order absorption, effect-site link, Emax readouts. DT = 1 s.
+dt_s: 1.0
+variants:
+  dev:
+    typical:        {ka_half_min: 2.5, ke_half_min: 150, keo_half_min: 1.0, Emax: 1.0, EC50: 1.0, HRmax: 25.0, EC50_hr: 1.5}
+    fast_absorber:  {ka_half_min: 1.0, ke_half_min: 120, keo_half_min: 0.5, Emax: 1.0, EC50: 0.8, HRmax: 30.0, EC50_hr: 1.0}
+    slow_eliminator: {ka_half_min: 4.0, ke_half_min: 300, keo_half_min: 2.0, Emax: 1.0, EC50: 1.2, HRmax: 20.0, EC50_hr: 2.0}
+  heldout:
+    extreme_fast:   {ka_half_min: 0.5, ke_half_min: 90,  keo_half_min: 0.25, Emax: 1.0, EC50: 0.2, HRmax: 40.0, EC50_hr: 0.5}
+    extreme_slow:   {ka_half_min: 6.0, ke_half_min: 600, keo_half_min: 4.0, Emax: 1.0, EC50: 2.5, HRmax: 15.0, EC50_hr: 3.0}
+    slow_link:      {ka_half_min: 2.0, ke_half_min: 200, keo_half_min: 10.0, Emax: 1.0, EC50: 1.0, HRmax: 60.0, EC50_hr: 1.0}
+  heldout_v2:
+    ultra_potent:   {ka_half_min: 0.75, ke_half_min: 100, keo_half_min: 0.5, Emax: 1.0, EC50: 0.1, HRmax: 50.0, EC50_hr: 0.3}
+    weak_slow:      {ka_half_min: 8.0, ke_half_min: 480, keo_half_min: 3.0, Emax: 1.0, EC50: 4.0, HRmax: 10.0, EC50_hr: 6.0}
+    slow_link_20:   {ka_half_min: 2.5, ke_half_min: 180, keo_half_min: 20.0, Emax: 1.0, EC50: 0.6, HRmax: 35.0, EC50_hr: 0.9}
+# schedules: list of (t_s, route, amount). route: depot | central
+schedules:
+  dev:
+    single_2p5:      {minutes: 60, doses: [[60, depot, 2.5]]}
+    two_q20:         {minutes: 60, doses: [[60, depot, 2.5], [1260, depot, 2.5]]}
+    three_q20:       {minutes: 90, doses: [[60, depot, 2.5], [1260, depot, 2.5], [2460, depot, 2.5]]}
+    iv_bolus:        {minutes: 60, doses: [[120, central, 0.3]]}
+    inhaled_then_iv: {minutes: 60, doses: [[60, depot, 2.5], [900, central, 0.3]]}
+    dose_then_wait:  {minutes: 90, doses: [[0, depot, 5.0]]}
+    two_q5:          {minutes: 60, doses: [[60, depot, 2.5], [360, depot, 2.5]]}
+    irregular_four:  {minutes: 90, doses: [[30, depot, 2.5], [500, depot, 5.0], [2000, central, 0.3], [4000, depot, 2.5]]}
+  heldout:
+    overdose_ten_q6: {minutes: 90, doses: [[60, depot, 2.5], [420, depot, 2.5], [780, depot, 2.5], [1140, depot, 2.5], [1500, depot, 2.5], [1860, depot, 2.5], [2220, depot, 2.5], [2580, depot, 2.5], [2940, depot, 2.5], [3300, depot, 2.5]]}
+    long_rollout:    {minutes: 180, doses: [[60, depot, 5.0]]}
+    three_fast_then_nothing: {minutes: 60, doses: [[60, depot, 2.5], [120, depot, 2.5], [180, depot, 2.5]]}
+    both_routes_same_tick: {minutes: 60, doses: [[300, depot, 2.5], [300, central, 0.3]]}
+    alternating_q15: {minutes: 90, doses: [[0, depot, 2.5], [900, central, 0.3], [1800, depot, 2.5], [2700, central, 0.3], [3600, depot, 2.5], [4500, central, 0.3]]}
+    nothing:         {minutes: 60, doses: []}
+  heldout_v2:
+    two_q2_then_wait: {minutes: 90, doses: [[60, depot, 2.5], [180, depot, 2.5]]}
+    twenty_tiny_q3:   {minutes: 90, doses: [[60, depot, 0.25], [240, depot, 0.25], [420, depot, 0.25], [600, depot, 0.25], [780, depot, 0.25], [960, depot, 0.25], [1140, depot, 0.25], [1320, depot, 0.25], [1500, depot, 0.25], [1680, depot, 0.25], [1860, depot, 0.25], [2040, depot, 0.25], [2220, depot, 0.25], [2400, depot, 0.25], [2580, depot, 0.25], [2760, depot, 0.25], [2940, depot, 0.25], [3120, depot, 0.25], [3300, depot, 0.25], [3480, depot, 0.25]]}
+    one_huge_25mg:    {minutes: 120, doses: [[30, depot, 25.0]]}
+    iv_q10_x5:        {minutes: 90, doses: [[0, central, 0.3], [600, central, 0.3], [1200, central, 0.3], [1800, central, 0.3], [2400, central, 0.3]]}

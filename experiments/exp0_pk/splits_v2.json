@@ -1,0 +1,49 @@
+{
+ "seed": 20261104,
+ "dev": {
+  "variants": [
+   "fast_absorber",
+   "slow_eliminator",
+   "typical"
+  ],
+  "schedules": [
+   "dose_then_wait",
+   "inhaled_then_iv",
+   "irregular_four",
+   "iv_bolus",
+   "single_2p5",
+   "three_q20",
+   "two_q20",
+   "two_q5"
+  ]
+ },
+ "heldout": {
+  "variants": [
+   "extreme_fast",
+   "extreme_slow",
+   "slow_link"
+  ],
+  "schedules": [
+   "alternating_q15",
+   "both_routes_same_tick",
+   "long_rollout",
+   "nothing",
+   "overdose_ten_q6",
+   "three_fast_then_nothing"
+  ]
+ },
+ "heldout_v2": {
+  "variants": [
+   "slow_link_20",
+   "ultra_potent",
+   "weak_slow"
+  ],
+  "schedules": [
+   "iv_q10_x5",
+   "one_huge_25mg",
+   "twenty_tiny_q3",
+   "two_q2_then_wait"
+  ]
+ },
+ "spec_sha256": "0d3b2a1b9c0c91fa6c8c99e79172020b8c26842692cd325327b091d96b8fa0ab"
+}

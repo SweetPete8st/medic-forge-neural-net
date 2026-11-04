@@ -1,0 +1,411 @@
+{
+ "code_heldout": {
+  "n_cases": 12,
+  "max_dE": 0.0,
+  "max_relC": 0.0,
+  "max_dHR": 0.0,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 0,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.004460380666614583
+ },
+ "wsp_heldout": {
+  "n_cases": 12,
+  "max_dE": 0.003036589981123883,
+  "max_relC": 1.5491959304646643e-14,
+  "max_dHR": 0.151822866304137,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 0,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.0751617919166847
+ },
+ "wsp_heldout_rows": [
+  {
+   "variant": "slow_link_20",
+   "schedule": "iv_q10_x5",
+   "ticks": 5400,
+   "max_dE": 0.003036589981123883,
+   "rmse_E": 0.0017322262620086159,
+   "max_relC": 3.592976494910026e-15,
+   "max_dHR": 0.05723909963501228,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.05353601199976765
+  },
+  {
+   "variant": "slow_link_20",
+   "schedule": "one_huge_25mg",
+   "ticks": 7200,
+   "max_dE": 0.003036275247901954,
+   "rmse_E": 0.00054182590851208,
+   "max_relC": 1.5491959304646643e-14,
+   "max_dHR": 0.10628011287598937,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.07154829899991455
+  },
+  {
+   "variant": "slow_link_20",
+   "schedule": "twenty_tiny_q3",
+   "ticks": 5400,
+   "max_dE": 0.0030365780007854948,
+   "rmse_E": 0.0013570219906417665,
+   "max_relC": 1.065032245183104e-14,
+   "max_dHR": 0.10628058999601109,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.05459879000000001
+  },
+  {
+   "variant": "slow_link_20",
+   "schedule": "two_q2_then_wait",
+   "ticks": 5400,
+   "max_dE": 0.0030365452644242064,
+   "rmse_E": 0.0012608855947758275,
+   "max_relC": 9.019263321058245e-15,
+   "max_dHR": 0.10628064880813781,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.054510926000148174
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "iv_q10_x5",
+   "ticks": 5400,
+   "max_dE": 0.0030317074920273024,
+   "rmse_E": 0.0009251190744202584,
+   "max_relC": 1.376089544728302e-15,
+   "max_dHR": 0.151822866304137,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.07887080799991963
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "one_huge_25mg",
+   "ticks": 7200,
+   "max_dE": 0.0030180654442303334,
+   "rmse_E": 0.002058533328221883,
+   "max_relC": 7.166113082630225e-15,
+   "max_dHR": 0.1460942685318578,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.12071296900012385
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "twenty_tiny_q3",
+   "ticks": 5400,
+   "max_dE": 0.0030364850698557655,
+   "rmse_E": 0.0006620786913685115,
+   "max_relC": 4.204334037274291e-15,
+   "max_dHR": 0.15180749606217603,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09146365000015066
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "two_q2_then_wait",
+   "ticks": 5400,
+   "max_dE": 0.0029410289767972664,
+   "rmse_E": 0.0004935701951602208,
+   "max_relC": 5.09881293837686e-15,
+   "max_dHR": 0.15150016896546958,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09150138199993307
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "iv_q10_x5",
+   "ticks": 5400,
+   "max_dE": 0.0012825614882088499,
+   "rmse_E": 0.000827361149575221,
+   "max_relC": 2.8758039613398708e-15,
+   "max_dHR": 0.012139902150839488,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.08240422500011846
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "one_huge_25mg",
+   "ticks": 7200,
+   "max_dE": 0.0030363115066515123,
+   "rmse_E": 0.001673537247571127,
+   "max_relC": 8.51205106349398e-15,
+   "max_dHR": 0.030365884621589956,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.07619099200019264
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "twenty_tiny_q3",
+   "ticks": 5400,
+   "max_dE": 0.0016354028043168434,
+   "rmse_E": 0.0009928766323772402,
+   "max_relC": 4.5394323231786985e-15,
+   "max_dHR": 0.014438201622910096,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.07427728399989064
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "two_q2_then_wait",
+   "ticks": 5400,
+   "max_dE": 0.0016354027800794535,
+   "rmse_E": 0.0013336787255058345,
+   "max_relC": 1.0203764165751758e-14,
+   "max_dHR": 0.014438202969713654,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.05232616600005713
+  }
+ ],
+ "trained_param_generalisation": {
+  "n_cases": 12,
+  "max_dE": 94.27992400223833,
+  "max_relC": 37626.58007947712,
+  "max_dHR": 31573.466086608325,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 4,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.11960476949995306
+ },
+ "trained_schedule_generalisation": {
+  "n_cases": 12,
+  "max_dE": 1.50345570202197e+17,
+  "max_relC": 1.3020208965100323e+17,
+  "max_dHR": 1.8420517369483802e+18,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 8,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.10801626324996505
+ },
+ "trained_schedule_rows": [
+  {
+   "variant": "slow_link_20",
+   "schedule": "iv_q10_x5",
+   "ticks": 5400,
+   "max_dE": 0.2722639323066782,
+   "rmse_E": 0.1713532516555704,
+   "max_relC": 2.760741207323382,
+   "max_dHR": 9.73938509215867,
+   "violations": [],
+   "causal": [
+    "no onset after dose at 0s",
+    "no onset after dose at 600s"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.13032831600003192
+  },
+  {
+   "variant": "slow_link_20",
+   "schedule": "one_huge_25mg",
+   "ticks": 7200,
+   "max_dE": 1.225594316594683,
+   "rmse_E": 0.1458781555528149,
+   "max_relC": 3.340761185352179,
+   "max_dHR": 20.3702853282074,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.1494309780000549
+  },
+  {
+   "variant": "slow_link_20",
+   "schedule": "twenty_tiny_q3",
+   "ticks": 5400,
+   "max_dE": 0.2082011952509627,
+   "rmse_E": 0.06892127223180129,
+   "max_relC": 200.0503760254624,
+   "max_dHR": 13.09513212833216,
+   "violations": [],
+   "causal": [
+    "no onset after dose at 60s",
+    "no onset after dose at 240s",
+    "no onset after dose at 420s",
+    "no onset after dose at 600s"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.09619720599994253
+  },
+  {
+   "variant": "slow_link_20",
+   "schedule": "two_q2_then_wait",
+   "ticks": 5400,
+   "max_dE": 0.44158570251154317,
+   "rmse_E": 0.04447236779905632,
+   "max_relC": 9.319836294267848,
+   "max_dHR": 5.020144507047117,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09992234300034397
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "iv_q10_x5",
+   "ticks": 5400,
+   "max_dE": 0.5091405087529901,
+   "rmse_E": 0.06377412699712158,
+   "max_relC": 2.7459257653005213,
+   "max_dHR": 14.23251222600647,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.09697435399993992
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "one_huge_25mg",
+   "ticks": 7200,
+   "max_dE": 1.50345570202197e+17,
+   "rmse_E": 1.6820801460420138e+16,
+   "max_relC": 1.3020208965100323e+17,
+   "max_dHR": 1.8420517369483802e+18,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.12573543299959056
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "twenty_tiny_q3",
+   "ticks": 5400,
+   "max_dE": 0.9740404734614146,
+   "rmse_E": 0.7246816243942691,
+   "max_relC": 132.07935418451422,
+   "max_dHR": 51.068540338297126,
+   "violations": [],
+   "causal": [
+    "no onset after dose at 60s",
+    "no onset after dose at 240s",
+    "no onset after dose at 420s",
+    "no onset after dose at 600s",
+    "no onset after dose at 780s",
+    "no onset after dose at 960s",
+    "no onset after dose at 1140s",
+    "no onset after dose at 1320s",
+    "no onset after dose at 1500s",
+    "no onset after dose at 1680s",
+    "no onset after dose at 1860s",
+    "no onset after dose at 2040s",
+    "no onset after dose at 2220s",
+    "no onset after dose at 2400s",
+    "no onset after dose at 2580s",
+    "no onset after dose at 2760s",
+    "no onset after dose at 2940s",
+    "no onset after dose at 3120s",
+    "no onset after dose at 3300s",
+    "no onset after dose at 3480s"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.09330075199977728
+  },
+  {
+   "variant": "ultra_potent",
+   "schedule": "two_q2_then_wait",
+   "ticks": 5400,
+   "max_dE": 0.09021656367332508,
+   "rmse_E": 0.006749705175654353,
+   "max_relC": 13.171144098623309,
+   "max_dHR": 5.343506059691599,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09411036900019099
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "iv_q10_x5",
+   "ticks": 5400,
+   "max_dE": 0.1038817136893474,
+   "rmse_E": 0.07017017712306688,
+   "max_relC": 0.9019735389018291,
+   "max_dHR": 5.055661543512825,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09367956300002334
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "one_huge_25mg",
+   "ticks": 7200,
+   "max_dE": 626.3097442539048,
+   "rmse_E": 150.3789783861254,
+   "max_relC": 1896.30789512495,
+   "max_dHR": 20446.01470046896,
+   "violations": [],
+   "causal": [
+    "no onset after dose at 30s",
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.12329835199989247
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "twenty_tiny_q3",
+   "ticks": 5400,
+   "max_dE": 0.21829721323766402,
+   "rmse_E": 0.1003779505585632,
+   "max_relC": 26063.15364849727,
+   "max_dHR": 2.2455141381012975,
+   "violations": [],
+   "causal": [
+    "no onset after dose at 240s",
+    "no onset after dose at 1500s",
+    "no onset after dose at 1680s",
+    "no onset after dose at 1860s"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.09749301200008631
+  },
+  {
+   "variant": "weak_slow",
+   "schedule": "two_q2_then_wait",
+   "ticks": 5400,
+   "max_dE": 0.18546108214682056,
+   "rmse_E": 0.08064159651253835,
+   "max_relC": 2754.849275310014,
+   "max_dHR": 1.8894608920137639,
+   "violations": [],
+   "causal": [
+    "no onset after dose at 60s"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.09572448099970643
+  }
+ ],
+ "wsp_on_burned_heldout": {
+  "n_cases": 18,
+  "max_dE": 0.003036589986166849,
+  "max_relC": 1.2033790075591554e-14,
+  "max_dHR": 0.18219538595953821,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 0,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.06501090233329403
+ }
+}

@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://medicforge.example/schemas/patient_spec.v1.json",
+  "title": "Medic Forge patient specification (Layer 1)",
+  "description": "Human-readable, reviewable physiology specification. This document is the source of truth; every compile target (code, weights, adapter, trained model) is checked against it.",
+  "type": "object",
+  "required": ["spec_version", "id", "title", "teaching_objective", "patient", "scenario", "drugs", "devices", "events", "trajectories", "observation_gating", "dialogue", "review"],
+  "properties": {
+    "spec_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "title": {"type": "string"},
+    "teaching_objective": {"type": "string"},
+    "audience": {"type": "string"},
+    "patient": {
+      "type": "object",
+      "required": ["age", "sex", "weight_kg", "baseline"],
+      "properties": {
+        "age": {"type": "integer", "minimum": 18},
+        "sex": {"type": "string"},
+        "weight_kg": {"type": "number", "minimum": 30, "maximum": 250},
+        "baseline": {
+          "type": "object",
+          "description": "Healthy resting values for this patient. Units fixed: HR bpm, SBP/DBP mmHg, RR /min, Vt mL, PaCO2 mmHg, PaO2 mmHg, SpO2 %, temp C.",
+          "required": ["HR", "SBP", "DBP", "RR", "Vt", "PaCO2", "PaO2", "temp_c"],
+          "additionalProperties": {"type": "number"}
+        }
+      }
+    },
+    "scenario": {
+      "type": "object",
+      "required": ["condition", "initial", "params"],
+      "properties": {
+        "condition": {"type": "string"},
+        "initial": {"type": "object", "additionalProperties": {"type": "number"}},
+        "params": {
+          "type": "object",
+          "description": "Every numeric constant of the dynamics. Each has a value, a plausible range, a unit, a source and a confidence grade.",
+          "additionalProperties": {"$ref": "#/$defs/sourced_param"}
+        }
+      }
+    },
+    "drugs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["route", "dose_unit", "typical_dose", "kinetics", "effects", "source"],
+        "properties": {
+          "route": {"enum": ["inhaled", "im", "iv_bolus", "iv_infusion", "sl", "sc"]},
+          "dose_unit": {"enum": ["mg", "mcg", "g"]},
+          "typical_dose": {"type": "number"},
+          "max_repeats": {"type": "integer", "minimum": 0},
+          "repeat_interval_min": {"type": "number"},
+          "kinetics": {
+            "type": "object",
+            "required": ["absorption_half_time_min", "elimination_half_life_min"],
+            "properties": {
+              "absorption_half_time_min": {"type": "number", "minimum": 0},
+              "elimination_half_life_min": {"type": "number", "exclusiveMinimum": 0},
+              "effect_link_half_time_min": {"type": "number", "minimum": 0}
+            }
+          },
+          "effects": {
+            "type": "object",
+            "description": "Named effects, each an Emax model on an engine target.",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["target", "emax", "ec50"],
+              "properties": {
+                "target": {"enum": ["bronchodilation", "heart_rate", "sbp", "resp_drive", "loc", "inflammation", "wob"]},
+                "emax": {"type": "number"},
+                "ec50": {"type": "number", "exclusiveMinimum": 0},
+                "hill": {"type": "number", "default": 1.0}
+              }
+            }
+          },
+          "appropriate": {"type": "boolean", "default": true},
+          "source": {"$ref": "#/$defs/source"}
+        }
+      }
+    },
+    "devices": {
+      "type": "object",
+      "additionalProperties": {"type": "object", "additionalProperties": true}
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "when"],
+        "properties": {
+          "name": {"type": "string"},
+          "when": {"type": "string", "description": "Condition over state variables; restricted grammar: '<var> <op> <number>' joined by ' and ' / ' or '."},
+          "once": {"type": "boolean", "default": true}
+        }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "items": {"type": "object", "required": ["name", "when"], "properties": {"name": {"type": "string"}, "when": {"type": "string"}}}
+    },
+    "interaction_rules": {
+      "type": "array",
+      "description": "Explicit rules that are NOT produced by composition through shared state variables. Keep this list short and reviewed.",
+      "items": {"type": "object", "required": ["id", "when", "effect", "source"], "properties": {"id": {"type": "string"}, "when": {"type": "string"}, "effect": {"type": "string"}, "source": {"$ref": "#/$defs/source"}}}
+    },
+    "trajectories": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["description", "actions", "expect"],
+        "properties": {
+          "description": {"type": "string"},
+          "actions": {"type": "array", "items": {"type": "object", "required": ["t_min", "kind"], "additionalProperties": true}},
+          "expect": {"type": "array", "items": {"type": "object", "required": ["t_min", "var", "min", "max"], "properties": {"t_min": {"type": "number"}, "var": {"type": "string"}, "min": {"type": "number"}, "max": {"type": "number"}, "source": {"type": "string"}}}}
+        }
+      }
+    },
+    "observation_gating": {
+      "type": "object",
+      "additionalProperties": {"type": "array", "items": {"type": "string"}}
+    },
+    "dialogue": {
+      "type": "object",
+      "required": ["persona", "facts", "forbidden"],
+      "properties": {
+        "persona": {"type": "string"},
+        "facts": {"type": "object", "additionalProperties": {"type": ["string", "array"]}},
+        "forbidden": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "grading_rubric": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "review": {
+      "type": "object",
+      "required": ["status", "reviewers"],
+      "properties": {
+        "status": {"enum": ["UNREVIEWED", "DRAFT", "REVIEWED", "APPROVED"]},
+        "reviewers": {"type": "array", "items": {"type": "object", "required": ["name", "role", "date"], "additionalProperties": true}},
+        "notes": {"type": "string"}
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["citation", "grade", "verified"],
+      "properties": {
+        "citation": {"type": "string"},
+        "url": {"type": "string"},
+        "grade": {"enum": ["guideline", "rct", "systematic_review", "textbook", "package_insert", "expert_opinion", "modeling_assumption", "training_knowledge_unverified"]},
+        "verified": {"type": "boolean"}
+      }
+    },
+    "sourced_param": {
+      "type": "object",
+      "required": ["value", "unit", "source"],
+      "properties": {
+        "value": {"type": "number"},
+        "range": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+        "unit": {"type": "string"},
+        "description": {"type": "string"},
+        "source": {"$ref": "#/$defs/source"},
+        "confidence": {"enum": ["high", "medium", "low"]}
+      }
+    }
+  }
+}

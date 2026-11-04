@@ -1,0 +1,4443 @@
+{
+ "single_by_stage": [
+  {
+   "stage": "S0_moderate",
+   "intervention": "albuterol",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.36,
+    "PaCO2": 41.98,
+    "SpO2": 95.31,
+    "HR": 110.95,
+    "SBP": 129.69,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "ipratropium",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.66,
+    "F": 0.55,
+    "PaCO2": 50.93,
+    "SpO2": 91.11,
+    "HR": 106.49,
+    "SBP": 128.32,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "epinephrine_im",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.35,
+    "PaCO2": 41.66,
+    "SpO2": 95.38,
+    "HR": 114.72,
+    "SBP": 141.7,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "magnesium_iv",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.69,
+    "F": 0.58,
+    "PaCO2": 53.12,
+    "SpO2": 89.67,
+    "HR": 111.0,
+    "SBP": 125.52,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "methylprednisolone_iv",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.62,
+    "PaCO2": 56.46,
+    "SpO2": 86.94,
+    "HR": 118.62,
+    "SBP": 131.92,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "ketamine_iv",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.55,
+    "PaCO2": 51.24,
+    "SpO2": 90.57,
+    "HR": 113.78,
+    "SBP": 134.2,
+    "LOC": 2.63
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "midazolam_iv",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.53,
+    "PaCO2": 63.37,
+    "SpO2": 82.76,
+    "HR": 128.86,
+    "SBP": 134.98,
+    "LOC": 1.5
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "nitroglycerin_sl",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.62,
+    "PaCO2": 56.56,
+    "SpO2": 86.85,
+    "HR": 118.84,
+    "SBP": 130.11,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "oxygen_nc_4",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.62,
+    "PaCO2": 57.45,
+    "SpO2": 98.89,
+    "HR": 111.99,
+    "SBP": 129.96,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "oxygen_nrb_15",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.62,
+    "PaCO2": 57.45,
+    "SpO2": 99.93,
+    "HR": 111.99,
+    "SBP": 129.96,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "cpap_7.5",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.47,
+    "PaCO2": 47.77,
+    "SpO2": 99.97,
+    "HR": 106.29,
+    "SBP": 128.26,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "bvm_safe_8",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.62,
+    "PaCO2": 57.45,
+    "SpO2": 99.96,
+    "HR": 111.99,
+    "SBP": 129.96,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "bvm_fast_20",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.58,
+    "PaCO2": 129.14,
+    "SpO2": 99.93,
+    "HR": 155.22,
+    "SBP": 80.46,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "intubate_vent_8",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.05,
+    "PaCO2": 33.46,
+    "SpO2": 99.97,
+    "HR": 104.77,
+    "SBP": 127.83,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S0_moderate",
+   "intervention": "position_supine",
+   "t_apply_s": 6,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.7,
+    "PaCO2": 61.87,
+    "SpO2": 83.87,
+    "HR": 126.25,
+    "SBP": 134.18,
+    "LOC": 2.28
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "albuterol",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.47,
+    "PaCO2": 47.11,
+    "SpO2": 94.08,
+    "HR": 113.02,
+    "SBP": 130.32,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "ipratropium",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.69,
+    "F": 0.67,
+    "PaCO2": 60.64,
+    "SpO2": 85.79,
+    "HR": 121.54,
+    "SBP": 132.83,
+    "LOC": 2.35
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "epinephrine_im",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.46,
+    "PaCO2": 46.5,
+    "SpO2": 94.24,
+    "HR": 116.4,
+    "SBP": 142.2,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "magnesium_iv",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.7,
+    "PaCO2": 65.09,
+    "SpO2": 81.86,
+    "HR": 130.91,
+    "SBP": 131.45,
+    "LOC": 2.01
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "methylprednisolone_iv",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.76,
+    "F": 0.73,
+    "PaCO2": 74.41,
+    "SpO2": 71.01,
+    "HR": 153.16,
+    "SBP": 142.12,
+    "LOC": 1.03
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "ketamine_iv",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.71,
+    "F": 0.67,
+    "PaCO2": 61.15,
+    "SpO2": 84.76,
+    "HR": 129.64,
+    "SBP": 138.93,
+    "LOC": 1.9
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "midazolam_iv",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.57,
+    "PaCO2": 105.97,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "nitroglycerin_sl",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.73,
+    "PaCO2": 74.63,
+    "SpO2": 70.71,
+    "HR": 153.74,
+    "SBP": 140.43,
+    "LOC": 1.02
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "oxygen_nc_4",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.72,
+    "PaCO2": 83.95,
+    "SpO2": 97.92,
+    "HR": 128.68,
+    "SBP": 134.89,
+    "LOC": 1.17
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "oxygen_nrb_15",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.72,
+    "PaCO2": 83.95,
+    "SpO2": 99.91,
+    "HR": 128.68,
+    "SBP": 134.89,
+    "LOC": 1.17
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "cpap_7.5",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.62,
+    "PaCO2": 59.62,
+    "SpO2": 99.96,
+    "HR": 114.95,
+    "SBP": 130.86,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "bvm_safe_8",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.72,
+    "PaCO2": 83.95,
+    "SpO2": 99.94,
+    "HR": 128.68,
+    "SBP": 131.24,
+    "LOC": 1.17
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "bvm_fast_20",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.66,
+    "PaCO2": 129.24,
+    "SpO2": 99.92,
+    "HR": 156.92,
+    "SBP": 80.97,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "intubate_vent_8",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.24,
+    "PaCO2": 41.18,
+    "SpO2": 99.97,
+    "HR": 106.41,
+    "SBP": 124.67,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S1_severe",
+   "intervention": "position_supine",
+   "t_apply_s": 432,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.77,
+    "PaCO2": 99.11,
+    "SpO2": 30.96,
+    "HR": 41.65,
+    "SBP": 62.77,
+    "LOC": 0.04
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "albuterol",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.55,
+    "F": 0.53,
+    "PaCO2": 50.44,
+    "SpO2": 93.11,
+    "HR": 115.43,
+    "SBP": 131.04,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "ipratropium",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.71,
+    "F": 0.72,
+    "PaCO2": 71.86,
+    "SpO2": 76.54,
+    "HR": 142.12,
+    "SBP": 138.94,
+    "LOC": 1.04
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "epinephrine_im",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.55,
+    "F": 0.52,
+    "PaCO2": 49.66,
+    "SpO2": 93.35,
+    "HR": 118.7,
+    "SBP": 142.9,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "magnesium_iv",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.74,
+    "PaCO2": 91.19,
+    "SpO2": 50.5,
+    "HR": 95.93,
+    "SBP": 98.34,
+    "LOC": 0.09
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "methylprednisolone_iv",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 104.48,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "ketamine_iv",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.72,
+    "PaCO2": 81.62,
+    "SpO2": 67.44,
+    "HR": 163.56,
+    "SBP": 148.68,
+    "LOC": 0.29
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "midazolam_iv",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.58,
+    "PaCO2": 120.7,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "nitroglycerin_sl",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 104.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "oxygen_nc_4",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.73,
+    "PaCO2": 112.57,
+    "SpO2": 95.32,
+    "HR": 147.09,
+    "SBP": 140.45,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "oxygen_nrb_15",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.73,
+    "PaCO2": 112.57,
+    "SpO2": 99.88,
+    "HR": 147.09,
+    "SBP": 140.45,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "cpap_7.5",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.68,
+    "PaCO2": 73.27,
+    "SpO2": 99.96,
+    "HR": 123.55,
+    "SBP": 133.4,
+    "LOC": 2.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "bvm_safe_8",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.73,
+    "PaCO2": 112.57,
+    "SpO2": 99.92,
+    "HR": 147.09,
+    "SBP": 130.78,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "bvm_fast_20",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.7,
+    "PaCO2": 129.28,
+    "SpO2": 99.91,
+    "HR": 157.76,
+    "SBP": 81.22,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "intubate_vent_8",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.36,
+    "PaCO2": 45.66,
+    "SpO2": 99.96,
+    "HR": 107.56,
+    "SBP": 118.99,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S2_life_threatening",
+   "intervention": "position_supine",
+   "t_apply_s": 673,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.78,
+    "PaCO2": 111.84,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "albuterol",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.75,
+    "PaCO2": 152.05,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "ipratropium",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 153.02,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "epinephrine_im",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.75,
+    "PaCO2": 151.84,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "magnesium_iv",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 153.09,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "methylprednisolone_iv",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 153.12,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "ketamine_iv",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.75,
+    "PaCO2": 152.45,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "midazolam_iv",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.74,
+    "PaCO2": 154.86,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "nitroglycerin_sl",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 153.12,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "oxygen_nc_4",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.84,
+    "F": 0.76,
+    "PaCO2": 129.62,
+    "SpO2": 89.25,
+    "HR": 164.74,
+    "SBP": 145.81,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "oxygen_nrb_15",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.84,
+    "F": 0.76,
+    "PaCO2": 129.62,
+    "SpO2": 99.81,
+    "HR": 160.68,
+    "SBP": 144.6,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "cpap_7.5",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.84,
+    "F": 0.76,
+    "PaCO2": 129.62,
+    "SpO2": 99.92,
+    "HR": 160.68,
+    "SBP": 144.6,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "bvm_safe_8",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.84,
+    "F": 0.76,
+    "PaCO2": 129.62,
+    "SpO2": 99.88,
+    "HR": 160.68,
+    "SBP": 90.26,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "bvm_fast_20",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.84,
+    "F": 0.81,
+    "PaCO2": 129.52,
+    "SpO2": 99.88,
+    "HR": 160.62,
+    "SBP": 82.08,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "intubate_vent_8",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.84,
+    "F": 0.54,
+    "PaCO2": 129.62,
+    "SpO2": 99.92,
+    "HR": 160.68,
+    "SBP": 90.26,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "stage": "S3_near_arrest",
+   "intervention": "position_supine",
+   "t_apply_s": 1642,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.77,
+    "PaCO2": 152.71,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "albuterol",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "ipratropium",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "epinephrine_im",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "magnesium_iv",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "methylprednisolone_iv",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "ketamine_iv",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "midazolam_iv",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "nitroglycerin_sl",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "oxygen_nc_4",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "oxygen_nrb_15",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "cpap_7.5",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "bvm_safe_8",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "bvm_fast_20",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "intubate_vent_8",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "stage": "S4_arrest",
+   "intervention": "position_supine",
+   "t_apply_s": 1836,
+   "invariant_violations": [],
+   "causal_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 162.62,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  }
+ ],
+ "ordered_pairs": [
+  {
+   "first": "albuterol",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.47,
+    "F": 0.3,
+    "PaCO2": 40.47,
+    "SpO2": 95.98,
+    "HR": 108.28,
+    "SBP": 128.89,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.41,
+    "F": 0.24,
+    "PaCO2": 38.31,
+    "SpO2": 96.64,
+    "HR": 123.07,
+    "SBP": 143.44,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.49,
+    "F": 0.32,
+    "PaCO2": 40.96,
+    "SpO2": 95.81,
+    "HR": 108.86,
+    "SBP": 124.55,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.34,
+    "PaCO2": 41.73,
+    "SpO2": 95.49,
+    "HR": 109.92,
+    "SBP": 129.38,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.49,
+    "F": 0.29,
+    "PaCO2": 40.28,
+    "SpO2": 95.89,
+    "HR": 113.77,
+    "SBP": 133.72,
+    "LOC": 2.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.21,
+    "PaCO2": 46.34,
+    "SpO2": 94.62,
+    "HR": 110.88,
+    "SBP": 129.67,
+    "LOC": 2.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.34,
+    "PaCO2": 41.78,
+    "SpO2": 95.46,
+    "HR": 110.03,
+    "SBP": 128.57,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.34,
+    "PaCO2": 41.78,
+    "SpO2": 99.53,
+    "HR": 110.03,
+    "SBP": 129.41,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.34,
+    "PaCO2": 41.78,
+    "SpO2": 99.97,
+    "HR": 110.03,
+    "SBP": 129.41,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.16,
+    "PaCO2": 35.53,
+    "SpO2": 99.98,
+    "HR": 110.03,
+    "SBP": 129.41,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.34,
+    "PaCO2": 41.78,
+    "SpO2": 99.98,
+    "HR": 110.03,
+    "SBP": 129.41,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.29,
+    "PaCO2": 129.78,
+    "SpO2": 99.96,
+    "HR": 160.89,
+    "SBP": 82.17,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.15,
+    "PaCO2": 35.21,
+    "SpO2": 99.99,
+    "HR": 110.03,
+    "SBP": 129.41,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "albuterol",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.53,
+    "PaCO2": 47.78,
+    "SpO2": 94.34,
+    "HR": 111.72,
+    "SBP": 129.92,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.48,
+    "F": 0.39,
+    "PaCO2": 43.02,
+    "SpO2": 95.51,
+    "HR": 108.78,
+    "SBP": 129.04,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.49,
+    "F": 0.38,
+    "PaCO2": 42.68,
+    "SpO2": 95.54,
+    "HR": 111.52,
+    "SBP": 139.97,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.63,
+    "F": 0.66,
+    "PaCO2": 59.23,
+    "SpO2": 88.33,
+    "HR": 114.49,
+    "SBP": 126.24,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.7,
+    "PaCO2": 65.44,
+    "SpO2": 83.18,
+    "HR": 127.67,
+    "SBP": 134.66,
+    "LOC": 2.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.64,
+    "F": 0.64,
+    "PaCO2": 57.58,
+    "SpO2": 89.04,
+    "HR": 117.34,
+    "SBP": 134.78,
+    "LOC": 2.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.52,
+    "PaCO2": 89.87,
+    "SpO2": 47.7,
+    "HR": 54.5,
+    "SBP": 68.81,
+    "LOC": 0.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.7,
+    "PaCO2": 65.73,
+    "SpO2": 82.9,
+    "HR": 128.31,
+    "SBP": 134.01,
+    "LOC": 2.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.69,
+    "PaCO2": 69.87,
+    "SpO2": 98.78,
+    "HR": 117.34,
+    "SBP": 131.57,
+    "LOC": 2.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.69,
+    "PaCO2": 69.87,
+    "SpO2": 99.94,
+    "HR": 117.34,
+    "SBP": 131.57,
+    "LOC": 2.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.56,
+    "PaCO2": 53.97,
+    "SpO2": 99.97,
+    "HR": 108.05,
+    "SBP": 128.81,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.69,
+    "PaCO2": 69.87,
+    "SpO2": 99.96,
+    "HR": 117.34,
+    "SBP": 131.57,
+    "LOC": 2.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.61,
+    "PaCO2": 129.78,
+    "SpO2": 99.94,
+    "HR": 153.57,
+    "SBP": 79.97,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.17,
+    "PaCO2": 38.45,
+    "SpO2": 99.98,
+    "HR": 102.71,
+    "SBP": 127.21,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "ipratropium",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.74,
+    "PaCO2": 88.37,
+    "SpO2": 58.59,
+    "HR": 133.36,
+    "SBP": 125.14,
+    "LOC": 0.09
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.41,
+    "F": 0.24,
+    "PaCO2": 38.11,
+    "SpO2": 96.65,
+    "HR": 121.91,
+    "SBP": 142.25,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.48,
+    "F": 0.29,
+    "PaCO2": 40.17,
+    "SpO2": 95.96,
+    "HR": 109.96,
+    "SBP": 138.67,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.5,
+    "F": 0.31,
+    "PaCO2": 40.64,
+    "SpO2": 95.78,
+    "HR": 110.57,
+    "SBP": 134.34,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.34,
+    "PaCO2": 41.68,
+    "SpO2": 95.41,
+    "HR": 111.69,
+    "SBP": 139.18,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.5,
+    "F": 0.28,
+    "PaCO2": 39.97,
+    "SpO2": 95.85,
+    "HR": 115.49,
+    "SBP": 143.51,
+    "LOC": 2.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.2,
+    "PaCO2": 46.08,
+    "SpO2": 94.56,
+    "HR": 112.5,
+    "SBP": 139.43,
+    "LOC": 2.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.36,
+    "PaCO2": 41.98,
+    "SpO2": 95.34,
+    "HR": 111.8,
+    "SBP": 138.38,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.36,
+    "PaCO2": 41.98,
+    "SpO2": 99.52,
+    "HR": 111.8,
+    "SBP": 139.22,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.36,
+    "PaCO2": 41.98,
+    "SpO2": 99.97,
+    "HR": 111.8,
+    "SBP": 139.22,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.15,
+    "PaCO2": 35.19,
+    "SpO2": 99.98,
+    "HR": 111.8,
+    "SBP": 139.22,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.36,
+    "PaCO2": 41.98,
+    "SpO2": 99.98,
+    "HR": 111.8,
+    "SBP": 139.22,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.32,
+    "PaCO2": 129.78,
+    "SpO2": 99.96,
+    "HR": 162.66,
+    "SBP": 91.97,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.15,
+    "PaCO2": 35.18,
+    "SpO2": 99.98,
+    "HR": 111.8,
+    "SBP": 139.22,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "epinephrine_im",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.52,
+    "F": 0.54,
+    "PaCO2": 47.79,
+    "SpO2": 94.23,
+    "HR": 113.47,
+    "SBP": 139.72,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.5,
+    "F": 0.42,
+    "PaCO2": 44.24,
+    "SpO2": 95.17,
+    "HR": 109.44,
+    "SBP": 124.5,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.63,
+    "F": 0.68,
+    "PaCO2": 60.38,
+    "SpO2": 87.68,
+    "HR": 116.27,
+    "SBP": 126.54,
+    "LOC": 2.08
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.5,
+    "F": 0.4,
+    "PaCO2": 43.82,
+    "SpO2": 95.22,
+    "HR": 112.19,
+    "SBP": 135.43,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.72,
+    "PaCO2": 88.22,
+    "SpO2": 56.75,
+    "HR": 125.25,
+    "SBP": 116.19,
+    "LOC": 0.1
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.67,
+    "F": 0.69,
+    "PaCO2": 62.13,
+    "SpO2": 85.76,
+    "HR": 126.19,
+    "SBP": 132.68,
+    "LOC": 1.69
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.71,
+    "F": 0.55,
+    "PaCO2": 118.53,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.72,
+    "PaCO2": 89.36,
+    "SpO2": 54.36,
+    "HR": 113.51,
+    "SBP": 108.24,
+    "LOC": 0.09
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.7,
+    "PaCO2": 98.16,
+    "SpO2": 97.48,
+    "HR": 135.46,
+    "SBP": 132.22,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.7,
+    "PaCO2": 98.16,
+    "SpO2": 99.91,
+    "HR": 135.46,
+    "SBP": 132.22,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.62,
+    "PaCO2": 59.55,
+    "SpO2": 99.97,
+    "HR": 112.92,
+    "SBP": 125.53,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.7,
+    "PaCO2": 98.16,
+    "SpO2": 99.94,
+    "HR": 135.46,
+    "SBP": 132.22,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.65,
+    "PaCO2": 129.78,
+    "SpO2": 99.93,
+    "HR": 155.14,
+    "SBP": 75.7,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.17,
+    "PaCO2": 39.28,
+    "SpO2": 99.97,
+    "HR": 104.27,
+    "SBP": 122.94,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "magnesium_iv",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.76,
+    "PaCO2": 107.78,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.46,
+    "PaCO2": 46.57,
+    "SpO2": 94.38,
+    "HR": 111.89,
+    "SBP": 129.98,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.73,
+    "PaCO2": 75.22,
+    "SpO2": 73.21,
+    "HR": 148.75,
+    "SBP": 140.94,
+    "LOC": 0.88
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.45,
+    "PaCO2": 46.0,
+    "SpO2": 94.46,
+    "HR": 114.31,
+    "SBP": 140.81,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.74,
+    "PaCO2": 101.84,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.72,
+    "PaCO2": 96.46,
+    "SpO2": 31.72,
+    "HR": 40.06,
+    "SBP": 60.23,
+    "LOC": 0.01
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.58,
+    "PaCO2": 130.68,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 115.24,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 122.89,
+    "SpO2": 93.05,
+    "HR": 154.26,
+    "SBP": 142.64,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 122.89,
+    "SpO2": 99.85,
+    "HR": 154.26,
+    "SBP": 142.64,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 95.01,
+    "SpO2": 99.95,
+    "HR": 136.52,
+    "SBP": 137.23,
+    "LOC": 1.02
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 122.89,
+    "SpO2": 99.91,
+    "HR": 154.26,
+    "SBP": 125.91,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.79,
+    "SpO2": 99.9,
+    "HR": 158.66,
+    "SBP": 81.49,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.37,
+    "PaCO2": 47.05,
+    "SpO2": 99.96,
+    "HR": 108.86,
+    "SBP": 112.3,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "methylprednisolone_iv",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.78,
+    "PaCO2": 123.01,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.39,
+    "PaCO2": 43.39,
+    "SpO2": 95.24,
+    "HR": 113.9,
+    "SBP": 133.28,
+    "LOC": 2.73
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.65,
+    "F": 0.66,
+    "PaCO2": 59.26,
+    "SpO2": 87.86,
+    "HR": 119.97,
+    "SBP": 135.08,
+    "LOC": 2.73
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.51,
+    "F": 0.38,
+    "PaCO2": 42.98,
+    "SpO2": 95.28,
+    "HR": 116.66,
+    "SBP": 144.21,
+    "LOC": 2.73
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.68,
+    "F": 0.69,
+    "PaCO2": 63.48,
+    "SpO2": 84.53,
+    "HR": 128.56,
+    "SBP": 133.13,
+    "LOC": 1.73
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.72,
+    "PaCO2": 91.22,
+    "SpO2": 49.12,
+    "HR": 87.3,
+    "SBP": 95.11,
+    "LOC": 0.07
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.54,
+    "PaCO2": 110.24,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.72,
+    "PaCO2": 91.98,
+    "SpO2": 47.17,
+    "HR": 75.73,
+    "SBP": 87.45,
+    "LOC": 0.06
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.69,
+    "PaCO2": 95.83,
+    "SpO2": 97.6,
+    "HR": 138.31,
+    "SBP": 140.45,
+    "LOC": 0.76
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.69,
+    "PaCO2": 95.83,
+    "SpO2": 99.91,
+    "HR": 138.31,
+    "SBP": 140.45,
+    "LOC": 0.76
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.61,
+    "PaCO2": 58.84,
+    "SpO2": 99.97,
+    "HR": 117.3,
+    "SBP": 134.28,
+    "LOC": 2.73
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.69,
+    "PaCO2": 95.73,
+    "SpO2": 99.94,
+    "HR": 138.25,
+    "SBP": 140.41,
+    "LOC": 0.76
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.55,
+    "PaCO2": 129.78,
+    "SpO2": 99.92,
+    "HR": 159.99,
+    "SBP": 84.6,
+    "LOC": 0.73
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.18,
+    "PaCO2": 39.38,
+    "SpO2": 99.97,
+    "HR": 109.13,
+    "SBP": 131.82,
+    "LOC": 2.73
+   },
+   "arrest": false
+  },
+  {
+   "first": "ketamine_iv",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.75,
+    "PaCO2": 104.88,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.34,
+    "PaCO2": 50.82,
+    "SpO2": 93.32,
+    "HR": 114.59,
+    "SBP": 130.79,
+    "LOC": 2.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.54,
+    "PaCO2": 112.94,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.32,
+    "PaCO2": 50.27,
+    "SpO2": 93.42,
+    "HR": 117.03,
+    "SBP": 141.63,
+    "LOC": 2.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.57,
+    "PaCO2": 122.58,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.58,
+    "PaCO2": 127.63,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.72,
+    "F": 0.53,
+    "PaCO2": 114.96,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.76,
+    "F": 0.58,
+    "PaCO2": 127.7,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.53,
+    "PaCO2": 127.97,
+    "SpO2": 91.58,
+    "HR": 158.13,
+    "SBP": 143.82,
+    "LOC": 0.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.53,
+    "PaCO2": 127.97,
+    "SpO2": 99.84,
+    "HR": 157.61,
+    "SBP": 143.67,
+    "LOC": 0.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.54,
+    "PaCO2": 121.37,
+    "SpO2": 99.94,
+    "HR": 153.4,
+    "SBP": 142.38,
+    "LOC": 0.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.53,
+    "PaCO2": 127.97,
+    "SpO2": 99.9,
+    "HR": 157.61,
+    "SBP": 126.19,
+    "LOC": 0.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.49,
+    "PaCO2": 129.8,
+    "SpO2": 99.9,
+    "HR": 158.78,
+    "SBP": 81.53,
+    "LOC": 0.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.25,
+    "PaCO2": 54.06,
+    "SpO2": 99.96,
+    "HR": 113.18,
+    "SBP": 112.86,
+    "LOC": 2.47
+   },
+   "arrest": false
+  },
+  {
+   "first": "midazolam_iv",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.62,
+    "PaCO2": 134.52,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.47,
+    "PaCO2": 46.73,
+    "SpO2": 94.31,
+    "HR": 112.14,
+    "SBP": 129.69,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.73,
+    "PaCO2": 77.44,
+    "SpO2": 71.69,
+    "HR": 151.39,
+    "SBP": 141.32,
+    "LOC": 0.52
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.45,
+    "PaCO2": 46.16,
+    "SpO2": 94.39,
+    "HR": 114.56,
+    "SBP": 140.53,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.74,
+    "PaCO2": 102.58,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.78,
+    "F": 0.75,
+    "PaCO2": 115.45,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.72,
+    "PaCO2": 97.23,
+    "SpO2": 16.6,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.75,
+    "F": 0.58,
+    "PaCO2": 130.84,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 92.95,
+    "HR": 154.46,
+    "SBP": 142.34,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.85,
+    "HR": 154.46,
+    "SBP": 142.34,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 96.78,
+    "SpO2": 99.95,
+    "HR": 137.72,
+    "SBP": 137.22,
+    "LOC": 1.02
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.91,
+    "HR": 154.46,
+    "SBP": 124.87,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.79,
+    "SpO2": 99.9,
+    "HR": 158.78,
+    "SBP": 81.17,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.37,
+    "PaCO2": 47.54,
+    "SpO2": 99.96,
+    "HR": 109.25,
+    "SBP": 111.32,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "nitroglycerin_sl",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.78,
+    "PaCO2": 123.26,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.47,
+    "PaCO2": 46.73,
+    "SpO2": 99.46,
+    "HR": 112.14,
+    "SBP": 130.05,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.69,
+    "PaCO2": 91.52,
+    "SpO2": 97.97,
+    "HR": 130.71,
+    "SBP": 135.54,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.45,
+    "PaCO2": 46.16,
+    "SpO2": 99.46,
+    "HR": 114.56,
+    "SBP": 140.89,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.71,
+    "PaCO2": 113.29,
+    "SpO2": 95.93,
+    "HR": 145.47,
+    "SBP": 135.48,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 122.98,
+    "SpO2": 93.0,
+    "HR": 154.36,
+    "SBP": 142.67,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.67,
+    "PaCO2": 108.4,
+    "SpO2": 96.53,
+    "HR": 147.13,
+    "SBP": 143.63,
+    "LOC": 0.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.53,
+    "PaCO2": 128.42,
+    "SpO2": 91.44,
+    "HR": 158.65,
+    "SBP": 143.97,
+    "LOC": 0.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 92.95,
+    "HR": 154.46,
+    "SBP": 141.86,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.85,
+    "HR": 154.46,
+    "SBP": 142.7,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 96.78,
+    "SpO2": 99.95,
+    "HR": 137.72,
+    "SBP": 137.58,
+    "LOC": 1.02
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.91,
+    "HR": 154.46,
+    "SBP": 125.23,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.79,
+    "SpO2": 99.9,
+    "HR": 158.78,
+    "SBP": 81.53,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.37,
+    "PaCO2": 47.54,
+    "SpO2": 99.96,
+    "HR": 109.25,
+    "SBP": 111.68,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nc_4",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.79,
+    "PaCO2": 125.96,
+    "SpO2": 92.17,
+    "HR": 156.33,
+    "SBP": 143.28,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.47,
+    "PaCO2": 46.73,
+    "SpO2": 99.97,
+    "HR": 112.14,
+    "SBP": 130.05,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.69,
+    "PaCO2": 91.52,
+    "SpO2": 99.92,
+    "HR": 130.71,
+    "SBP": 135.54,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.45,
+    "PaCO2": 46.16,
+    "SpO2": 99.96,
+    "HR": 114.56,
+    "SBP": 140.89,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.71,
+    "PaCO2": 113.29,
+    "SpO2": 99.9,
+    "HR": 145.47,
+    "SBP": 135.48,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 122.98,
+    "SpO2": 99.85,
+    "HR": 154.36,
+    "SBP": 142.67,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.67,
+    "PaCO2": 108.4,
+    "SpO2": 99.9,
+    "HR": 147.13,
+    "SBP": 143.63,
+    "LOC": 0.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.53,
+    "PaCO2": 128.42,
+    "SpO2": 99.84,
+    "HR": 157.91,
+    "SBP": 143.76,
+    "LOC": 0.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.85,
+    "HR": 154.46,
+    "SBP": 141.86,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 92.95,
+    "HR": 154.46,
+    "SBP": 142.7,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 96.78,
+    "SpO2": 99.95,
+    "HR": 137.72,
+    "SBP": 137.58,
+    "LOC": 1.02
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.91,
+    "HR": 154.46,
+    "SBP": 125.23,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.79,
+    "SpO2": 99.9,
+    "HR": 158.78,
+    "SBP": 81.53,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.37,
+    "PaCO2": 47.54,
+    "SpO2": 99.96,
+    "HR": 109.25,
+    "SBP": 111.68,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "oxygen_nrb_15",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.79,
+    "PaCO2": 125.96,
+    "SpO2": 99.85,
+    "HR": 156.33,
+    "SBP": 143.28,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.25,
+    "PaCO2": 39.43,
+    "SpO2": 99.98,
+    "HR": 111.03,
+    "SBP": 129.71,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.59,
+    "PaCO2": 56.46,
+    "SpO2": 99.97,
+    "HR": 110.29,
+    "SBP": 129.48,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.24,
+    "PaCO2": 39.01,
+    "SpO2": 99.98,
+    "HR": 113.8,
+    "SBP": 140.65,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.64,
+    "PaCO2": 61.98,
+    "SpO2": 99.97,
+    "HR": 115.02,
+    "SBP": 126.38,
+    "LOC": 2.05
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.69,
+    "PaCO2": 87.91,
+    "SpO2": 99.95,
+    "HR": 132.44,
+    "SBP": 136.02,
+    "LOC": 1.08
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.62,
+    "PaCO2": 59.1,
+    "SpO2": 99.97,
+    "HR": 118.25,
+    "SBP": 135.04,
+    "LOC": 2.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.54,
+    "PaCO2": 120.13,
+    "SpO2": 99.94,
+    "HR": 152.61,
+    "SBP": 142.14,
+    "LOC": 0.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 88.86,
+    "SpO2": 99.95,
+    "HR": 133.03,
+    "SBP": 135.35,
+    "LOC": 1.07
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 88.86,
+    "SpO2": 99.95,
+    "HR": 133.03,
+    "SBP": 136.19,
+    "LOC": 1.07
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 88.86,
+    "SpO2": 99.95,
+    "HR": 133.03,
+    "SBP": 136.19,
+    "LOC": 1.07
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.69,
+    "PaCO2": 91.84,
+    "SpO2": 99.93,
+    "HR": 134.59,
+    "SBP": 119.15,
+    "LOC": 1.07
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.78,
+    "SpO2": 99.9,
+    "HR": 158.77,
+    "SBP": 73.53,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.34,
+    "PaCO2": 45.97,
+    "SpO2": 99.96,
+    "HR": 108.31,
+    "SBP": 111.4,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "cpap_7.5",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.73,
+    "PaCO2": 111.05,
+    "SpO2": 99.94,
+    "HR": 146.81,
+    "SBP": 140.36,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.47,
+    "PaCO2": 46.73,
+    "SpO2": 99.98,
+    "HR": 112.14,
+    "SBP": 130.05,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.69,
+    "PaCO2": 91.52,
+    "SpO2": 99.95,
+    "HR": 130.71,
+    "SBP": 135.54,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.45,
+    "PaCO2": 46.16,
+    "SpO2": 99.98,
+    "HR": 114.56,
+    "SBP": 140.89,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.71,
+    "PaCO2": 113.29,
+    "SpO2": 99.93,
+    "HR": 145.47,
+    "SBP": 135.48,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 122.98,
+    "SpO2": 99.91,
+    "HR": 154.36,
+    "SBP": 125.59,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.67,
+    "PaCO2": 108.14,
+    "SpO2": 99.94,
+    "HR": 146.97,
+    "SBP": 143.48,
+    "LOC": 0.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.53,
+    "PaCO2": 128.42,
+    "SpO2": 99.9,
+    "HR": 157.91,
+    "SBP": 126.28,
+    "LOC": 0.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.91,
+    "HR": 154.46,
+    "SBP": 124.39,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.91,
+    "HR": 154.46,
+    "SBP": 125.23,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.75,
+    "PaCO2": 123.03,
+    "SpO2": 99.91,
+    "HR": 154.46,
+    "SBP": 125.23,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.7,
+    "PaCO2": 98.21,
+    "SpO2": 99.93,
+    "HR": 138.61,
+    "SBP": 120.37,
+    "LOC": 1.02
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.79,
+    "SpO2": 99.9,
+    "HR": 158.78,
+    "SBP": 81.53,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.37,
+    "PaCO2": 47.54,
+    "SpO2": 99.96,
+    "HR": 109.25,
+    "SBP": 111.68,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_safe_8",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.79,
+    "PaCO2": 125.96,
+    "SpO2": 99.91,
+    "HR": 156.33,
+    "SBP": 125.8,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.37,
+    "PaCO2": 129.93,
+    "SpO2": 99.96,
+    "HR": 161.99,
+    "SBP": 82.5,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.64,
+    "PaCO2": 129.93,
+    "SpO2": 99.93,
+    "HR": 154.43,
+    "SBP": 80.23,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.36,
+    "PaCO2": 129.93,
+    "SpO2": 99.96,
+    "HR": 164.76,
+    "SBP": 93.44,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.67,
+    "PaCO2": 129.93,
+    "SpO2": 99.92,
+    "HR": 155.93,
+    "SBP": 76.17,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.8,
+    "SBP": 81.54,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.55,
+    "PaCO2": 129.93,
+    "SpO2": 99.92,
+    "HR": 160.88,
+    "SBP": 85.35,
+    "LOC": 0.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.49,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.87,
+    "SBP": 81.56,
+    "LOC": 0.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.87,
+    "SBP": 80.72,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.87,
+    "SBP": 81.56,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.87,
+    "SBP": 81.56,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.87,
+    "SBP": 73.56,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.72,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.87,
+    "SBP": 81.56,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.35,
+    "PaCO2": 129.46,
+    "SpO2": 99.94,
+    "HR": 158.57,
+    "SBP": 81.46,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "bvm_fast_20",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.77,
+    "PaCO2": 129.93,
+    "SpO2": 99.9,
+    "HR": 158.87,
+    "SBP": 81.56,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.01,
+    "PaCO2": 31.05,
+    "SpO2": 99.98,
+    "HR": 111.03,
+    "SBP": 129.71,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.01,
+    "PaCO2": 33.34,
+    "SpO2": 99.98,
+    "HR": 103.47,
+    "SBP": 127.44,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.01,
+    "PaCO2": 31.04,
+    "SpO2": 99.98,
+    "HR": 113.8,
+    "SBP": 140.65,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.15,
+    "PaCO2": 37.26,
+    "SpO2": 99.97,
+    "HR": 104.97,
+    "SBP": 123.38,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.3,
+    "PaCO2": 44.13,
+    "SpO2": 99.96,
+    "HR": 107.84,
+    "SBP": 111.66,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.11,
+    "PaCO2": 35.55,
+    "SpO2": 99.97,
+    "HR": 109.93,
+    "SBP": 132.47,
+    "LOC": 2.68
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.17,
+    "PaCO2": 51.14,
+    "SpO2": 99.96,
+    "HR": 111.42,
+    "SBP": 112.33,
+    "LOC": 2.46
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.31,
+    "PaCO2": 44.37,
+    "SpO2": 99.96,
+    "HR": 107.91,
+    "SBP": 110.45,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.31,
+    "PaCO2": 44.37,
+    "SpO2": 99.96,
+    "HR": 107.91,
+    "SBP": 111.29,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.31,
+    "PaCO2": 44.37,
+    "SpO2": 99.96,
+    "HR": 107.91,
+    "SBP": 111.29,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.13,
+    "PaCO2": 38.41,
+    "SpO2": 99.96,
+    "HR": 107.91,
+    "SBP": 111.29,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.31,
+    "PaCO2": 44.37,
+    "SpO2": 99.96,
+    "HR": 107.91,
+    "SBP": 111.29,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.31,
+    "PaCO2": 44.37,
+    "SpO2": 99.96,
+    "HR": 107.91,
+    "SBP": 111.29,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "intubate_vent_8",
+   "second": "position_supine",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.43,
+    "PaCO2": 48.11,
+    "SpO2": 99.96,
+    "HR": 109.53,
+    "SBP": 111.76,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "albuterol",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.53,
+    "F": 0.61,
+    "PaCO2": 53.33,
+    "SpO2": 92.61,
+    "HR": 116.11,
+    "SBP": 131.24,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "ipratropium",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.7,
+    "F": 0.76,
+    "PaCO2": 108.75,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "position_supine",
+   "second": "epinephrine_im",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.54,
+    "F": 0.62,
+    "PaCO2": 53.46,
+    "SpO2": 92.54,
+    "HR": 118.92,
+    "SBP": 142.2,
+    "LOC": 3.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "magnesium_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.77,
+    "PaCO2": 117.69,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "position_supine",
+   "second": "methylprednisolone_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.78,
+    "PaCO2": 124.67,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "position_supine",
+   "second": "ketamine_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.73,
+    "F": 0.75,
+    "PaCO2": 111.86,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "position_supine",
+   "second": "midazolam_iv",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.74,
+    "F": 0.62,
+    "PaCO2": 139.72,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "position_supine",
+   "second": "nitroglycerin_sl",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.77,
+    "F": 0.78,
+    "PaCO2": 124.76,
+    "SpO2": 9.65,
+    "HR": 0.0,
+    "SBP": 0.0,
+    "LOC": 0.0
+   },
+   "arrest": true
+  },
+  {
+   "first": "position_supine",
+   "second": "oxygen_nc_4",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.79,
+    "PaCO2": 126.51,
+    "SpO2": 92.02,
+    "HR": 156.68,
+    "SBP": 143.39,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "oxygen_nrb_15",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.79,
+    "PaCO2": 126.51,
+    "SpO2": 99.85,
+    "HR": 156.68,
+    "SBP": 143.39,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "cpap_7.5",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.74,
+    "PaCO2": 116.99,
+    "SpO2": 99.94,
+    "HR": 150.6,
+    "SBP": 141.52,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "bvm_safe_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.79,
+    "PaCO2": 126.51,
+    "SpO2": 99.91,
+    "HR": 156.68,
+    "SBP": 125.91,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "bvm_fast_20",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.77,
+    "PaCO2": 129.79,
+    "SpO2": 99.9,
+    "HR": 158.78,
+    "SBP": 81.53,
+    "LOC": 1.0
+   },
+   "arrest": false
+  },
+  {
+   "first": "position_supine",
+   "second": "intubate_vent_8",
+   "invariant_violations": [],
+   "end": {
+    "O": 0.8,
+    "F": 0.49,
+    "PaCO2": 52.31,
+    "SpO2": 99.96,
+    "HR": 112.06,
+    "SBP": 112.51,
+    "LOC": 3.0
+   },
+   "arrest": false
+  }
+ ],
+ "counts": {
+  "interventions": 15,
+  "stages": 5,
+  "intervention_x_stage": 75,
+  "unordered_pairs": 105,
+  "ordered_pairs": 210,
+  "repeat_dosing_cases": 12,
+  "explicit_interaction_rules_in_spec": 5,
+  "rollouts_executed": 287,
+  "cases_with_invariant_violations": 0,
+  "cases_with_causal_violations": 0
+ }
+}

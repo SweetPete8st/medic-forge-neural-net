@@ -1,0 +1,36 @@
+{
+ "code_dev": {
+  "n_cases": 24,
+  "max_dE": 0.0,
+  "max_relC": 0.0,
+  "max_dHR": 0.0,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 0,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.0031890239583276525
+ },
+ "wsp_dev": {
+  "n_cases": 24,
+  "max_dE": 0.0030365895540872545,
+  "max_relC": 9.110312449337866e-15,
+  "max_dHR": 0.0910809793365921,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 0,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.046111871375065526
+ },
+ "wsp_params": 1022,
+ "wsp_checkpoint_bytes": 9614,
+ "trained_train_wall_s": 86.84595333000016,
+ "trained_params": 4933,
+ "trained_dev": {
+  "n_cases": 24,
+  "max_dE": 0.5919384893391728,
+  "max_relC": 361.7540039414593,
+  "max_dHR": 13.835499419766714,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 8,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.09161416520836003
+ }
+}

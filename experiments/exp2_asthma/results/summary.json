@@ -1,0 +1,269 @@
+{
+ "spec_hash": "59beed33a2f7b10c",
+ "trajectories": {
+  "untreated": {
+   "events": [
+    [
+     0.0,
+     "speech_phrases_only"
+    ],
+    [
+     11.1,
+     "hypercapnia"
+    ],
+    [
+     13.8,
+     "speech_words_only"
+    ],
+    [
+     24.4,
+     "loc_drop"
+    ],
+    [
+     27.8,
+     "silent_chest"
+    ],
+    [
+     28.9,
+     "hypotension"
+    ],
+    [
+     29.3,
+     "bradycardia_prearrest"
+    ],
+    [
+     30.5,
+     "cardiac_arrest"
+    ]
+   ],
+   "checks": [
+    {
+     "t_min": 0,
+     "var": "SpO2",
+     "value": 95.88,
+     "min": 92,
+     "max": 97,
+     "pass": true
+    },
+    {
+     "t_min": 0,
+     "var": "RR",
+     "value": 29.69,
+     "min": 24,
+     "max": 34,
+     "pass": true
+    },
+    {
+     "t_min": 20,
+     "var": "O",
+     "value": 0.73,
+     "min": 0.7,
+     "max": 0.85,
+     "pass": true
+    },
+    {
+     "t_min": 30,
+     "var": "PaCO2",
+     "value": 100.3,
+     "min": 44,
+     "max": 115,
+     "pass": true
+    },
+    {
+     "t_min": 40,
+     "var": "LOC",
+     "value": 0.0,
+     "min": 0,
+     "max": 2,
+     "pass": true
+    }
+   ],
+   "all_pass": true
+  },
+  "timely_treatment": {
+   "events": [
+    [
+     0.0,
+     "speech_phrases_only"
+    ],
+    [
+     34.0,
+     "improving"
+    ]
+   ],
+   "checks": [
+    {
+     "t_min": 10,
+     "var": "SpO2",
+     "value": 99.96,
+     "min": 95,
+     "max": 100,
+     "pass": true
+    },
+    {
+     "t_min": 30,
+     "var": "O",
+     "value": 0.46,
+     "min": 0.3,
+     "max": 0.5,
+     "pass": true
+    },
+    {
+     "t_min": 45,
+     "var": "RR",
+     "value": 25.82,
+     "min": 14,
+     "max": 26,
+     "pass": true
+    },
+    {
+     "t_min": 45,
+     "var": "PaCO2",
+     "value": 32.71,
+     "min": 30,
+     "max": 44,
+     "pass": true
+    },
+    {
+     "t_min": 45,
+     "var": "LOC",
+     "value": 3.0,
+     "min": 3,
+     "max": 3,
+     "pass": true
+    }
+   ],
+   "all_pass": true
+  },
+  "delayed_treatment": {
+   "events": [
+    [
+     0.0,
+     "speech_phrases_only"
+    ],
+    [
+     11.1,
+     "hypercapnia"
+    ],
+    [
+     13.8,
+     "speech_words_only"
+    ]
+   ],
+   "checks": [
+    {
+     "t_min": 20,
+     "var": "O",
+     "value": 0.73,
+     "min": 0.7,
+     "max": 0.85,
+     "pass": true
+    },
+    {
+     "t_min": 20,
+     "var": "F",
+     "value": 0.62,
+     "min": 0.4,
+     "max": 0.8,
+     "pass": true
+    },
+    {
+     "t_min": 50,
+     "var": "O",
+     "value": 0.37,
+     "min": 0.3,
+     "max": 0.6,
+     "pass": true
+    },
+    {
+     "t_min": 50,
+     "var": "PaCO2",
+     "value": 44.83,
+     "min": 35,
+     "max": 55,
+     "pass": true
+    }
+   ],
+   "all_pass": true
+  },
+  "inappropriate_intervention": {
+   "events": [
+    [
+     0.0,
+     "speech_phrases_only"
+    ],
+    [
+     7.6,
+     "hypercapnia"
+    ],
+    [
+     17.1,
+     "loc_drop"
+    ],
+    [
+     17.5,
+     "speech_words_only"
+    ],
+    [
+     18.1,
+     "hypotension"
+    ],
+    [
+     18.1,
+     "silent_chest"
+    ],
+    [
+     18.1,
+     "barotrauma_risk"
+    ]
+   ],
+   "checks": [
+    {
+     "t_min": 15,
+     "var": "PaCO2",
+     "value": 57.93,
+     "min": 42,
+     "max": 70,
+     "pass": true
+    },
+    {
+     "t_min": 15,
+     "var": "LOC",
+     "value": 2.43,
+     "min": 1,
+     "max": 2.6,
+     "pass": true
+    },
+    {
+     "t_min": 25,
+     "var": "autoPEEP",
+     "value": 25.0,
+     "min": 10,
+     "max": 30,
+     "pass": true
+    },
+    {
+     "t_min": 25,
+     "var": "SBP",
+     "value": 78.69,
+     "min": 40,
+     "max": 95,
+     "pass": true
+    }
+   ],
+   "all_pass": true
+  }
+ },
+ "interaction_sweep": {
+  "interventions": 15,
+  "stages": 5,
+  "intervention_x_stage": 75,
+  "unordered_pairs": 105,
+  "ordered_pairs": 210,
+  "repeat_dosing_cases": 12,
+  "explicit_interaction_rules_in_spec": 5,
+  "rollouts_executed": 287,
+  "cases_with_invariant_violations": 0,
+  "cases_with_causal_violations": 0
+ }
+}

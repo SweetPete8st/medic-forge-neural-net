@@ -1,0 +1,549 @@
+{
+ "code_heldout": {
+  "n_cases": 18,
+  "max_dE": 0.0,
+  "max_relC": 0.0,
+  "max_dHR": 0.0,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 6,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.004635509388877936
+ },
+ "wsp_heldout": {
+  "n_cases": 18,
+  "max_dE": 0.011964585213150636,
+  "max_relC": 1.2033790075591554e-14,
+  "max_dHR": 0.18305533674155328,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 6,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.06657159683330367
+ },
+ "wsp_heldout_rows": [
+  {
+   "variant": "extreme_fast",
+   "schedule": "alternating_q15",
+   "ticks": 5400,
+   "max_dE": 0.011446486838158076,
+   "rmse_E": 0.0006658598311382137,
+   "max_relC": 5.358870535926076e-15,
+   "max_dHR": 0.17769887465055056,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.05429988700007016
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "both_routes_same_tick",
+   "ticks": 3600,
+   "max_dE": 0.011964585213150636,
+   "rmse_E": 0.0007114765689671598,
+   "max_relC": 1.9518904500849364e-15,
+   "max_dHR": 0.18305533674155328,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.035331634999920425
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "long_rollout",
+   "ticks": 10800,
+   "max_dE": 0.011302777651257423,
+   "rmse_E": 0.0006711762529733138,
+   "max_relC": 5.5671016743896265e-15,
+   "max_dHR": 0.17577993147987492,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.10874050699999316
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "nothing",
+   "ticks": 3600,
+   "max_dE": 0.0,
+   "rmse_E": 0.0,
+   "max_relC": 0.0,
+   "max_dHR": 0.0,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.03476971700001741
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "overdose_ten_q6",
+   "ticks": 5400,
+   "max_dE": 0.011446486838158076,
+   "rmse_E": 0.000495780749161078,
+   "max_relC": 4.948465370470162e-15,
+   "max_dHR": 0.17769887465055056,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.05627644700007295
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "three_fast_then_nothing",
+   "ticks": 3600,
+   "max_dE": 0.011446486838158076,
+   "rmse_E": 0.0006334232290181823,
+   "max_relC": 3.084289160601206e-15,
+   "max_dHR": 0.17769887465055056,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.03608520299985685
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "alternating_q15",
+   "ticks": 5400,
+   "max_dE": 0.002918828675437246,
+   "rmse_E": 0.001267270187962137,
+   "max_relC": 3.597271638540477e-15,
+   "max_dHR": 0.04126983031056142,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09518029500009106
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "both_routes_same_tick",
+   "ticks": 3600,
+   "max_dE": 0.0014630018573811299,
+   "rmse_E": 0.0008003386353713951,
+   "max_relC": 7.355778613065825e-15,
+   "max_dHR": 0.019491571431733412,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.06289172099991447
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "long_rollout",
+   "ticks": 10800,
+   "max_dE": 0.0029188284040306822,
+   "rmse_E": 0.0015416641467353674,
+   "max_relC": 1.2033790075591554e-14,
+   "max_dHR": 0.04126989457327923,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.120435112999985
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "nothing",
+   "ticks": 3600,
+   "max_dE": 0.0,
+   "rmse_E": 0.0,
+   "max_relC": 0.0,
+   "max_dHR": 0.0,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.060008985999957076
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "overdose_ten_q6",
+   "ticks": 5400,
+   "max_dE": 0.0029187674644454153,
+   "rmse_E": 0.0011723882264035013,
+   "max_relC": 6.8303909343872925e-15,
+   "max_dHR": 0.041269854020102414,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.05904019099989455
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "three_fast_then_nothing",
+   "ticks": 3600,
+   "max_dE": 0.0029188218951394784,
+   "rmse_E": 0.0013875033600403552,
+   "max_relC": 2.4416002076049955e-15,
+   "max_dHR": 0.0412689808893596,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.06201196299980438
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "alternating_q15",
+   "ticks": 5400,
+   "max_dE": 0.0027864028411485053,
+   "rmse_E": 0.0013324269092963295,
+   "max_relC": 7.392389147050057e-15,
+   "max_dHR": 0.167184170468893,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09262263699997675
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "both_routes_same_tick",
+   "ticks": 3600,
+   "max_dE": 0.0022777381496799087,
+   "rmse_E": 0.0013118475664701346,
+   "max_relC": 8.81948474586595e-15,
+   "max_dHR": 0.1366642889807892,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.06275776600000427
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "long_rollout",
+   "ticks": 10800,
+   "max_dE": 0.0027864044503482788,
+   "rmse_E": 0.001620665449610575,
+   "max_relC": 8.45984722811252e-15,
+   "max_dHR": 0.16718426702086475,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.12646209700005784
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "nothing",
+   "ticks": 3600,
+   "max_dE": 0.0,
+   "rmse_E": 0.0,
+   "max_relC": 0.0,
+   "max_dHR": 0.0,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.03616970400003083
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "overdose_ten_q6",
+   "ticks": 5400,
+   "max_dE": 0.0027863566669145134,
+   "rmse_E": 0.0009461471937104876,
+   "max_relC": 5.9224081575173635e-15,
+   "max_dHR": 0.16718140001482595,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.054386348999969414
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "three_fast_then_nothing",
+   "ticks": 3600,
+   "max_dE": 0.002786372533518433,
+   "rmse_E": 0.0011691704614417982,
+   "max_relC": 2.654867031516065e-15,
+   "max_dHR": 0.16718235201105358,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.040818524999849615
+  }
+ ],
+ "trained_param_generalisation": {
+  "n_cases": 18,
+  "max_dE": 850504723.6113153,
+  "max_relC": 12680760578.472517,
+  "max_dHR": 20595328961.866615,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 12,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.1207342069444495
+ },
+ "trained_schedule_generalisation": {
+  "n_cases": 18,
+  "max_dE": 932.5440792705951,
+  "max_relC": 58850.42745641199,
+  "max_dHR": 54064.91048039593,
+  "cases_with_violations": 0,
+  "cases_with_causal_failures": 11,
+  "all_replay_exact": true,
+  "mean_wall_s_per_rollout": 0.11223722566670505
+ },
+ "trained_schedule_rows": [
+  {
+   "variant": "extreme_fast",
+   "schedule": "alternating_q15",
+   "ticks": 5400,
+   "max_dE": 0.31906069252084507,
+   "rmse_E": 0.009617710718506003,
+   "max_relC": 2.681786246109112,
+   "max_dHR": 5.574268915409036,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09737085699998715
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "both_routes_same_tick",
+   "ticks": 3600,
+   "max_dE": 0.35533937994978704,
+   "rmse_E": 0.050082357892394354,
+   "max_relC": 8.981114727775818,
+   "max_dHR": 13.185638271737101,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.06420536099994933
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "long_rollout",
+   "ticks": 10800,
+   "max_dE": 932.5440792705951,
+   "rmse_E": 124.59557200634372,
+   "max_relC": 58850.42745641199,
+   "max_dHR": 54064.91048039593,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.19980688000032387
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "nothing",
+   "ticks": 3600,
+   "max_dE": 0.9176486815020738,
+   "rmse_E": 0.8354362137499437,
+   "max_relC": 0.0,
+   "max_dHR": 32.53869974927053,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.06317220499977338
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "overdose_ten_q6",
+   "ticks": 5400,
+   "max_dE": 25.431337102918608,
+   "rmse_E": 4.8211157827210664,
+   "max_relC": 129.0314518640389,
+   "max_dHR": 1469.9515632471448,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.09529032199998255
+  },
+  {
+   "variant": "extreme_fast",
+   "schedule": "three_fast_then_nothing",
+   "ticks": 3600,
+   "max_dE": 0.31158569936920705,
+   "rmse_E": 0.009556841805938738,
+   "max_relC": 2.6019302685836116,
+   "max_dHR": 6.815059329222564,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.07054949900020802
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "alternating_q15",
+   "ticks": 5400,
+   "max_dE": 3.791072117793743,
+   "rmse_E": 0.9280291686265405,
+   "max_relC": 152.90398407356932,
+   "max_dHR": 84.54982738710416,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.12000430299985965
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "both_routes_same_tick",
+   "ticks": 3600,
+   "max_dE": 0.9556174946240497,
+   "rmse_E": 0.4619240429738744,
+   "max_relC": 23.27400437580674,
+   "max_dHR": 11.98083683487383,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.10889622600006987
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "long_rollout",
+   "ticks": 10800,
+   "max_dE": 51.827472512668535,
+   "rmse_E": 9.418398640521227,
+   "max_relC": 180.58679504216786,
+   "max_dHR": 1030.7949972826689,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.19422618099997635
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "nothing",
+   "ticks": 3600,
+   "max_dE": 229.1894019092938,
+   "rmse_E": 71.60207140433783,
+   "max_relC": 0.0,
+   "max_dHR": 4424.652715621863,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.0750449230004051
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "overdose_ten_q6",
+   "ticks": 5400,
+   "max_dE": 71.63721780861238,
+   "rmse_E": 18.114063276983952,
+   "max_relC": 44.879149542193424,
+   "max_dHR": 1390.6350900570228,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.1192257550001159
+  },
+  {
+   "variant": "extreme_slow",
+   "schedule": "three_fast_then_nothing",
+   "ticks": 3600,
+   "max_dE": 0.192976859528728,
+   "rmse_E": 0.110888765958003,
+   "max_relC": 44.879149542193424,
+   "max_dHR": 3.766717506637523,
+   "violations": [],
+   "causal": [
+    "no onset after dose at 180s",
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.0681298159997823
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "alternating_q15",
+   "ticks": 5400,
+   "max_dE": 0.3250681434876998,
+   "rmse_E": 0.036484619907080434,
+   "max_relC": 104.32575301661437,
+   "max_dHR": 9.175831716997713,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.16852105399993889
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "both_routes_same_tick",
+   "ticks": 3600,
+   "max_dE": 0.19784081738483672,
+   "rmse_E": 0.09602772924218758,
+   "max_relC": 5.895873778393491,
+   "max_dHR": 26.288126286087977,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.09583695799983616
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "long_rollout",
+   "ticks": 10800,
+   "max_dE": 1.6607824123213053,
+   "rmse_E": 0.8467993188793214,
+   "max_relC": 619.2816019270731,
+   "max_dHR": 95.43847078875717,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.2038670390002153
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "nothing",
+   "ticks": 3600,
+   "max_dE": 0.6003182507090987,
+   "rmse_E": 0.3077309939900957,
+   "max_relC": 0.0,
+   "max_dHR": 34.43793313164537,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.06459692699991137
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "overdose_ten_q6",
+   "ticks": 5400,
+   "max_dE": 0.7725228518769004,
+   "rmse_E": 0.37257788417961324,
+   "max_relC": 1134.8035082334084,
+   "max_dHR": 48.868782150185716,
+   "violations": [],
+   "causal": [],
+   "replay_bit_exact": true,
+   "wall_s": 0.12376307200020165
+  },
+  {
+   "variant": "slow_link",
+   "schedule": "three_fast_then_nothing",
+   "ticks": 3600,
+   "max_dE": 0.35072804611378366,
+   "rmse_E": 0.09923586256775571,
+   "max_relC": 1134.8035082334084,
+   "max_dHR": 38.80110332958533,
+   "violations": [],
+   "causal": [
+    "C_e increased during washout"
+   ],
+   "replay_bit_exact": true,
+   "wall_s": 0.08776268400015397
+  }
+ ]
+}

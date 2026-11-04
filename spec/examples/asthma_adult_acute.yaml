@@ -1,0 +1,556 @@
+# Medic Forge patient specification, Layer 1 (human-readable, reviewable).
+# Worked example: adult acute asthma exacerbation, moderate-to-severe on arrival.
+#
+# READ THIS FIRST. Every numeric constant below carries a `source`. Many are currently
+# grade `modeling_assumption` or `training_knowledge_unverified` with `verified: false`.
+# That is deliberate: this file is the thing a clinical reviewer edits. The engine refuses
+# to mark a session "approved" while `review.status` is not APPROVED.
+#
+# Units in this file: minutes for time, mmHg for pressures, bpm, breaths/min, mL, %, mg/g.
+# The engine converts per-minute rates to per-second internally (DT = 1 s).
+
+spec_version: 1
+id: asthma_adult_acute_v1
+title: "Adult acute asthma exacerbation, moderate-to-severe on EMS arrival"
+teaching_objective: >
+  Recognise severity features (speech, accessory muscle use, SpO2, EtCO2 waveform, silent chest),
+  deliver bronchodilators early and repeatedly, titrate oxygen, recognise fatigue and impending
+  respiratory failure, avoid sedation and avoid breath stacking when assisting ventilation.
+audience: paramedic students, year 1-2
+
+patient:
+  age: 34
+  sex: female
+  weight_kg: 68
+  baseline:               # healthy resting values for this patient
+    HR: 72
+    SBP: 118
+    DBP: 76
+    RR: 14
+    Vt: 480
+    PaCO2: 40
+    PaO2: 95
+    temp_c: 37.0
+
+scenario:
+  condition: acute_asthma_exacerbation
+  initial:                # hidden state at t = 0 (EMS arrival, ~40 min into the attack)
+    O: 0.58               # obstruction index 0..1
+    F: 0.15               # respiratory muscle fatigue 0..1
+    I: 1.0                # inflammation driver (steroid-modifiable), dimensionless
+    PaCO2: 34             # early hyperventilation phase
+    PaO2: 72
+    autoPEEP: 2.0
+  params:
+    progression_rate:
+      value: 0.02
+      range: [0.01, 0.06]
+      unit: "1/min"
+      description: "Untreated logistic rise of obstruction: dO/dt = rate * I * (1 - O). With O(0)=0.58, O(t) = 1 - 0.42 exp(-rate t): 0.02/min gives 0.72 at 20 min and 0.77 at 30 min; with fatigue_rate 0.012 the untreated patient reaches silent chest at ~28 min and arrest at ~30 min."
+      source: {citation: "Modeling assumption chosen so that untreated severe asthma reaches life-threatening features within 20-40 min of EMS arrival, consistent with the clinical pattern of progressive fatigue described in GINA acute management chapters. No quantitative untreated-trajectory dataset exists (see docs/clinical_sources.md).", grade: modeling_assumption, verified: false}
+      confidence: low
+    beta_agonist_responsiveness:
+      value: 0.8
+      range: [0.2, 1.0]
+      unit: "dimensionless"
+      description: "Patient-specific multiplier on bronchodilator efficacy. 0.2-0.4 models a poorly responsive (near-fatal) phenotype."
+      source: {citation: "Modeling assumption; heterogeneity of response to inhaled beta-agonists is described in GINA and in emergency medicine texts, no single number.", grade: modeling_assumption, verified: false}
+      confidence: low
+    dilation_rate:
+      value: 0.08
+      range: [0.03, 0.15]
+      unit: "1/min"
+      description: "dO/dt -= dilation_rate * E_total * (O - O_floor). With E_total ~0.7 after one 2.5 mg albuterol neb, O falls from 0.58 toward floor with time constant ~18 min, matching onset within 5 min and most of the effect by 30-60 min."
+      source: {citation: "Albuterol nebulised: onset ~5 min, peak 30-60 min (DailyMed label, StatPearls). The rate constant is a modeling choice fitted by reasoning to those times, not to data.", grade: training_knowledge_unverified, verified: false}
+      confidence: medium
+    O_floor:
+      value: 0.25
+      range: [0.1, 0.4]
+      unit: "dimensionless"
+      description: "Residual obstruction that bronchodilators cannot remove acutely (inflammation, mucus)."
+      source: {citation: "Modeling assumption consistent with incomplete PEF recovery after first-hour bronchodilator therapy in acute asthma (GINA: response assessed at 1 h; many patients remain <80% predicted).", grade: modeling_assumption, verified: false}
+      confidence: low
+    fatigue_rate:
+      value: 0.012
+      range: [0.005, 0.04]
+      unit: "1/min per unit excess WOB"
+      description: "dF/dt = fatigue_rate * max(WOB - WOB_sustainable, 0) * (1 - F)"
+      source: {citation: "Modeling assumption. Respiratory muscle fatigue is the accepted mechanism of progression to hypercapnic failure in asthma (textbook physiology); no published rate constant for EMS time scales.", grade: modeling_assumption, verified: false}
+      confidence: low
+    recovery_rate:
+      value: 0.01
+      range: [0.003, 0.03]
+      unit: "1/min"
+      description: "Fatigue recovery when WOB is below sustainable."
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    WOB_sustainable:
+      value: 4.0
+      range: [3, 6]
+      unit: "x baseline work of breathing"
+      description: "Work-of-breathing index above which fatigue accumulates. WOB = R_mult * V_E_attempted / V_E_baseline, R_mult = 1/(1-O)^2."
+      source: {citation: "Modeling assumption. Resistance-radius relation is Poiseuille (r^-4); the squared form is a deliberate softening for a lumped index.", grade: modeling_assumption, verified: false}
+      confidence: low
+    V_alv_max:
+      value: 60
+      range: [40, 90]
+      unit: "L/min"
+      description: "Alveolar ventilation capacity at zero obstruction and zero fatigue. Capacity = V_alv_max * (1-O)^1.5 * (1 - 0.8 F)."
+      source: {citation: "Maximal voluntary ventilation in healthy adults ~100-170 L/min; alveolar fraction and sustained fraction lower. Modeling assumption.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    VCO2:
+      value: 200
+      range: [150, 300]
+      unit: "mL/min"
+      description: "CO2 production; PaCO2 steady state = 0.863 * VCO2 / V_alv (L/min)."
+      source: {citation: "Standard alveolar ventilation equation; resting VCO2 ~200 mL/min (West, Respiratory Physiology).", grade: textbook, verified: false}
+      confidence: high
+    tau_CO2_min:
+      value: 4.0
+      range: [2, 8]
+      unit: "min"
+      description: "Relaxation time of PaCO2 toward its ventilation-determined steady state."
+      source: {citation: "Body CO2 stores give multi-minute time constants (textbook); value is a modeling choice.", grade: modeling_assumption, verified: false}
+      confidence: low
+    tau_O2_min:
+      value: 0.5
+      range: [0.25, 1.5]
+      unit: "min"
+      description: "Relaxation time of PaO2 toward its target."
+      source: {citation: "Lung O2 stores are small; desaturation in minutes. Modeling choice.", grade: modeling_assumption, verified: false}
+      confidence: low
+    shunt_base:
+      value: 0.05
+      range: [0.02, 0.08]
+      unit: "fraction"
+      description: "Venous admixture fraction at zero obstruction."
+      source: {citation: "Normal physiological shunt 2-5% (textbook).", grade: textbook, verified: false}
+      confidence: medium
+    shunt_per_O2:
+      value: 0.55
+      range: [0.3, 0.8]
+      unit: "fraction per O^2"
+      description: "V/Q mismatch modelled as venous admixture = shunt_base + shunt_per_O2 * O^2. PaO2 = PAO2 * (1 - admixture). SIMPLIFICATION: true shunt is O2-refractory; V/Q mismatch is O2-responsive. This lumped form makes supplemental O2 somewhat too effective at high O and is flagged for reviewer attention."
+      source: {citation: "Modeling assumption, shaped so that room-air SpO2 is ~95% at O=0.58 and ~90% at O=0.8 (GINA severe threshold SpO2 < 90%).", grade: modeling_assumption, verified: false}
+      confidence: low
+    rr_co2_gain:
+      value: 0.8
+      range: [0.4, 1.5]
+      unit: "breaths/min per mmHg above 40"
+      description: "CO2 term is capped at rr_co2_cap and blunted by fatigue and by CO2 narcosis (see engine)."
+      source: {citation: "Hypercapnic ventilatory response ~1-3 L/min per mmHg in healthy adults (textbook); converted to an RR gain by assumption.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    rr_co2_cap:
+      value: 18
+      range: [10, 25]
+      unit: "breaths/min"
+      description: "Maximum RR contribution from hypercapnic drive; drive is blunted above loc_co2_1 (CO2 narcosis)."
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    rr_fatigue_loss:
+      value: 0.8
+      range: [0.5, 0.95]
+      unit: "fraction of RR lost at F = 1"
+      description: "RR_target *= 1 - rr_fatigue_loss * F^2. Produces the late fall in respiratory rate (bradypnoea) that precedes arrest."
+      source: {citation: "Bradypnoea and poor respiratory effort are near-fatal features (BTS/SIGN); the functional form is a modeling choice.", grade: modeling_assumption, verified: false}
+      confidence: low
+    rr_hypox_gain:
+      value: 0.5
+      range: [0.2, 1.0]
+      unit: "breaths/min per % SpO2 below 92"
+      source: {citation: "Modeling assumption (hypoxic drive is hyperbolic; linearised below 92%).", grade: modeling_assumption, verified: false}
+      confidence: low
+    rr_dyspnea_gain:
+      value: 28
+      range: [15, 40]
+      unit: "breaths/min at O = 1"
+      description: "Tachypnoea from obstruction itself (afferent/dyspnoea drive). At O=0.58 adds ~16/min, giving RR ~30 with the CO2 term, matching the severe threshold RR > 30 (GINA)."
+      source: {citation: "Shaped to GINA severity thresholds (RR > 30/min for severe); mechanism is textbook.", grade: modeling_assumption, verified: false}
+      confidence: low
+    vt_obstruction_loss:
+      value: 0.5
+      range: [0.3, 0.7]
+      unit: "fraction of Vt lost at O = 1"
+      source: {citation: "Air trapping / dynamic hyperinflation reduces tidal volume (textbook).", grade: modeling_assumption, verified: false}
+      confidence: low
+    hr_hypox_gain:
+      value: 1.5
+      range: [0.5, 3]
+      unit: "bpm per % SpO2 below 92"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    hr_dyspnea_gain:
+      value: 45
+      range: [20, 70]
+      unit: "bpm at O = 1"
+      description: "Sympathetic drive from distress; with O=0.58 gives HR ~ 72 + 26 = 98 before drugs. Severe threshold HR > 120 (GINA) is reached with albuterol tachycardia plus hypoxia."
+      source: {citation: "Shaped to GINA severity thresholds.", grade: modeling_assumption, verified: false}
+      confidence: low
+    hr_co2_gain:
+      value: 0.6
+      range: [0.2, 1.2]
+      unit: "bpm per mmHg PaCO2 above 45"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    prearrest_PaO2:
+      value: 35
+      range: [25, 45]
+      unit: "mmHg"
+      description: "Below this PaO2 the heart rate target falls toward 40 (hypoxic bradycardia) and SBP toward 60."
+      source: {citation: "Hypoxic bradycardia preceding arrest in asphyxial physiology (textbook / resuscitation literature). Threshold is a modeling choice.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    arrest_PaO2:
+      value: 25
+      range: [18, 30]
+      unit: "mmHg"
+      description: "Sustained for arrest_hold_s seconds -> cardiac arrest."
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    arrest_hold_s:
+      value: 90
+      range: [30, 180]
+      unit: "s"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    autopeep_rate:
+      value: 1.5
+      range: [0.5, 3]
+      unit: "cmH2O/min per breath/min above safe rate"
+      description: "Breath stacking when assisted ventilation rate exceeds the safe rate. Safe rate = 10 * (1 - O) + 4 breaths/min (needs long expiratory time)."
+      source: {citation: "Ventilation at 6-8 breaths/min with prolonged expiratory time is recommended in severe asthma to avoid dynamic hyperinflation (textbook / NAEMSP-type guidance). Rate constant is a modeling choice.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    autopeep_max:
+      value: 25
+      range: [15, 35]
+      unit: "cmH2O"
+      description: "Saturation of dynamic hyperinflation pressure; above ~20 cmH2O barotrauma (pneumothorax) becomes likely and is emitted as an event."
+      source: {citation: "Modeling assumption; intrinsic PEEP values in the 15-25 cmH2O range are described in severe asthma ventilation literature.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    autopeep_decay:
+      value: 2.0
+      range: [1, 4]
+      unit: "cmH2O/min"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    sbp_per_autopeep:
+      value: 2.5
+      range: [1, 5]
+      unit: "mmHg per cmH2O"
+      description: "Reduced venous return from intrathoracic pressure."
+      source: {citation: "Hypotension after over-ventilation in obstructive disease is well described; magnitude is a modeling choice.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    cpap_wob_reduction:
+      value: 0.3
+      range: [0.1, 0.5]
+      unit: "fraction"
+      source: {citation: "CPAP/NIV reduces work of breathing in obstructive disease; magnitude varies (evidence for asthma weaker than COPD).", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    cpap_vent_gain:
+      value: 0.10
+      range: [0, 0.25]
+      unit: "fraction"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    pulsus_paradoxus_gain:
+      value: 25
+      range: [15, 40]
+      unit: "mmHg at O = 1"
+      description: "Pulsus paradoxus = 5 + gain * O. Severe asthma commonly > 20-25 mmHg."
+      source: {citation: "Training knowledge, unverified; see docs/clinical_sources.md.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    etco2_gradient_gain:
+      value: 10
+      range: [5, 20]
+      unit: "mmHg at O = 1"
+      description: "PaCO2 - EtCO2 gradient widens with V/Q mismatch: gradient = 3 + gain * O."
+      source: {citation: "Normal gradient 2-5 mmHg; widens with dead space / V/Q mismatch (textbook).", grade: textbook, verified: false}
+      confidence: medium
+    silent_chest_vent_fraction:
+      value: 0.30
+      range: [0.2, 0.45]
+      unit: "fraction of baseline alveolar ventilation"
+      description: "Below this effective ventilation wheeze disappears (silent chest)."
+      source: {citation: "Silent chest is a life-threatening feature (GINA, BTS/SIGN); the ventilation threshold is a modeling choice.", grade: modeling_assumption, verified: false}
+      confidence: low
+    loc_co2_1:
+      value: 60
+      unit: "mmHg"
+      description: "PaCO2 above which LOC drops one level (A -> V)."
+      source: {citation: "CO2 narcosis thresholds vary widely (textbook); modeling choice.", grade: training_knowledge_unverified, verified: false}
+      confidence: low
+    loc_co2_2:
+      value: 75
+      unit: "mmHg"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    loc_o2_1:
+      value: 45
+      unit: "mmHg PaO2"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+    loc_o2_2:
+      value: 35
+      unit: "mmHg PaO2"
+      source: {citation: "Modeling assumption.", grade: modeling_assumption, verified: false}
+      confidence: low
+
+drugs:
+  albuterol:
+    route: inhaled
+    dose_unit: mg
+    typical_dose: 2.5
+    max_repeats: 3
+    repeat_interval_min: 20
+    kinetics: {absorption_half_time_min: 2.5, elimination_half_life_min: 150, effect_link_half_time_min: 1.0}
+    effects:
+      bronchodilation: {target: bronchodilation, emax: 1.0, ec50: 1.0, hill: 1.0}
+      tachycardia: {target: heart_rate, emax: 25, ec50: 1.5, hill: 1.0}
+    appropriate: true
+    source: {citation: "Nebulised albuterol onset ~5 min, peak 30-60 min, duration 3-6 h (DailyMed; StatPearls). Dose-response plateau and tachycardia/tremor are labelled adverse effects. EC50 in mg-equivalents is a modeling choice so that 2.5 mg gives ~70% of maximal effect and 5 mg ~85%.", grade: training_knowledge_unverified, verified: false}
+  ipratropium:
+    route: inhaled
+    dose_unit: mg
+    typical_dose: 0.5
+    max_repeats: 2
+    repeat_interval_min: 20
+    kinetics: {absorption_half_time_min: 7, elimination_half_life_min: 180, effect_link_half_time_min: 2.0}
+    effects:
+      bronchodilation: {target: bronchodilation, emax: 0.4, ec50: 0.3}
+    appropriate: true
+    source: {citation: "Ipratropium onset ~15 min, peak 1-2 h, duration 4-6 h (DailyMed); additive benefit with beta-agonists in severe exacerbations (GINA).", grade: training_knowledge_unverified, verified: false}
+  epinephrine_im:
+    route: im
+    dose_unit: mg
+    typical_dose: 0.3
+    max_repeats: 2
+    repeat_interval_min: 15
+    kinetics: {absorption_half_time_min: 3, elimination_half_life_min: 20, effect_link_half_time_min: 0.5}
+    effects:
+      bronchodilation: {target: bronchodilation, emax: 1.2, ec50: 0.15}
+      tachycardia: {target: heart_rate, emax: 35, ec50: 0.15}
+      pressor: {target: sbp, emax: 20, ec50: 0.15}
+    appropriate: true
+    source: {citation: "IM epinephrine 0.3-0.5 mg of 1 mg/mL: onset 5-10 min, short duration. Used for severe asthma unresponsive to nebulised therapy in many EMS protocols (NASEMSO model guidelines).", grade: training_knowledge_unverified, verified: false}
+  magnesium_iv:
+    route: iv_infusion
+    dose_unit: g
+    typical_dose: 2.0
+    max_repeats: 0
+    kinetics: {absorption_half_time_min: 10, elimination_half_life_min: 240, effect_link_half_time_min: 5}
+    effects:
+      bronchodilation: {target: bronchodilation, emax: 0.3, ec50: 1.0}
+      vasodilation: {target: sbp, emax: -8, ec50: 1.0}
+    appropriate: true
+    source: {citation: "IV MgSO4 2 g over 20 min reduces admissions in severe exacerbations (Cochrane review, moderate effect); onset within ~20-30 min. Effect size modelled as modest.", grade: training_knowledge_unverified, verified: false}
+  methylprednisolone_iv:
+    route: iv_bolus
+    dose_unit: mg
+    typical_dose: 125
+    max_repeats: 0
+    kinetics: {absorption_half_time_min: 0, elimination_half_life_min: 180, effect_link_half_time_min: 240}
+    effects:
+      anti_inflammatory: {target: inflammation, emax: 0.7, ec50: 40}
+    appropriate: true
+    source: {citation: "Systemic corticosteroids: clinical benefit begins at ~4-6 h (GINA). The 240 min effect-link half time makes the effect negligible within a 60 min EMS scenario, which is the teaching point.", grade: training_knowledge_unverified, verified: false}
+  ketamine_iv:
+    route: iv_bolus
+    dose_unit: mg
+    typical_dose: 70
+    max_repeats: 1
+    kinetics: {absorption_half_time_min: 0, elimination_half_life_min: 15, effect_link_half_time_min: 0.5}
+    effects:
+      bronchodilation: {target: bronchodilation, emax: 0.25, ec50: 50}
+      sympathomimetic_hr: {target: heart_rate, emax: 15, ec50: 50}
+      pressor: {target: sbp, emax: 10, ec50: 50}
+      dissociation: {target: loc, emax: -1.0, ec50: 50}
+    appropriate: true
+    source: {citation: "Ketamine ~1 mg/kg IV for refractory status asthmaticus / delayed-sequence intubation; preserves respiratory drive; modest bronchodilation; sympathomimetic. Evidence is case series and small trials.", grade: training_knowledge_unverified, verified: false}
+  midazolam_iv:
+    route: iv_bolus
+    dose_unit: mg
+    typical_dose: 2.0
+    max_repeats: 2
+    kinetics: {absorption_half_time_min: 0, elimination_half_life_min: 90, effect_link_half_time_min: 2}
+    effects:
+      resp_depression: {target: resp_drive, emax: -0.45, ec50: 2.0}
+      sedation: {target: loc, emax: -1.5, ec50: 3.0}
+    appropriate: false
+    source: {citation: "Benzodiazepine sedation in acute asthma depresses ventilatory drive and is associated with harm; it is an inappropriate intervention in this scenario (GINA: sedation should be avoided).", grade: training_knowledge_unverified, verified: false}
+  nitroglycerin_sl:
+    route: sl
+    dose_unit: mg
+    typical_dose: 0.4
+    max_repeats: 2
+    kinetics: {absorption_half_time_min: 1.5, elimination_half_life_min: 4, effect_link_half_time_min: 0.5}
+    effects:
+      vasodilation: {target: sbp, emax: -25, ec50: 0.3}
+    appropriate: false
+    source: {citation: "Nitroglycerin given for wheeze misread as cardiogenic pulmonary oedema: no bronchodilator effect, dose-dependent hypotension. Modelled as inappropriate.", grade: training_knowledge_unverified, verified: false}
+
+devices:
+  oxygen:
+    fio2_by_device:          # effective FiO2
+      none: {base: 0.21, per_lpm: 0.0, max_lpm: 0}
+      nc: {base: 0.21, per_lpm: 0.04, max_lpm: 6}
+      nrb: {base: 0.60, per_lpm: 0.013333, max_lpm: 15}   # 15 L -> 0.80
+    source: {citation: "Nasal cannula ~4% FiO2 per L/min up to 6 L; NRB 10-15 L delivers ~0.60-0.90 (EMS textbooks).", grade: training_knowledge_unverified, verified: false}
+  cpap:
+    allowed_pressure_cmh2o: [5, 10]
+    contraindicated_when: "LOC < V or SBP < 90 or arrest"
+    source: {citation: "CPAP contraindications: inability to protect airway / altered mental status, hypotension (NASEMSO model guideline CPAP section).", grade: training_knowledge_unverified, verified: false}
+  bvm:
+    tidal_volume_ml: 500
+    fio2: 0.9
+    source: {citation: "BVM with reservoir at 15 L/min delivers ~0.9 FiO2 (textbook).", grade: training_knowledge_unverified, verified: false}
+  ventilator:
+    tidal_volume_ml: 420        # ~6 mL/kg
+    fio2: 1.0
+    source: {citation: "Lung-protective, low rate, long expiratory time strategy after intubation in asthma (textbook).", grade: training_knowledge_unverified, verified: false}
+
+stages:
+  - {name: S0_moderate, when: "O < 0.65 and F < 0.5 and PaCO2 < 45"}
+  - {name: S1_severe, when: "O >= 0.65 or RR > 30 or SpO2 < 92"}
+  - {name: S2_life_threatening, when: "silent_chest == 1 or F >= 0.5 or PaCO2 >= 45 or SpO2 < 90"}
+  - {name: S3_near_arrest, when: "LOC <= 1 or HR < 50 or SBP < 80"}
+  - {name: S4_arrest, when: "arrest == 1"}
+
+events:
+  - {name: speech_phrases_only, when: "O >= 0.6 or RR >= 28"}
+  - {name: speech_words_only, when: "O >= 0.78 or F >= 0.5"}
+  - {name: silent_chest, when: "silent_chest == 1"}
+  - {name: hypercapnia, when: "PaCO2 >= 45"}
+  - {name: loc_drop, when: "LOC <= 2"}
+  - {name: hypotension, when: "SBP < 90"}
+  - {name: bradycardia_prearrest, when: "HR < 50"}
+  - {name: cardiac_arrest, when: "arrest == 1"}
+  - {name: barotrauma_risk, when: "autoPEEP >= 20"}
+  - {name: improving, when: "O < 0.45 and F < 0.3"}
+
+interaction_rules:
+  - id: cpap_without_airway_protection
+    when: "cpap_on == 1 and LOC <= 1"
+    effect: "CPAP ventilation gain and WOB reduction are set to zero; event 'cpap_aspiration_risk' is emitted every 60 s."
+    source: {citation: "CPAP contraindicated with inability to protect the airway (NASEMSO model guideline).", grade: training_knowledge_unverified, verified: false}
+  - id: cpap_with_hypotension
+    when: "cpap_on == 1 and SBP < 90"
+    effect: "Additional SBP reduction of 8 mmHg while CPAP is on."
+    source: {citation: "Positive pressure reduces venous return; hypotension is a CPAP contraindication (NASEMSO model guideline).", grade: training_knowledge_unverified, verified: false}
+  - id: assisted_ventilation_rate_too_fast
+    when: "(bvm_on == 1 or intubated == 1) and assisted_rate > safe_rate"
+    effect: "autoPEEP accumulates at autopeep_rate per excess breath/min; SBP falls by sbp_per_autopeep per cmH2O; effective ventilation falls by 4% per cmH2O above 5."
+    source: {citation: "Dynamic hyperinflation from over-ventilation in obstructive disease (textbook).", grade: training_knowledge_unverified, verified: false}
+  - id: sedative_plus_fatigue
+    when: "resp_drive_factor < 0.8 and F > 0.4"
+    effect: "No extra rule: composition through state. Listed to document that this pair was considered and is handled by the shared ventilation cap and drive terms."
+    source: {citation: "Design note.", grade: modeling_assumption, verified: false}
+  - id: beta_agonist_plus_epinephrine_tachycardia
+    when: "albuterol.effect > 0 and epinephrine_im.effect > 0"
+    effect: "No extra rule: heart-rate effects are additive by construction through the shared heart_rate target. Listed as a reviewed composition case; reviewer may cap total chronotropic effect."
+    source: {citation: "Design note.", grade: modeling_assumption, verified: false}
+
+trajectories:
+  untreated:
+    description: "No treatment for 40 min. Expect progression to silent chest, hypercapnia, falling LOC, bradycardia."
+    actions: []
+    expect:
+      - {t_min: 0, var: SpO2, min: 92, max: 97, source: "moderate-severe on arrival (GINA severe threshold SpO2 < 90 not yet reached)"}
+      - {t_min: 0, var: RR, min: 24, max: 34}
+      - {t_min: 20, var: O, min: 0.7, max: 0.85}
+      - {t_min: 30, var: PaCO2, min: 44, max: 115, source: "normal-to-rising PaCO2 is a life-threatening feature (BTS/SIGN); values near 100 occur in hypercapnic arrest"}
+      - {t_min: 40, var: LOC, min: 0, max: 2}
+  timely_treatment:
+    description: "O2 NRB and albuterol at 2 min, ipratropium at 3 min, repeat albuterol at 22 and 42 min, steroid at 15 min, CPAP not needed."
+    actions:
+      - {t_min: 1.0, kind: attach_device, device: spo2}
+      - {t_min: 1.2, kind: attach_device, device: etco2}
+      - {t_min: 2.0, kind: oxygen, device: nrb, flow_lpm: 15}
+      - {t_min: 2.0, kind: give_drug, drug: albuterol, dose: 2.5}
+      - {t_min: 3.0, kind: give_drug, drug: ipratropium, dose: 0.5}
+      - {t_min: 15.0, kind: give_drug, drug: methylprednisolone_iv, dose: 125}
+      - {t_min: 22.0, kind: give_drug, drug: albuterol, dose: 2.5}
+      - {t_min: 42.0, kind: give_drug, drug: albuterol, dose: 2.5}
+    expect:
+      - {t_min: 10, var: SpO2, min: 95, max: 100}
+      - {t_min: 30, var: O, min: 0.3, max: 0.5}
+      - {t_min: 45, var: RR, min: 14, max: 26}
+      - {t_min: 45, var: PaCO2, min: 30, max: 44, source: "low-normal PaCO2 persists with residual obstruction and mild tachypnoea"}
+      - {t_min: 45, var: LOC, min: 3, max: 3}
+  delayed_treatment:
+    description: "Nothing for 20 min (prolonged scene / misjudged severity), then the timely bundle plus IM epinephrine at 25 min."
+    actions:
+      - {t_min: 20.0, kind: oxygen, device: nrb, flow_lpm: 15}
+      - {t_min: 20.0, kind: give_drug, drug: albuterol, dose: 5.0}
+      - {t_min: 21.0, kind: give_drug, drug: ipratropium, dose: 0.5}
+      - {t_min: 25.0, kind: give_drug, drug: epinephrine_im, dose: 0.3}
+      - {t_min: 30.0, kind: give_drug, drug: magnesium_iv, dose: 2.0}
+      - {t_min: 40.0, kind: give_drug, drug: albuterol, dose: 2.5}
+    expect:
+      - {t_min: 20, var: O, min: 0.7, max: 0.85}
+      - {t_min: 20, var: F, min: 0.4, max: 0.8}
+      - {t_min: 50, var: O, min: 0.3, max: 0.6}
+      - {t_min: 50, var: PaCO2, min: 35, max: 55, source: "slower recovery because fatigue persists"}
+  inappropriate_intervention:
+    description: "Wheeze misread as anxiety/CHF: midazolam 2 mg at 5 min, nitroglycerin at 8 min, BVM at 20/min when the patient tires at 17 min, bronchodilator only at 20 min."
+    actions:
+      - {t_min: 5.0, kind: give_drug, drug: midazolam_iv, dose: 2.0}
+      - {t_min: 8.0, kind: give_drug, drug: nitroglycerin_sl, dose: 0.4}
+      - {t_min: 17.0, kind: bvm, "on": true, rate_per_min: 20}
+      - {t_min: 20.0, kind: give_drug, drug: albuterol, dose: 2.5}
+    expect:
+      - {t_min: 15, var: PaCO2, min: 42, max: 70}
+      - {t_min: 15, var: LOC, min: 1, max: 2.6}
+      - {t_min: 25, var: autoPEEP, min: 10, max: 30}
+      - {t_min: 25, var: SBP, min: 40, max: 95, source: "breath stacking reduces venous return; hypotension after over-ventilation in obstructive disease"}
+
+observation_gating:
+  SpO2: [device:spo2]
+  EtCO2: [device:etco2]
+  EtCO2_waveform: [device:etco2]
+  HR: [device:spo2, device:ecg, action:palpate_pulse]
+  ECG_rhythm: [device:ecg]
+  SBP: [action:measure_bp, device:nibp_cycle]
+  DBP: [action:measure_bp, device:nibp_cycle]
+  pulsus_paradoxus: [action:measure_bp]
+  RR: [action:assess_general, device:etco2]
+  work_of_breathing: [action:assess_general]
+  speech: [action:assess_general, action:take_history]
+  position: [action:assess_general]
+  skin: [action:assess_general]
+  breath_sounds: [action:auscultate]
+  LOC: [action:assess_loc, action:assess_general]
+  airway: [action:assess_airway]
+
+dialogue:
+  persona: "34-year-old woman, known asthmatic since childhood, anxious, short of breath, cooperative, wants to sit up."
+  facts:
+    chief_complaint: "Can't catch my breath, started about 40 minutes ago after cleaning with bleach."
+    history: ["asthma since childhood", "two ED visits last year", "never intubated", "no ICU admissions"]
+    medications: ["albuterol inhaler (used 6 puffs in the last hour, little relief)", "fluticasone inhaler (often forgets)"]
+    allergies: ["penicillin (rash)"]
+    last_oral_intake: "toast and coffee at 07:30"
+    events: "cleaning bathroom with bleach, became tight, used inhaler, got worse"
+    smoker: "no"
+    pregnancy: "not pregnant"
+  forbidden:
+    - "stating any medication, allergy or history item not in facts"
+    - "stating a vital sign number"
+    - "speaking in full sentences when speech capability is phrases or words"
+    - "speaking at all when LOC is P or U"
+    - "describing improvement while O is rising"
+
+grading_rubric:
+  - {id: early_bronchodilator, rule: "give_drug albuterol within 5 min of first assessment", weight: 3}
+  - {id: oxygen_titrated, rule: "SpO2 monitored before and after oxygen change", weight: 1}
+  - {id: no_sedation, rule: "no midazolam", weight: 3}
+  - {id: safe_ventilation, rule: "if BVM used, rate <= 10/min", weight: 2}
+  - {id: cpap_contra_respected, rule: "no CPAP while LOC <= P", weight: 2}
+  - {id: reassess, rule: "auscultate at least twice", weight: 1}
+
+review:
+  status: UNREVIEWED
+  reviewers: []
+  notes: >
+    Drafted 2026-11-04 by the authoring session from training knowledge and modeling assumptions.
+    Not for classroom use until a paramedic educator and a physician reviewer have signed the
+    `reviewers` list and `status` is APPROVED. See docs/clinical_sources.md for the sourcing status
+    of each constant.

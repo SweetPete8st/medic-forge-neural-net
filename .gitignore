@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+experiments/**/results/*.npz
+experiments/exp1_calibration/data/
+experiments/exp1_calibration/ecg-wsp-v4/
+*.zip
