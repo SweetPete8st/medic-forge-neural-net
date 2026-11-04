@@ -100,7 +100,7 @@ def run_cases(spec, cases, split):
     out = {}; n_fp = 0
     for name, (variant, overrides, minutes, action_items) in cases.items():
         acts = actions_from_spec(action_items)
-        code = PatientEngine(spec); code.p.update(overrides or {})
+        code = PatientEngine(spec); code.p.update(overrides or {}); code.reset()   # settle with the variant's parameters (harness fix, DC 4)
         brain = BrainEngine(spec, port_overrides=overrides)
         t0 = time.perf_counter(); tc, ec = rollout(code, acts, minutes); t_code = time.perf_counter() - t0
         try:
