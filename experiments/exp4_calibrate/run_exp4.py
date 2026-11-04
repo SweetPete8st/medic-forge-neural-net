@@ -78,7 +78,8 @@ class BrainRollout:
 def main():
     phase = sys.argv[1] if len(sys.argv) > 1 else "all"
     target = code_observables(TRUE_PORT)
-    out = {"true": TRUE_PORT, "start": START_PORT, "minutes": MINUTES}
+    out = json.loads((RES / "results.json").read_text()) if (RES / "results.json").exists() else {}
+    out.update({"true": TRUE_PORT, "start": START_PORT, "minutes": MINUTES})
     if phase in ("check", "all"):
         brain = BrainEngine(spec, port_overrides=START_PORT); ro = BrainRollout(brain, SCRIPTS["timely_treatment"], MINUTES)
         with torch.no_grad(): obs_t = ro.run(torch.tensor([START_PORT[k] for k in PORT], dtype=torch.float64)).numpy()

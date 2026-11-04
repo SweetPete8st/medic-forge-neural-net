@@ -380,13 +380,20 @@ table (below).
    sets of the same respiratory/cardiovascular engine; add engine mechanisms only when a scenario
    needs one; keep every addition behind the same sweep.
 
+**Phase 2 addendum (see `docs/09_PHASE2_PATIENT_BRAIN.md`).** The user asked to push the "patient brain
+as a custom network" idea as far as it goes. The strongest workable form turned out to be a
+deterministic compiler from an explicit physiology program to ReLU weights (the RASP/Tracr route),
+which this session built and used to compile the whole asthma engine. Results and the updated verdict
+are in that document; the decision table below is unchanged except where it says "see phase 2".
+
 **Decision table.**
 
 | Claim | Status | What result would change it |
 |---|---|---|
 | A specification-first pipeline with a code engine gives repeatable, coherent patients | demonstrated (exp2 coherence; replay test) | clinical review rejecting the engine's mechanisms rather than its constants |
-| Hand-set weights can match code on a stateful kinetics model | demonstrated (exp0 v2) | failure on the respiratory held-out set |
-| Weights beat code on an instructor-visible criterion | not demonstrated; no evidence | a measured win on calibration-from-data or parameter blending that the parameterised code engine cannot match |
+| Hand-set weights can match code on a stateful kinetics model | demonstrated (exp0 v2); six Claude-family builders reproduced it on the dev criterion, 2 of 6 on held-out extremes (phase 2) | failure on the respiratory held-out set |
+| A compiled whole-engine brain reproduces the code engine over full sessions | demonstrated on dev paths within a 30 s shift; held-out in phase 2 doc | drift beyond 2% of range or events beyond 30 s on held-out |
+| Weights beat code on an instructor-visible criterion | not demonstrated; the one candidate (gradient calibration) is tested in exp4, phase 2 doc | a measured win on calibration-from-data or parameter blending that the parameterised code engine cannot match |
 | A local 27B-class builder can compile specs into weights | needs testing (exp1) | passing Task C within budget keeps A2 alive locally; failing A and C ends the local weight track |
 | A local builder can write a usable specification | needs testing | fewer than ~5 reviewer corrections per generated spec in the pilot |
 | Trained small patient nets (D) are a cheap compile target | demonstrated negative in cheap form | parameter-conditioned, multi-step-trained model passing exp0 held-out at 0.05 |

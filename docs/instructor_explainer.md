@@ -41,6 +41,15 @@ filling in a sheet for a patient the engine already knows how to run.
   no faster, and much harder to check than the readable version. For now the recommendation is the
   readable version.
 
+**A second step, tried the same day.** We asked whether the whole patient could be turned into a
+neural network automatically, not by an AI guessing numbers but by a compiler that reads the readable
+rules and produces the network, the way a compiler turns source code into a program. It works: the
+compiled "patient brain" follows the same path as the readable engine to within about half a minute
+over an hour-long session, and the same rules always produce exactly the same network. What it does
+not yet do is anything the readable engine cannot. It is a different packaging of the same patient,
+useful if we ever need every patient to be one small file that any computer can run, or if we want to
+nudge a patient's parameters automatically from an instructor's corrections (being tested).
+
 **What is not done.**
 - The asthma sheet's drug numbers (how fast albuterol works, how long it lasts, how much it raises
   the heart rate) are the author's working knowledge, not yet checked against the drug labels and

@@ -16,6 +16,7 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
 | Path | What it is |
 |---|---|
 | `docs/00_RESEARCH_PACKAGE.md` | The full research package (Sections 1 to 8 of the brief). Start here. |
+| `docs/09_PHASE2_PATIENT_BRAIN.md` | Phase 2: the patient as a compiled neural network (deterministic compiler, whole-engine brain, Claude-family builder test, differentiable calibration). |
 | `docs/instructor_explainer.md` | Plain-language explanation for paramedic instructors. |
 | `docs/evidence_table.md` | Literature evidence table with categories and verification levels. |
 | `docs/builders_and_5090_budget.md` | Local builder candidates, VRAM budget, profiling procedure. |
@@ -25,7 +26,9 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
 | `spec/schema/patient_spec.schema.json` | JSON Schema for the human-readable patient specification (Layer 1). |
 | `spec/examples/asthma_adult_acute.yaml` | Worked specification: adult acute asthma exacerbation. |
 | `src/mfnn/` | Runtime: patient state interface, code-compiled engine (the control), observation gating, dialogue fact sheet, ledger tooling. |
-| `src/mfnn/wsp/` | Weight-space constructions (numpy re-implementation) and the hand-set PK network. |
+| `src/mfnn/wsp/` | Weight-space constructions (numpy re-implementation), the hand-set PK network, and `compiler.py`: a deterministic scalar-program-to-ReLU-weights compiler with error bounds. |
+| `experiments/exp3_brain/` | The whole asthma engine as a compiled recurrent ReLU network, checked tick-by-tick and over sessions against the code engine. |
+| `experiments/exp4_calibrate/` | Differentiable calibration of the compiled brain (torch) vs black-box fitting of the code engine. |
 | `experiments/exp0_pk/` | First experiment: one-compartment drug kinetics with dosing, code vs hand-set weights. |
 | `experiments/exp1_calibration/` | Calibration test for local builder candidates (needs the ECG archive and a GPU). |
 | `experiments/exp2_asthma/` | Respiratory scenario trajectories and interaction enumeration. |
@@ -57,6 +60,10 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
   set after one logged correction; the trained network did not. See `experiments/exp0_pk/RESULTS_v2.md`.
 - exp2_asthma: four trajectories pass their envelopes; 287-case interaction sweep clean.
 - Clinical drug constants in the asthma spec are unverified training knowledge pending reviewer sign-off.
+- Phase 2 (same day): a deterministic compiler turns the engine's physiology program (351 nodes) into a
+  26-layer ReLU brain (517K nonzero weights) that reproduces the code engine within a 30 s time shift on
+  the development paths; six isolated Claude-family builder attempts all passed the PK compile on the
+  first build, two of six were robust on held-out extremes. See `docs/09_PHASE2_PATIENT_BRAIN.md`.
 
 ## Quick start
 
