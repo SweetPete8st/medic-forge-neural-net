@@ -1,0 +1,535 @@
+{
+ "untreated": {
+  "errors": {
+   "SpO2": {
+    "max_abs": 5.668677939309504,
+    "max_pct_range": 5.668677939309504,
+    "max_pct_range_shift30s": 0.020920020084219004,
+    "max_pct_range_away_from_events": 1.4899613098926139,
+    "t_of_max_s": 1835,
+    "at_10min": 0.013442312193717498,
+    "at_end": 1.7763568394002505e-15
+   },
+   "HR": {
+    "max_abs": 40.095187197704746,
+    "max_pct_range": 20.047593598852373,
+    "max_pct_range_shift30s": 0.02165932476252408,
+    "max_pct_range_away_from_events": 3.2654872065326543,
+    "t_of_max_s": 1831,
+    "at_10min": 0.009631783798923266,
+    "at_end": 0.0
+   },
+   "RR": {
+    "max_abs": 26.53884570792188,
+    "max_pct_range": 44.23140951320313,
+    "max_pct_range_shift30s": 0.015274423447747173,
+    "max_pct_range_away_from_events": 2.2868244447496147,
+    "t_of_max_s": 1835,
+    "at_10min": 0.0007364531202327385,
+    "at_end": 0.0
+   },
+   "SBP": {
+    "max_abs": 60.323632095179704,
+    "max_pct_range": 30.161816047589852,
+    "max_pct_range_shift30s": 0.006452539811220959,
+    "max_pct_range_away_from_events": 2.2040840586528603,
+    "t_of_max_s": 1831,
+    "at_10min": 0.0028846649166496263,
+    "at_end": 0.0
+   },
+   "PaCO2": {
+    "max_abs": 1.01006106021471,
+    "max_pct_range": 0.67337404014314,
+    "max_pct_range_shift30s": 0.009377242785475914,
+    "max_pct_range_away_from_events": 0.6228378734031802,
+    "t_of_max_s": 1681,
+    "at_10min": 0.04338161344926306,
+    "at_end": 0.0
+   },
+   "EtCO2": {
+    "max_abs": 91.79417411149106,
+    "max_pct_range": 61.19611607432738,
+    "max_pct_range_shift30s": 0.0088653048697059,
+    "max_pct_range_away_from_events": 0.6215961310525605,
+    "t_of_max_s": 1835,
+    "at_10min": 0.042330764118759134,
+    "at_end": 0.0
+   },
+   "LOC": {
+    "max_abs": 0.11016872534429711,
+    "max_pct_range": 3.672290844809904,
+    "max_pct_range_shift30s": 1.628327102783563e-13,
+    "max_pct_range_away_from_events": 3.5053561061876812,
+    "t_of_max_s": 1466,
+    "at_10min": 0.0,
+    "at_end": 0.0
+   },
+   "O": {
+    "max_abs": 0.00019108985783378163,
+    "max_pct_range": 0.019108985783378163,
+    "max_pct_range_shift30s": 0.017370194631227687,
+    "max_pct_range_away_from_events": 0.018935665026798,
+    "t_of_max_s": 1830,
+    "at_10min": 0.00010508493305083633,
+    "at_end": 0.00017370194631227687
+   },
+   "F": {
+    "max_abs": 0.0014750551986325577,
+    "max_pct_range": 0.14750551986325577,
+    "max_pct_range_shift30s": 0.018751020183038758,
+    "max_pct_range_away_from_events": 0.14750551986325577,
+    "t_of_max_s": 1297,
+    "at_10min": 0.0011175674496648469,
+    "at_end": 0.00011976934315327536
+   }
+  },
+  "worst_pct_of_range": 61.19611607432738,
+  "worst_pct_away_from_events": 3.5053561061876812,
+  "worst_pct_shift30s": 0.02165932476252408,
+  "worst_var": "EtCO2",
+  "t_of_worst_s": 1835,
+  "events_matched": [
+   [
+    "speech_phrases_only",
+    0
+   ],
+   [
+    "hypercapnia",
+    3
+   ],
+   [
+    "speech_words_only",
+    3
+   ],
+   [
+    "loc_drop",
+    5
+   ],
+   [
+    "silent_chest",
+    5
+   ],
+   [
+    "hypotension",
+    5
+   ],
+   [
+    "bradycardia_prearrest",
+    5
+   ],
+   [
+    "cardiac_arrest",
+    5
+   ]
+  ],
+  "events_missing_in_brain": [],
+  "events_extra_in_brain": [],
+  "max_event_delay_s": 5,
+  "stage_mismatch_seconds": 14,
+  "pass_2pct_strict": false,
+  "pass_2pct": true,
+  "variant": "spec_default",
+  "minutes": 60,
+  "replay_bit_exact": true,
+  "ms_per_tick_code": 0.1938666052776878,
+  "ms_per_tick_brain": 34.10130882027766
+ },
+ "timely_treatment": {
+  "errors": {
+   "SpO2": {
+    "max_abs": 0.0022772786183509197,
+    "max_pct_range": 0.0022772786183509197,
+    "max_pct_range_shift30s": 0.0022772786183509197,
+    "max_pct_range_away_from_events": 0.0022772786183509197,
+    "t_of_max_s": 119,
+    "at_10min": 2.322431434720329e-05,
+    "at_end": 8.779764613109364e-07
+   },
+   "HR": {
+    "max_abs": 0.06327114764928865,
+    "max_pct_range": 0.031635573824644325,
+    "max_pct_range_shift30s": 0.011950462115528637,
+    "max_pct_range_away_from_events": 0.031635573824644325,
+    "t_of_max_s": 2701,
+    "at_10min": 0.011762020829465314,
+    "at_end": 0.03374457062281522
+   },
+   "RR": {
+    "max_abs": 0.021070789489996855,
+    "max_pct_range": 0.03511798248332809,
+    "max_pct_range_shift30s": 0.016558595290820932,
+    "max_pct_range_away_from_events": 0.03511798248332809,
+    "t_of_max_s": 424,
+    "at_10min": 0.0033113823737416226,
+    "at_end": 0.0007863132371745962
+   },
+   "SBP": {
+    "max_abs": 0.018757492071216575,
+    "max_pct_range": 0.009378746035608287,
+    "max_pct_range_shift30s": 0.0032875830846634813,
+    "max_pct_range_away_from_events": 0.009378746035608287,
+    "t_of_max_s": 2707,
+    "at_10min": 0.0031829809948646925,
+    "at_end": 0.010139935295626401
+   },
+   "PaCO2": {
+    "max_abs": 0.03288603687428804,
+    "max_pct_range": 0.021924024582858692,
+    "max_pct_range_shift30s": 0.005450860492118181,
+    "max_pct_range_away_from_events": 0.021924024582858692,
+    "t_of_max_s": 444,
+    "at_10min": 0.023934174326100788,
+    "at_end": 0.002371327561299097
+   },
+   "EtCO2": {
+    "max_abs": 0.033106723245026615,
+    "max_pct_range": 0.022071148830017744,
+    "max_pct_range_shift30s": 0.005731019336257266,
+    "max_pct_range_away_from_events": 0.022071148830017744,
+    "t_of_max_s": 445,
+    "at_10min": 0.025239938902615222,
+    "at_end": 0.0027819398247110882
+   },
+   "LOC": {
+    "max_abs": 0.0,
+    "max_pct_range": 0.0,
+    "max_pct_range_shift30s": 0.0,
+    "max_pct_range_away_from_events": 0.0,
+    "t_of_max_s": 0,
+    "at_10min": 0.0,
+    "at_end": 0.0
+   },
+   "O": {
+    "max_abs": 0.00024189444934441529,
+    "max_pct_range": 0.02418944493444153,
+    "max_pct_range_shift30s": 0.006934248365675355,
+    "max_pct_range_away_from_events": 0.02418944493444153,
+    "t_of_max_s": 1304,
+    "at_10min": 0.0001305764576512436,
+    "at_end": 4.106122634039977e-05
+   },
+   "F": {
+    "max_abs": 0.0007635558292440892,
+    "max_pct_range": 0.07635558292440892,
+    "max_pct_range_shift30s": 0.038906588445342116,
+    "max_pct_range_away_from_events": 0.07635558292440892,
+    "t_of_max_s": 269,
+    "at_10min": 0.0006071329269720094,
+    "at_end": 0.0
+   }
+  },
+  "worst_pct_of_range": 0.07635558292440892,
+  "worst_pct_away_from_events": 0.07635558292440892,
+  "worst_pct_shift30s": 0.038906588445342116,
+  "worst_var": "F",
+  "t_of_worst_s": 269,
+  "events_matched": [
+   [
+    "speech_phrases_only",
+    0
+   ],
+   [
+    "improving",
+    4
+   ]
+  ],
+  "events_missing_in_brain": [],
+  "events_extra_in_brain": [],
+  "max_event_delay_s": 4,
+  "stage_mismatch_seconds": 0,
+  "pass_2pct_strict": true,
+  "pass_2pct": true,
+  "variant": "spec_default",
+  "minutes": 60,
+  "replay_bit_exact": true,
+  "ms_per_tick_code": 0.19026514916655893,
+  "ms_per_tick_brain": 37.85599711944441
+ },
+ "delayed_treatment": {
+  "errors": {
+   "SpO2": {
+    "max_abs": 0.06412212986481336,
+    "max_pct_range": 0.06412212986481336,
+    "max_pct_range_shift30s": 0.06407379728806006,
+    "max_pct_range_away_from_events": 0.06412212986481336,
+    "t_of_max_s": 1198,
+    "at_10min": 0.013442312193717498,
+    "at_end": 4.050020152135403e-06
+   },
+   "HR": {
+    "max_abs": 0.2173580629503249,
+    "max_pct_range": 0.10867903147516245,
+    "max_pct_range_shift30s": 0.09109961824943014,
+    "max_pct_range_away_from_events": 0.10867903147516245,
+    "t_of_max_s": 1576,
+    "at_10min": 0.009631783798923266,
+    "at_end": 0.07449197352522674
+   },
+   "RR": {
+    "max_abs": 0.15942734852280793,
+    "max_pct_range": 0.2657122475380132,
+    "max_pct_range_shift30s": 0.18469881799670537,
+    "max_pct_range_away_from_events": 0.2657122475380132,
+    "t_of_max_s": 1565,
+    "at_10min": 0.0007364531202327385,
+    "at_end": 0.009167231908584483
+   },
+   "SBP": {
+    "max_abs": 0.08802066641732154,
+    "max_pct_range": 0.04401033320866077,
+    "max_pct_range_shift30s": 0.030150870384829886,
+    "max_pct_range_away_from_events": 0.04401033320866077,
+    "t_of_max_s": 1724,
+    "at_10min": 0.0028846649166496263,
+    "at_end": 0.03879762569934542
+   },
+   "PaCO2": {
+    "max_abs": 0.31138033895283,
+    "max_pct_range": 0.20758689263522,
+    "max_pct_range_shift30s": 0.1999091804657951,
+    "max_pct_range_away_from_events": 0.20758689263522,
+    "t_of_max_s": 1631,
+    "at_10min": 0.04338161344926306,
+    "at_end": 0.0017103118268977369
+   },
+   "EtCO2": {
+    "max_abs": 0.3125074564932788,
+    "max_pct_range": 0.20833830432885256,
+    "max_pct_range_shift30s": 0.19605777058452625,
+    "max_pct_range_away_from_events": 0.20833830432885256,
+    "t_of_max_s": 1632,
+    "at_10min": 0.042330764118759134,
+    "at_end": 0.0016731299130867683
+   },
+   "LOC": {
+    "max_abs": 0.06449305172395059,
+    "max_pct_range": 2.149768390798353,
+    "max_pct_range_shift30s": 2.534834372032909e-06,
+    "max_pct_range_away_from_events": 2.149768390798353,
+    "t_of_max_s": 1946,
+    "at_10min": 0.0,
+    "at_end": 9.769962616701378e-15
+   },
+   "O": {
+    "max_abs": 0.00023003679231048402,
+    "max_pct_range": 0.0230036792310484,
+    "max_pct_range_shift30s": 0.019172419536539476,
+    "max_pct_range_away_from_events": 0.0230036792310484,
+    "t_of_max_s": 2094,
+    "at_10min": 0.00010508493305083633,
+    "at_end": 3.718191379786795e-06
+   },
+   "F": {
+    "max_abs": 0.0014788353365478013,
+    "max_pct_range": 0.14788353365478013,
+    "max_pct_range_shift30s": 0.06900601588806232,
+    "max_pct_range_away_from_events": 0.14788353365478013,
+    "t_of_max_s": 1228,
+    "at_10min": 0.0011175674496648469,
+    "at_end": 0.00014346251614894
+   }
+  },
+  "worst_pct_of_range": 2.149768390798353,
+  "worst_pct_away_from_events": 2.149768390798353,
+  "worst_pct_shift30s": 0.1999091804657951,
+  "worst_var": "LOC",
+  "t_of_worst_s": 1946,
+  "events_matched": [
+   [
+    "speech_phrases_only",
+    0
+   ],
+   [
+    "hypercapnia",
+    3
+   ],
+   [
+    "speech_words_only",
+    3
+   ]
+  ],
+  "events_missing_in_brain": [],
+  "events_extra_in_brain": [],
+  "max_event_delay_s": 3,
+  "stage_mismatch_seconds": 4,
+  "pass_2pct_strict": false,
+  "pass_2pct": true,
+  "variant": "spec_default",
+  "minutes": 60,
+  "replay_bit_exact": true,
+  "ms_per_tick_code": 0.22827679638895562,
+  "ms_per_tick_brain": 35.795453208333285
+ },
+ "inappropriate_intervention": {
+  "errors": {
+   "SpO2": {
+    "max_abs": 0.0770322136535242,
+    "max_pct_range": 0.0770322136535242,
+    "max_pct_range_shift30s": 0.07698158003702815,
+    "max_pct_range_away_from_events": 0.07301673069001424,
+    "t_of_max_s": 1017,
+    "at_10min": 0.023021726286756916,
+    "at_end": 3.04182578503287e-05
+   },
+   "HR": {
+    "max_abs": 0.19196812448456058,
+    "max_pct_range": 0.09598406224228029,
+    "max_pct_range_shift30s": 0.09598406224228029,
+    "max_pct_range_away_from_events": 0.09209277376411507,
+    "t_of_max_s": 1019,
+    "at_10min": 0.07654065801820309,
+    "at_end": 0.011860959669405702
+   },
+   "RR": {
+    "max_abs": 0.4225890128809304,
+    "max_pct_range": 0.7043150214682173,
+    "max_pct_range_shift30s": 0.04435238901451181,
+    "max_pct_range_away_from_events": 0.7043150214682173,
+    "t_of_max_s": 1166,
+    "at_10min": 0.027978778507790736,
+    "at_end": 0.01187447408573128
+   },
+   "SBP": {
+    "max_abs": 0.04454492837407997,
+    "max_pct_range": 0.022272464187039986,
+    "max_pct_range_shift30s": 0.021284625710428884,
+    "max_pct_range_away_from_events": 0.02173391429096938,
+    "t_of_max_s": 1001,
+    "at_10min": 0.009179992764615008,
+    "at_end": 0.003357373114482698
+   },
+   "PaCO2": {
+    "max_abs": 0.11778775695150756,
+    "max_pct_range": 0.07852517130100505,
+    "max_pct_range_shift30s": 0.07852517130100505,
+    "max_pct_range_away_from_events": 0.07532941221617288,
+    "t_of_max_s": 1019,
+    "at_10min": 0.05634753182792451,
+    "at_end": 2.7617606122021243e-06
+   },
+   "EtCO2": {
+    "max_abs": 0.116333745104086,
+    "max_pct_range": 0.07755583006939067,
+    "max_pct_range_shift30s": 0.07755583006939067,
+    "max_pct_range_away_from_events": 0.07437653661579209,
+    "t_of_max_s": 1019,
+    "at_10min": 0.05529668249742059,
+    "at_end": 0.0026531656503863132
+   },
+   "LOC": {
+    "max_abs": 0.1346318513993232,
+    "max_pct_range": 4.48772837997744,
+    "max_pct_range_shift30s": 3.599013241875356,
+    "max_pct_range_away_from_events": 1.10588320331797,
+    "t_of_max_s": 1030,
+    "at_10min": 0.0009716159866277607,
+    "at_end": 0.0012285272492115196
+   },
+   "O": {
+    "max_abs": 0.00031494440161228265,
+    "max_pct_range": 0.031494440161228265,
+    "max_pct_range_shift30s": 0.02650403889778996,
+    "max_pct_range_away_from_events": 0.031494440161228265,
+    "t_of_max_s": 3307,
+    "at_10min": 0.00010508493305083633,
+    "at_end": 0.0002650403889778996
+   },
+   "F": {
+    "max_abs": 0.0010947206801066867,
+    "max_pct_range": 0.10947206801066867,
+    "max_pct_range_shift30s": 0.08358321914657685,
+    "max_pct_range_away_from_events": 0.10819476445267928,
+    "t_of_max_s": 1022,
+    "at_10min": 0.0009564751358677182,
+    "at_end": 0.0006688389828000268
+   }
+  },
+  "worst_pct_of_range": 4.48772837997744,
+  "worst_pct_away_from_events": 1.10588320331797,
+  "worst_pct_shift30s": 3.599013241875356,
+  "worst_var": "LOC",
+  "t_of_worst_s": 1030,
+  "events_matched": [
+   [
+    "speech_phrases_only",
+    0
+   ],
+   [
+    "hypercapnia",
+    1
+   ],
+   [
+    "speech_words_only",
+    4
+   ],
+   [
+    "hypotension",
+    0
+   ],
+   [
+    "silent_chest",
+    0
+   ],
+   [
+    "barotrauma_risk",
+    0
+   ]
+  ],
+  "events_missing_in_brain": [
+   [
+    1024,
+    "loc_drop"
+   ]
+  ],
+  "events_extra_in_brain": [
+   [
+    1083,
+    "loc_drop"
+   ]
+  ],
+  "max_event_delay_s": 4,
+  "stage_mismatch_seconds": 2,
+  "pass_2pct_strict": false,
+  "pass_2pct": false,
+  "variant": "spec_default",
+  "minutes": 60,
+  "replay_bit_exact": true,
+  "ms_per_tick_code": 0.21062837861109074,
+  "ms_per_tick_brain": 38.464250065833056
+ },
+ "_brain": {
+  "sha256": "9c9992111e4fdb6f",
+  "widths": [
+   54,
+   1859,
+   1708,
+   1454,
+   344,
+   158,
+   155,
+   1048,
+   152,
+   679,
+   778,
+   136,
+   133,
+   613,
+   138,
+   1029,
+   227,
+   867,
+   603,
+   681,
+   114,
+   109,
+   104,
+   100,
+   101,
+   99,
+   49
+  ],
+  "dense_params": 9237255,
+  "nonzero_params": 517111,
+  "n_layers": 26
+ }
+}

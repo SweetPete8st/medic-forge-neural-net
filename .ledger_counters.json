@@ -28,5 +28,11 @@
     "dc": 0,
     "fp": 24,
     "frozen": "2d18e68cc896fe47"
+  },
+  "exp3_brain_v2": {
+    "br": 0,
+    "dc": 0,
+    "fp": 8,
+    "frozen": "9c9992111e4fdb6f"
   }
 }

@@ -274,3 +274,9 @@ DC 1 | 2026-11-04 | exp3_brain_v2 | engine arrest branch: PaCO2 placeholder clim
 DC 2 | 2026-11-04 | exp3_brain_v2 | brain shell: raise RuntimeError when any input leaves its declared interval or any output is non-finite | reason: a compiled brain is correct only inside its declared ranges; silent gate leakage must become a loud failure. | DATA-INFORMED: yes
 DC 3 | 2026-11-04 | exp3_brain_v2 | runner: per-case crash capture (a crash is a recorded FAIL, the run continues); experiment id and held-out block as arguments | reason: v1 runner lost four completed cases when one crashed. Infrastructure. | DATA-INFORMED: no
 [auto] FP 1164 | 2026-11-04 | exp2_asthma | +291: four trajectories + interaction sweep (code control) | dev
+[auto] FP 8 | 2026-11-04 | exp3_brain_v2 | +8: dev: brain rollouts (+replay) for 4 cases | dev
+[auto] FREEZE | 2026-11-04 | exp3_brain_v2 | weights sha256:9c9992111e4fdb6f | compiled asthma brain frozen (graph + compiler)
+
+## exp4_calibrate: differentiable calibration (brain, torch) vs black-box fit (code, Nelder-Mead)
+
+DC 1 | 2026-11-04 | exp4_calibrate | code-search budget was 80 evaluations (protocol said 60); brain-grad first run (40 steps, 30 min horizon, 2 scripts) was stopped after 105 min with buffered output lost; rerun at 15 steps, 20 min horizon, 2 scripts, per-step progress log | reason: compute on 4 shared CPU cores; the first run would have been killed by its timeout before writing. | DATA-INFORMED: no (budget, not model)

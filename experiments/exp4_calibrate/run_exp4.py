@@ -19,9 +19,13 @@ EXP = "exp4_calibrate"; RES = HERE / "results"; RES.mkdir(exist_ok=True)
 TRUE_PORT = {"beta_agonist_responsiveness": 0.45, "progression_rate": 0.035, "fatigue_rate": 0.018}
 START_PORT = {"beta_agonist_responsiveness": 0.8, "progression_rate": 0.02, "fatigue_rate": 0.012}
 OBS = ["SpO2", "HR", "RR", "PaCO2"]; OBS_SCALE = {"SpO2": 100.0, "HR": 200.0, "RR": 60.0, "PaCO2": 150.0}
-MINUTES = 30; SAMPLE_EVERY = 30
+import argparse as _ap_mod
+_ap = _ap_mod.ArgumentParser(); _ap.add_argument("phase", nargs="?", default="all"); _ap.add_argument("--minutes", type=int, default=30)
+_ap.add_argument("--steps", type=int, default=40); _ap.add_argument("--scripts", default="timely_treatment,delayed_treatment"); _ap.add_argument("--maxfev", type=int, default=80)
+ARGS = _ap.parse_args()
+MINUTES = ARGS.minutes; SAMPLE_EVERY = 30
 spec = load_spec(ROOT / "spec/examples/asthma_adult_acute.yaml")
-SCRIPTS = {k: actions_from_spec(spec["trajectories"][k]["actions"]) for k in ("timely_treatment", "delayed_treatment")}
+SCRIPTS = {k: actions_from_spec(spec["trajectories"][k]["actions"]) for k in ARGS.scripts.split(",")}
 
 
 def code_observables(port):
@@ -76,7 +80,7 @@ class BrainRollout:
 
 
 def main():
-    phase = sys.argv[1] if len(sys.argv) > 1 else "all"
+    phase = ARGS.phase
     target = code_observables(TRUE_PORT)
     out = json.loads((RES / "results.json").read_text()) if (RES / "results.json").exists() else {}
     out.update({"true": TRUE_PORT, "start": START_PORT, "minutes": MINUTES})
@@ -93,13 +97,14 @@ def main():
         optim = torch.optim.Adam([logp], lr=0.05); t0 = time.perf_counter(); hist = []; n_roll = 0
         tgt = {n: torch.tensor(target[n], dtype=torch.float64) for n in SCRIPTS}
         scale = torch.tensor([OBS_SCALE[k] for k in OBS], dtype=torch.float64)
-        for step in range(40):
+        for step in range(ARGS.steps):
             optim.zero_grad(); loss = 0.0
             for n, ro in ros.items():
                 obs = ro.run(torch.exp(logp)); loss = loss + torch.mean(((obs - tgt[n]) / scale) ** 2); n_roll += 1
             loss = loss / len(ros); loss.backward(); optim.step()
             with torch.no_grad(): logp.clamp_(min=math.log(1e-3), max=math.log(1.0))
-            hist.append(float(loss)); print(f"brain-grad step {step:2d} loss {float(loss):.3e} port {[round(float(v),4) for v in torch.exp(logp)]} ({time.perf_counter()-t0:.0f}s)")
+            hist.append(float(loss)); msg = f"brain-grad step {step:2d} loss {float(loss):.3e} port {[round(float(v),4) for v in torch.exp(logp)]} ({time.perf_counter()-t0:.0f}s)"
+            print(msg, flush=True); (RES / "brain_grad_progress.log").open("a").write(msg + "\n")
             if float(loss) < 1e-6: break
         rec = {k: float(v) for k, v in zip(PORT, torch.exp(logp).detach())}
         out["brain_grad"] = {"recovered": rec, "final_loss": hist[-1], "steps": len(hist), "rollouts": n_roll, "wall_s": time.perf_counter() - t0,
@@ -111,7 +116,7 @@ def main():
         def f(logv):
             evals[0] += 1; port = {k: float(math.exp(v)) for k, v in zip(PORT, logv)}
             return loss_np(code_observables(port), target)
-        r = minimize(f, [math.log(START_PORT[k]) for k in PORT], method="Nelder-Mead", options={"maxfev": 80, "xatol": 1e-3, "fatol": 1e-8})
+        r = minimize(f, [math.log(START_PORT[k]) for k in PORT], method="Nelder-Mead", options={"maxfev": ARGS.maxfev, "xatol": 1e-3, "fatol": 1e-8})
         rec = {k: float(math.exp(v)) for k, v in zip(PORT, r.x)}
         out["code_search"] = {"recovered": rec, "final_loss": float(r.fun), "evaluations": evals[0], "rollouts": 2 * evals[0], "wall_s": time.perf_counter() - t0,
                               "rel_err": {k: abs(rec[k] - TRUE_PORT[k]) / TRUE_PORT[k] for k in PORT}}
