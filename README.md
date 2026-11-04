@@ -53,6 +53,10 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
   re-implementation of the constructions the brief lists, not the original `src/wsp/layers.py`.
 - No GPU was available in the authoring session. Every calibration number is therefore a
   **procedure**, not a result, until it is run on the 5090.
+- exp0_pk ran to completion in-session: hand-set weights matched the code control on a new held-out
+  set after one logged correction; the trained network did not. See `experiments/exp0_pk/RESULTS_v2.md`.
+- exp2_asthma: four trajectories pass their envelopes; 287-case interaction sweep clean.
+- Clinical drug constants in the asthma spec are unverified training knowledge pending reviewer sign-off.
 
 ## Quick start
 
