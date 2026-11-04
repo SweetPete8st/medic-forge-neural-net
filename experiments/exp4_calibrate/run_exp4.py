@@ -110,6 +110,27 @@ def main():
         out["brain_grad"] = {"recovered": rec, "final_loss": hist[-1], "steps": len(hist), "rollouts": n_roll, "wall_s": time.perf_counter() - t0,
                              "rel_err": {k: abs(rec[k] - TRUE_PORT[k]) / TRUE_PORT[k] for k in PORT}, "loss_history": hist}
         log_forward_passes(EXP, n_roll, "brain-grad differentiable rollouts (torch)", "dev")
+    if phase in ("code_fd",):
+        # fair comparison: the same Adam schedule as brain-grad, gradients by forward finite differences on the code engine
+        t0 = time.perf_counter(); n_roll = [0]
+        def f(logv):
+            port = {k: float(math.exp(v)) for k, v in zip(PORT, logv)}; n_roll[0] += 2 * len(SCRIPTS)
+            return loss_np(code_observables(port), target)
+        logv = np.array([math.log(START_PORT[k]) for k in PORT]); m = np.zeros(3); v2 = np.zeros(3); hist = []; eps = 0.02
+        for step in range(ARGS.steps):
+            base = f(logv); g = np.zeros(3)
+            for i in range(3):
+                d = np.zeros(3); d[i] = eps; g[i] = (f(logv + d) - base) / eps
+            m = 0.9 * m + 0.1 * g; v2 = 0.999 * v2 + 0.001 * g * g
+            mh = m / (1 - 0.9 ** (step + 1)); vh = v2 / (1 - 0.999 ** (step + 1))
+            logv = np.clip(logv - 0.05 * mh / (np.sqrt(vh) + 1e-8), math.log(1e-3), math.log(1.0))
+            hist.append(float(base)); msg = f"code-fd step {step:2d} loss {base:.3e} port {[round(float(math.exp(x)),4) for x in logv]} ({time.perf_counter()-t0:.0f}s)"
+            print(msg, flush=True); (RES / "code_fd_progress.log").open("a").write(msg + "\n")
+        rec = {k: float(math.exp(x)) for k, x in zip(PORT, logv)}
+        out["code_fd"] = {"recovered": rec, "final_loss": f(logv), "steps": ARGS.steps, "rollouts": n_roll[0], "wall_s": time.perf_counter() - t0,
+                          "rel_err": {k: abs(rec[k] - TRUE_PORT[k]) / TRUE_PORT[k] for k in PORT}, "loss_history": hist}
+        log_forward_passes(EXP, n_roll[0], "code finite-difference Adam rollouts", "dev")
+        print("code-fd:", json.dumps({k: v for k, v in out["code_fd"].items() if k != "loss_history"}, indent=1))
     if phase in ("code", "all"):
         from scipy.optimize import minimize
         t0 = time.perf_counter(); evals = [0]
