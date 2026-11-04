@@ -1,0 +1,99 @@
+dt_s: 1.0
+variants:
+  typical:
+    ka_half_min: 2.5
+    ke_half_min: 150
+    keo_half_min: 1.0
+    Emax: 1.0
+    EC50: 1.0
+    HRmax: 25.0
+    EC50_hr: 1.5
+  fast_absorber:
+    ka_half_min: 1.0
+    ke_half_min: 120
+    keo_half_min: 0.5
+    Emax: 1.0
+    EC50: 0.8
+    HRmax: 30.0
+    EC50_hr: 1.0
+  slow_eliminator:
+    ka_half_min: 4.0
+    ke_half_min: 300
+    keo_half_min: 2.0
+    Emax: 1.0
+    EC50: 1.2
+    HRmax: 20.0
+    EC50_hr: 2.0
+schedules:
+  single_2p5:
+    minutes: 60
+    doses:
+    - - 60
+      - depot
+      - 2.5
+  two_q20:
+    minutes: 60
+    doses:
+    - - 60
+      - depot
+      - 2.5
+    - - 1260
+      - depot
+      - 2.5
+  three_q20:
+    minutes: 90
+    doses:
+    - - 60
+      - depot
+      - 2.5
+    - - 1260
+      - depot
+      - 2.5
+    - - 2460
+      - depot
+      - 2.5
+  iv_bolus:
+    minutes: 60
+    doses:
+    - - 120
+      - central
+      - 0.3
+  inhaled_then_iv:
+    minutes: 60
+    doses:
+    - - 60
+      - depot
+      - 2.5
+    - - 900
+      - central
+      - 0.3
+  dose_then_wait:
+    minutes: 90
+    doses:
+    - - 0
+      - depot
+      - 5.0
+  two_q5:
+    minutes: 60
+    doses:
+    - - 60
+      - depot
+      - 2.5
+    - - 360
+      - depot
+      - 2.5
+  irregular_four:
+    minutes: 90
+    doses:
+    - - 30
+      - depot
+      - 2.5
+    - - 500
+      - depot
+      - 5.0
+    - - 2000
+      - central
+      - 0.3
+    - - 4000
+      - depot
+      - 2.5

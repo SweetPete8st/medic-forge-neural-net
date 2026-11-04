@@ -10,11 +10,11 @@ from mfnn.wsp.layers import ReLUNet  # noqa: E402
 
 def score(weights_path: str, variant: str = "typical") -> dict:
     """Rollout convention: the net maps [A_d, A_c, C_e, tau, u_d, u_c] -> [A_d', A_c', C_e', tau', E, dHR]."""
-    spec = yaml.safe_load((HERE / "pk_spec.yaml").read_text()); splits = json.loads((HERE / "splits.json").read_text())
-    net = ReLUNet.load(weights_path); v = spec["variants"]["dev"][variant]
+    spec = yaml.safe_load((HERE / "pk_spec_dev.yaml").read_text())
+    net = ReLUNet.load(weights_path); v = spec["variants"][variant]
     worst = 0.0
-    for sn in splits["dev"]["schedules"]:
-        sch = spec["schedules"]["dev"][sn]; doses = [(d[0], d[1], d[2]) for d in sch["doses"]]; n = int(sch["minutes"] * 60)
+    for sn, sch in spec["schedules"].items():
+        doses = [(d[0], d[1], d[2]) for d in sch["doses"]]; n = int(sch["minutes"] * 60)
         ref = pk_code.rollout(v, doses, n)
         by_t = {}
         for t, route, amt in doses:

@@ -17,7 +17,7 @@ from mfnn.ledger import log_builder_run  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 TASKS = {
-    "pk": {"spec": ROOT / "experiments/exp0_pk/pk_spec.yaml", "library": ROOT / "src/mfnn/wsp/layers.py",
+    "pk": {"spec": ROOT / "experiments/exp0_pk/pk_spec_dev.yaml", "library": ROOT / "src/mfnn/wsp/layers.py",
            "score_module": "experiments/exp0_pk/score_pk.py", "target": "max |dE| <= 0.01 on the dev cases"},
     "ecg": {"spec": HERE / "ecg-wsp-v4/src/wsp/detector.py", "library": HERE / "ecg-wsp-v4/src/wsp/layers.py",
             "score_module": "experiments/exp1_calibration/score_ecg.py", "target": "sensitivity >= 0.97 and PPV >= 0.97 on MIT-BIH record 100"},
@@ -43,7 +43,8 @@ def chat(endpoint, model, messages, max_tokens=8000, temperature=0.0):
 
 def run_sandbox(code: str, workdir: Path, timeout_s: int = 600) -> str:
     script = workdir / "step.py"; script.write_text(code)
-    env = {"PATH": os.environ.get("PATH", ""), "PYTHONPATH": str(ROOT / "src"), "HOME": str(workdir)}
+    env = {"PATH": os.environ.get("PATH", ""), "HOME": str(workdir), "SYSTEMROOT": os.environ.get("SYSTEMROOT", ""),
+           "PYTHONPATH": os.pathsep.join(str(p) for p in (ROOT / "src", ROOT / "experiments/exp0_pk", ROOT / "experiments/exp1_calibration"))}
     try:
         p = subprocess.run([sys.executable, "-I", str(script)], cwd=workdir, env=env, capture_output=True, text=True, timeout=timeout_s)
         out = (p.stdout + "\n" + p.stderr)
@@ -54,7 +55,8 @@ def run_sandbox(code: str, workdir: Path, timeout_s: int = 600) -> str:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--builder", required=True); ap.add_argument("--model", required=True)
+    ap.add_argument("--builder", default="http://127.0.0.1:11434/v1", help="OpenAI-compatible base URL (Ollama default shown; llama-server: http://127.0.0.1:8080/v1)")
+    ap.add_argument("--model", required=True, help="model id as the server names it, e.g. gpt-oss:20b")
     ap.add_argument("--task", choices=TASKS, required=True); ap.add_argument("--toy", default="addition")
     ap.add_argument("--max-runs", type=int, default=40); ap.add_argument("--wall-h", type=float, default=6.0)
     a = ap.parse_args()
