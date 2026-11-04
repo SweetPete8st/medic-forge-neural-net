@@ -9,11 +9,15 @@ standards, reference equations) were verified. Those sections are labelled unver
 - BTS/SIGN acute asthma features: acute severe PEF 33-50%, RR >= 25, HR >= 110, cannot complete
   sentences; life-threatening PEF < 33%, SpO2 < 92%, silent chest, cyanosis, poor effort, arrhythmia,
   hypotension, exhaustion, altered consciousness; near-fatal raised PaCO2.
-- GINA: 2025 report is the latest confirmed; the exact exacerbation severity table was not retrieved
-  (secondary paraphrases: severe = talks in words, RR > 30, HR > 120, SpO2 < 90% on air).
+- **GINA 2025 Summary Guide, primary care exacerbation figure (primary, read from the PDF on
+  2026-11-04):** SEVERE: talks in words, sits hunched forwards, agitated; respiratory rate > 30/min;
+  accessory muscles in use; pulse rate > 120 bpm; O2 saturation (on air) < 90%; PEF <= 50% predicted or
+  best. LIFE-THREATENING: drowsy, confused or quiet chest. Discharge criteria include oxygen saturation
+  > 94% on room air. (The PDF is copyrighted; cite, do not redistribute.)
 - NASEMSO National Model EMS Clinical Guidelines v3.0 (March 2022): respiratory distress section
   lists rate, breath sounds, accessory muscle use, retractions, SpO2, waveform capnography, SpO2 target
-  94-98%; full text not retrieved.
+  94-98% (secondary); the NASEMSO site refused the session's fetches (403), so the full text was not
+  retrieved. Download it on the work computer.
 - GOLD 2026: Rome mild/moderate/severe classification; numeric cut-offs not retrieved.
 - Pulse Physiology Engine (primary, github mirror): Apache-2.0, AsthmaAttack action, COPD condition,
   Python API, JSON scenarios. BioGears: Apache-2.0; asthma action unconfirmed.

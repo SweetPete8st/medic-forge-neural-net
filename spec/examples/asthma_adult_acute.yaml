@@ -131,7 +131,7 @@ scenario:
       range: [0.3, 0.8]
       unit: "fraction per O^2"
       description: "V/Q mismatch modelled as venous admixture = shunt_base + shunt_per_O2 * O^2. PaO2 = PAO2 * (1 - admixture). SIMPLIFICATION: true shunt is O2-refractory; V/Q mismatch is O2-responsive. This lumped form makes supplemental O2 somewhat too effective at high O and is flagged for reviewer attention."
-      source: {citation: "Modeling assumption, shaped so that room-air SpO2 is ~95% at O=0.58 and ~90% at O=0.8 (GINA severe threshold SpO2 < 90%).", grade: modeling_assumption, verified: false}
+      source: {citation: "Modeling assumption, shaped so that room-air SpO2 is ~95% at O=0.58 and ~90% at O=0.8. GINA 2025 Summary Guide, exacerbation figure (verified from the primary PDF 2026-11-04): severe = talks in words, RR >30/min, accessory muscles, pulse >120 bpm, SpO2 on air <90%, PEF <=50%; life-threatening = drowsy, confused or quiet chest.", grade: modeling_assumption, verified: false}
       confidence: low
     rr_co2_gain:
       value: 0.8
@@ -165,7 +165,7 @@ scenario:
       range: [15, 40]
       unit: "breaths/min at O = 1"
       description: "Tachypnoea from obstruction itself (afferent/dyspnoea drive). At O=0.58 adds ~16/min, giving RR ~30 with the CO2 term, matching the severe threshold RR > 30 (GINA)."
-      source: {citation: "Shaped to GINA severity thresholds (RR > 30/min for severe); mechanism is textbook.", grade: modeling_assumption, verified: false}
+      source: {citation: "Gain is a modeling choice shaped to the verified GINA severe threshold RR >30/min. GINA 2025 Summary Guide, exacerbation figure (verified from the primary PDF 2026-11-04): severe = talks in words, RR >30/min, accessory muscles, pulse >120 bpm, SpO2 on air <90%, PEF <=50%; life-threatening = drowsy, confused or quiet chest.", grade: modeling_assumption, verified: false}
       confidence: low
     vt_obstruction_loss:
       value: 0.5
@@ -184,7 +184,7 @@ scenario:
       range: [20, 70]
       unit: "bpm at O = 1"
       description: "Sympathetic drive from distress; with O=0.58 gives HR ~ 72 + 26 = 98 before drugs. Severe threshold HR > 120 (GINA) is reached with albuterol tachycardia plus hypoxia."
-      source: {citation: "Shaped to GINA severity thresholds.", grade: modeling_assumption, verified: false}
+      source: {citation: "Gain is a modeling choice shaped to the verified GINA severe threshold pulse >120 bpm. GINA 2025 Summary Guide, exacerbation figure (verified from the primary PDF 2026-11-04): severe = talks in words, RR >30/min, accessory muscles, pulse >120 bpm, SpO2 on air <90%, PEF <=50%; life-threatening = drowsy, confused or quiet chest.", grade: modeling_assumption, verified: false}
       confidence: low
     hr_co2_gain:
       value: 0.6
@@ -270,7 +270,7 @@ scenario:
       range: [0.2, 0.45]
       unit: "fraction of baseline alveolar ventilation"
       description: "Below this effective ventilation wheeze disappears (silent chest)."
-      source: {citation: "Silent chest is a life-threatening feature (GINA, BTS/SIGN); the ventilation threshold is a modeling choice.", grade: modeling_assumption, verified: false}
+      source: {citation: "Quiet chest is a life-threatening feature: GINA 2025 Summary Guide, exacerbation figure (verified from the primary PDF 2026-11-04): severe = talks in words, RR >30/min, accessory muscles, pulse >120 bpm, SpO2 on air <90%, PEF <=50%; life-threatening = drowsy, confused or quiet chest. BTS/SIGN lists silent chest likewise (secondary coverage). The ventilation threshold itself is a modeling choice.", grade: modeling_assumption, verified: false}
       confidence: low
     loc_co2_1:
       value: 60
@@ -407,6 +407,9 @@ devices:
     fio2: 1.0
     source: {citation: "Lung-protective, low rate, long expiratory time strategy after intubation in asthma (textbook).", grade: training_knowledge_unverified, verified: false}
 
+# Stage and event thresholds below follow the GINA 2025 Summary Guide exacerbation figure (verified from
+# the primary PDF on 2026-11-04): severe = talks in words, RR >30, pulse >120, SpO2 on air <90%, PEF <=50%;
+# life-threatening = drowsy, confused or quiet chest. Hidden-state cut-offs (O, F) are modeling choices.
 stages:
   - {name: S0_moderate, when: "O < 0.65 and F < 0.5 and PaCO2 < 45"}
   - {name: S1_severe, when: "O >= 0.65 or RR > 30 or SpO2 < 92"}

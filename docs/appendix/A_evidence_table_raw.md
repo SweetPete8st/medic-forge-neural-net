@@ -1,3 +1,5 @@
+> NOTE (added after the agent finished): several 'search snippet only' rows were later verified from their primary pages; see `docs/evidence_table.md`, section 'Verification update'. This file is the agent's output and is kept unchanged below.
+
 # Evidence table: "weight-space programming" (LLMs reading / writing neural-network weights), as of 2026-11-04
 
 ## How to read the verification labels

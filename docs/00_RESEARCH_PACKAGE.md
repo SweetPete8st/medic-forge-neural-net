@@ -74,6 +74,14 @@ per-source notes and quotes (Section B), bearing on the simulator (Section C), c
   Drag-and-Drop LLMs. Every trained generator needs hundreds to tens of thousands of already-trained
   target networks and none is conditioned on an algorithm.
 
+*Late verification.* After the network allowlist was approved near the end of the session, the MIT
+blog, Honnibal's post, the Hugging Face card, Singh's report, the arXiv abstracts and the HN threads
+were read from their primary pages. Everything above survived. Corrections: the blog itself states
+the 0.016% figure and the sentence "Fixing loops, however, is not the same as making a model better at
+math: it lets the model finish answers it could already work out"; Singh's report is dated
+2026-11-02 and names "Claude" with no version; the Latent Space recap page is dated 2026-11-02, not
+11-03. Details in `docs/evidence_table.md`, "Verification update".
+
 **Which evidence bears on a stateful patient simulator (demonstrated vs analogy):** direct evidence
 exists only for compiling *stateless* explicit rules into small nets via code with a feedback loop
 (csinva, ctrimm; and our own PK experiment adds a *stateful* linear-recurrence case, Section 7).
@@ -269,12 +277,15 @@ trajectories and for cross-checking our engine's gas-exchange behaviour; BioGear
 action not confirmed). Datasets: MIMIC-IV-ED has triage and repeated ED vitals at about hourly
 charting; HiRID at 2 min; NEMSIS is event-level with timestamped vital sets; MIT-BIH for ECG.
 **No dataset with minute-level prehospital vitals during treatment of respiratory distress was
-found** (not proven absent; the search was cut off). Guidelines: GINA 2025, BTS/SIGN (acute severe:
+found** (not proven absent; the search was cut off). Guidelines: **GINA 2025 Summary Guide (read from the primary PDF): severe = talks in words, sits
+hunched forwards, agitated, respiratory rate > 30/min, accessory muscles in use, pulse > 120 bpm,
+O2 saturation on air < 90%, PEF <= 50% predicted or best; life-threatening = drowsy, confused or quiet
+chest; discharge target saturation > 94% on room air**; BTS/SIGN (acute severe:
 PEF 33-50%, RR >= 25, HR >= 110, cannot complete sentences; life-threatening: PEF < 33%, SpO2 < 92%,
 silent chest, cyanosis, poor effort, arrhythmia, hypotension, exhaustion, altered consciousness;
 near-fatal: raised PaCO2; secondary coverage), NASEMSO National Model EMS Clinical Guidelines v3.0
 (March 2022; respiratory distress section not retrieved in full), GOLD 2026 (Rome classification).
-The exact GINA table and all drug kinetics remain for the reviewer to confirm; the YAML marks each.
+The GINA severity criteria are now verified; all drug kinetics remain for the reviewer to confirm; the YAML marks each.
 
 **LLM-generated trajectories are candidate data.** Checking: (1) every candidate is replayed
 through the code engine and must stay inside the spec's envelopes; (2) causal checks (dose then

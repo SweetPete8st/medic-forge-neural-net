@@ -33,3 +33,21 @@ N = search snippet only, U = unverified.
 rules (csinva, ctrimm) and now one stateful linear-plus-Emax cell (this repo, frontier builder).
 Analogy only: every pretrained-LM edit. Negative-leaning on the local-builder axis: no open-weight
 model has written a non-trivial net in any published test; a 27B model reads a 17K net slowly.
+
+
+## Verification update (2026-11-04, after the session's network allowlist was approved)
+
+The following were re-read from their primary pages (downloaded into the session, not committed):
+
+| Source | Now verified | What the primary text says |
+|---|---|---|
+| MIT blog (rikiyat.github.io, 2026-11-02) | primary | "the edit changes only 131,072 of the model's 0.8 billion weights (0.016%)". "Fixing loops, however, is not the same as making a model better at math: it lets the model finish answers it could already work out." Gemma 3 270M: "Astra could not improve it." "We are currently building a benchmark and a harness for LLMs' capability on Weight-Space Programming." Experiments 1, 2, 4, 5 read or write weights as text with no tools; 3, 6, 7, 8 use a Python sandbox; 6 and 8 add budgeted forward passes. |
+| Honnibal, "The 'Astra can read and write weights to improve Qwen' post is misleading" | primary, dated 2026-11-03 | Only the raw-floats-in-context experiments are "just by looking at the raw weights"; "Every experiment involving a real language model uses Python, and the Qwen result ... also gets to run the model on up to 50 batches of practice problems"; concedes the work is what "a human ML engineer could do". HN thread 50351111: 1,015 points, 206 comments; top comment: "the key result has nothing to do with making Qwen better at math, it just reduces reasoning loops." |
+| Goedecke, "LLMs are not superhuman at reading and writing neural network weights" | primary (HN 50344861, 146 points) | as summarised in the appendix |
+| Hugging Face card RikiyaT/Qwen3.5-0.8B-weight-space-programming | primary | Apache-2.0. "Independent re-run of this checkpoint: full MATH-500, 500 problems x 4 samples = 2,000 generations ... The edited model scored 51.0%, with 31.6% of answers hitting the token limit." "This checkpoint and the re-run above were built by akhaliq". |
+| Singh, "Weight-Space Programming from scratch on simple tasks" (csinva.io) | primary, dated November 2, 2026 | "using Claude. Claude, running as an autonomous coding agent ... Across 13 tasks Claude wrote 959 weight-space programs. All ten algorithmic tasks reached 100% ... within three attempts; five on the first attempt." No Claude version is named. Language tasks: the evaluation examples were sampled from a pool the agent could read, so sentiment and inference results are built from statistics that include the evaluation examples (author's own caveat). The run folders named "may15" are therefore from an earlier date than the report. |
+| arXiv dates | primary | RASP 2106.06981 v1 13 Jun 2021; Tracr 2301.05062 v1 12 Jan 2023, v5 3 Nov 2023; Arditi 2406.11717 v1 17 Jun 2024, v3 30 Oct 2024; NeuroGen 2505.12470 v1 18 May 2025, v2 23 May 2025; Text2Weight 2508.13633 19 Aug 2025; survey 2603.10090 10 Mar 2026. |
+| Latent Space AINews recap | primary page | The page carries the date 2026-11-02, not 2026-11-03 as the brief states; it files the item under "Weight-Space Editing and Model Steering". |
+| Pulse Physiology Engine front page | primary | "Distributed under the Apache License, Version 2.0." Version, drug list and asthma/COPD details are on documentation pages not read in this session. |
+| NASEMSO site | not retrievable | nasemso.org returned 403 to the session's fetches. |
+| Keruac X thread | not retrievable | x.com requires a browser; not read. |

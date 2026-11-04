@@ -240,3 +240,4 @@ DC 3 | 2026-11-04 | exp0_pk_v2 | pk_trained: training configuration change 1 of 
 [auto] FP 200 | 2026-11-04 | exp0_pk_v2 | +2: wsp_on_BURNED_heldout heldout slow_link/nothing (+replay) | heldout
 [auto] FP 202 | 2026-11-04 | exp0_pk_v2 | +2: wsp_on_BURNED_heldout heldout slow_link/overdose_ten_q6 (+replay) | heldout
 [auto] FP 204 | 2026-11-04 | exp0_pk_v2 | +2: wsp_on_BURNED_heldout heldout slow_link/three_fast_then_nothing (+replay) | heldout
+[auto] FP 873 | 2026-11-04 | exp2_asthma | +291: four trajectories + interaction sweep (code control) | dev
