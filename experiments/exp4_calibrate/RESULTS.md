@@ -8,7 +8,7 @@ budget reduction); recover the three values from the spec defaults (0.8, 0.02, 0
 | Method | Rollouts | Wall | Final loss | Relative error (responsiveness / progression / fatigue) | Recovered values |
 |---|---|---|---|---|---|
 | CODE, Nelder-Mead (black box) | 160 | 51 s | 3.53e-04 | 66.1% / 16.3% / 23.1% | 0.748 / 0.0407 / 0.0139 |
-| CODE, finite-difference Adam (same schedule as brain) | 244 | 26 s | 1.45e-05 | 5.8% / 5.4% / 11.0% | 0.424 / 0.0331 / 0.0200 |
+| CODE, finite-difference Adam (same schedule as brain) | 122 | 26 s | 1.45e-05 | 5.8% / 5.4% / 11.0% | 0.424 / 0.0331 / 0.0200 |
 | BRAIN, autograd Adam (torch export) | 30 | 3636 s | 2.35e-03 | 5.3% / 1.5% / 16.6% | 0.426 / 0.0345 / 0.0210 |
 
 Brain autograd best intermediate step: step 10, loss 2.42e-05. Brain wall time was measured
@@ -19,7 +19,7 @@ so an uncontended run would be about 4 minutes, still 10x the finite-difference 
 - Gradient descent recovers instructor corrections far better than Nelder-Mead at this budget (both
   gradient methods within 1-17% on every parameter; Nelder-Mead 16-66%).
 - **Differentiability of the brain is not what delivered that.** Finite differences on the code engine
-  match the brain's accuracy with 4x the rollouts but 100x less wall time, because the code engine
+  match the brain's accuracy with 4x the rollouts (122 vs 30) but 100x less wall time, because the code engine
   steps in 0.3 ms and the brain in 3-35 ms. With three parameters, finite differences are cheap.
 - The brain's advantage would appear only when many parameters are calibrated at once (dozens of spec
   constants, or hidden weights), where finite differences scale linearly in cost and autograd does

@@ -67,7 +67,7 @@
   },
   "final_loss": 1.4505792290219008e-05,
   "steps": 15,
-  "rollouts": 244,
+  "rollouts": 122,
   "wall_s": 25.77038821699898,
   "rel_err": {
    "beta_agonist_responsiveness": 0.058267542108460704,
@@ -90,6 +90,7 @@
    0.0013316638405026706,
    0.0008480343415270708,
    0.00032450123184450577
-  ]
+  ],
+  "rollouts_note": "corrected from a double-counted 244: 61 loss evaluations x 2 scripts"
  }
 }

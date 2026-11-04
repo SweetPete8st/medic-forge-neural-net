@@ -1,1 +1,2 @@
 V4_very_poor_responder/S7_magnesium_then_albuterol worst 59.298% (EtCO2 @ 1447s) | away-from-events 3.897% | shift-30s 0.070% | max ev delay 5s | missing 0 extra 0 | stage mismatch 12s | replay True | 8.38 ms/tick
+V4_very_poor_responder/S8_ketamine_intubate_vent14 worst 0.917% (LOC @ 876s) | away-from-events 0.882% | shift-30s 0.146% | max ev delay 3s | missing 0 extra 0 | stage mismatch 3s | replay True | 3.59 ms/tick
