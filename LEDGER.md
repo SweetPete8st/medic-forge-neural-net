@@ -280,3 +280,4 @@ DC 3 | 2026-11-04 | exp3_brain_v2 | runner: per-case crash capture (a crash is a
 ## exp4_calibrate: differentiable calibration (brain, torch) vs black-box fit (code, Nelder-Mead)
 
 DC 1 | 2026-11-04 | exp4_calibrate | code-search budget was 80 evaluations (protocol said 60); brain-grad first run (40 steps, 30 min horizon, 2 scripts) was stopped after 105 min with buffered output lost; rerun at 15 steps, 20 min horizon, 2 scripts, per-step progress log | reason: compute on 4 shared CPU cores; the first run would have been killed by its timeout before writing. | DATA-INFORMED: no (budget, not model)
+[auto] BR 7 | 2026-11-04 | gpt-oss-32k | pk | sandbox runs: 10 | wall: 4377s | attempts: 1 | weights_written | saved experiments\exp1_calibration\runs\pk_gpt-oss-32k_20261104-180647
