@@ -1,2 +1,19 @@
 V4_very_poor_responder/S7_magnesium_then_albuterol worst 59.298% (EtCO2 @ 1447s) | away-from-events 3.897% | shift-30s 0.070% | max ev delay 5s | missing 0 extra 0 | stage mismatch 12s | replay True | 8.38 ms/tick
 V4_very_poor_responder/S8_ketamine_intubate_vent14 worst 0.917% (LOC @ 876s) | away-from-events 0.882% | shift-30s 0.146% | max ev delay 3s | missing 0 extra 0 | stage mismatch 3s | replay True | 3.59 ms/tick
+V4_very_poor_responder/S9_ntg_then_late_albuterol worst 62.174% (EtCO2 @ 1264s) | away-from-events 2.594% | shift-30s 0.128% | max ev delay 4s | missing 0 extra 0 | stage mismatch 10s | replay True | 4.16 ms/tick
+V4_very_poor_responder/S10_early_cpap_plus_albuterol worst 11.988% (RR @ 2535s) | away-from-events 11.988% | shift-30s 11.957% | max ev delay 5s | missing 1 extra 1 | stage mismatch 4s | replay True | 4.13 ms/tick
+V4_very_poor_responder/S11_supine_nothing_75 worst 62.485% (EtCO2 @ 1143s) | away-from-events 2.222% | shift-30s 0.178% | max ev delay 4s | missing 0 extra 0 | stage mismatch 10s | replay True | 4.23 ms/tick
+V4_very_poor_responder/S12_full_bundle_90 worst 12.842% (F @ 5391s) | away-from-events 12.842% | shift-30s 12.792% | max ev delay 5s | missing 0 extra 1 | stage mismatch 4s | replay True | 4.08 ms/tick
+V5_good_responder_slow/S7_magnesium_then_albuterol worst 0.067% (F @ 512s) | away-from-events 0.067% | shift-30s 0.041% | max ev delay 4s | missing 0 extra 0 | stage mismatch 0s | replay True | 3.89 ms/tick
+V5_good_responder_slow/S8_ketamine_intubate_vent14 worst 0.775% (LOC @ 907s) | away-from-events 0.244% | shift-30s 0.257% | max ev delay 1s | missing 0 extra 0 | stage mismatch 2s | replay True | 3.93 ms/tick
+V5_good_responder_slow/S9_ntg_then_late_albuterol worst 0.104% (F @ 1298s) | away-from-events 0.104% | shift-30s 0.070% | max ev delay 4s | missing 0 extra 0 | stage mismatch 2s | replay True | 3.91 ms/tick
+V5_good_responder_slow/S10_early_cpap_plus_albuterol worst 0.050% (F @ 288s) | away-from-events 0.050% | shift-30s 0.040% | max ev delay 7s | missing 0 extra 0 | stage mismatch 0s | replay True | 3.79 ms/tick
+V5_good_responder_slow/S11_supine_nothing_75 worst 60.492% (EtCO2 @ 2190s) | away-from-events 4.245% | shift-30s 0.036% | max ev delay 6s | missing 0 extra 0 | stage mismatch 23s | replay True | 4.07 ms/tick
+V5_good_responder_slow/S12_full_bundle_90 worst 0.062% (F @ 253s) | away-from-events 0.062% | shift-30s 0.031% | max ev delay 3s | missing 0 extra 0 | stage mismatch 0s | replay True | 4.09 ms/tick
+V6_fast_progressor/S7_magnesium_then_albuterol worst 61.204% (EtCO2 @ 1074s) | away-from-events 2.630% | shift-30s 0.428% | max ev delay 3s | missing 0 extra 0 | stage mismatch 8s | replay True | 3.62 ms/tick
+V6_fast_progressor/S8_ketamine_intubate_vent14 worst 2.931% (RR @ 762s) | away-from-events 2.931% | shift-30s 1.186% | max ev delay 2s | missing 0 extra 0 | stage mismatch 9s | replay True | 3.88 ms/tick
+V6_fast_progressor/S9_ntg_then_late_albuterol worst 60.512% (EtCO2 @ 938s) | away-from-events 1.449% | shift-30s 0.430% | max ev delay 3s | missing 0 extra 0 | stage mismatch 8s | replay True | 3.95 ms/tick
+V6_fast_progressor/S10_early_cpap_plus_albuterol worst 11.504% (RR @ 2179s) | away-from-events 11.504% | shift-30s 11.496% | max ev delay 6s | missing 0 extra 1 | stage mismatch 3s | replay True | 4.16 ms/tick
+V6_fast_progressor/S11_supine_nothing_75 worst 60.786% (EtCO2 @ 880s) | away-from-events 1.783% | shift-30s 0.480% | max ev delay 3s | missing 0 extra 0 | stage mismatch 6s | replay True | 4.09 ms/tick
+V6_fast_progressor/S12_full_bundle_90 worst 33.333% (LOC @ 4696s) | away-from-events 33.333% | shift-30s 33.333% | max ev delay 3s | missing 0 extra 1 | stage mismatch 2s | replay True | 3.89 ms/tick
+HELD-OUT: 14/18 cases pass the 2%-of-range + event criteria

@@ -76,9 +76,12 @@ tail, and a compiled brain is valid only inside its declared ranges, so the shel
 when any input leaves them. The v1 held-out set is burned; v2 uses three new variants and six new
 sequences defined before the run.
 
-Held-out v2 results (3 unseen parameter variants x 6 unseen action sequences, run after freezing
-the v2 brain): `experiments/exp3_brain/results/heldout_results_exp3_brain_v2.json`; table appended
-below once the run completed.
+**Held-out v2 (frozen 9c9992111e4fdb6f; 3 unseen variants x 6 unseen sequences; harness initial-condition
+bug fixed after the first run, logged): 14 of 18 PASS on the shift-tolerant 2% + 30 s event rule, 4 FAIL,
+0 crashes, replay bit-exact on all 18, max event delay 7 s on passing cases. FAIL under the all-cases
+rule.** All four failures are late-session second collapses or ventilation dips in sensitive regimes
+where a sub-percent difference shifts a steep threshold crossing by more than 30 s and spawns a
+spurious `silent_chest` event. Full table and reading: `experiments/exp3_brain/RESULTS.md`.
 
 ## 3. Can frontier models reliably and reproducibly write these networks? (exp1, Claude family)
 
@@ -137,8 +140,10 @@ Differentiability is not an instructor-visible advantage at this scale.
 ## 5. What this means for Medic Forge (assessment)
 
 - **Demonstrated:** a reviewable physiology program can be compiled deterministically into a patient
-  network that reproduces the reference engine within a 30 s time shift over full sessions, with
-  bit-exact replay and a manifest that names every hidden unit. "Designing the brain" becomes writing
+  network that reproduces the reference engine within a 30 s time shift over full sessions in 14 of 18
+  unseen cases, with bit-exact replay and a manifest that names every hidden unit; the 4 misses are
+  sensitive late-session threshold crossings, a specification-design problem (hysteresis) rather than a
+  compile error, but a real limit on treating the brain as the reference. "Designing the brain" becomes writing
   or editing the program and the specification; the weights are a build artefact, like a binary.
 - **Demonstrated:** the frontier-model-writes-weights route works reliably on small, fully specified
   pieces and fails on unseen ranges unless the builder reasons about bounds. It does not scale to the

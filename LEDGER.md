@@ -285,3 +285,6 @@ DC 4 | 2026-11-04 | exp3_brain_v2 | evaluation harness: the code engine now re-s
 FP 26 | 2026-11-04 | exp3_brain_v2 | 13 held-out brain rollouts (+replay) under the buggy harness | heldout
 [auto] FP 274 | 2026-11-04 | exp4_calibrate | +244: code finite-difference Adam rollouts | dev
 NOTE | 2026-11-04 | exp4_calibrate | the auto FP line for the code finite-difference run over-counted rollouts (244 logged; actual 122 = 61 loss evaluations x 2 scripts). Counter left as logged; this note is the correction.
+[auto] FP 44 | 2026-11-04 | exp3_brain_v2 | +36: heldout: brain rollouts (+replay) for 18 cases | heldout
+
+### exp3_brain_v2 held-out outcome (frozen 9c9992111e4fdb6f, corrected harness): 14/18 PASS, 4 FAIL (late-session threshold-timing shifts with spurious silent_chest events), 0 crashes, replay bit-exact. FAIL under the all-cases rule. See experiments/exp3_brain/RESULTS.md.
