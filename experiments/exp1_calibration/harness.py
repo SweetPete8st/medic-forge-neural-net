@@ -48,7 +48,8 @@ def validate_pk(workdir: Path) -> str:
             d = np.load(f); Ws = [d[k] for k in sorted(k for k in d.files if k.startswith("W"))]
             if not Ws: results.append(f"{variant}: empty file"); continue
             if Ws[0].shape[1] != 6 or Ws[-1].shape[0] != 6: results.append(f"{variant}: bad shapes {[w.shape for w in Ws]}"); continue
-            r = subprocess.run([sys.executable, "-I", str(workdir / "score.py"), str(f), variant], cwd=workdir, capture_output=True, text=True, timeout=900)
+            env = {"PATH": os.environ.get("PATH", ""), "HOME": str(workdir), "SYSTEMROOT": os.environ.get("SYSTEMROOT", ""), "PYTHONPATH": str(workdir)}
+            r = subprocess.run([sys.executable, str(workdir / "score.py"), str(f), variant], cwd=workdir, env=env, capture_output=True, text=True, timeout=900)
             line = (r.stdout.strip().splitlines() or [r.stderr.strip()[-200:]])[-1]
             results.append(f"{variant}: {line[:160]}")
         except Exception as e:
@@ -81,7 +82,7 @@ def chat(endpoint, model, messages, max_tokens=4096, temperature=0.0):
 def run_sandbox(code: str, workdir: Path, timeout_s: int = 600) -> str:
     script = workdir / "step.py"; script.write_text(code)
     env = {"PATH": os.environ.get("PATH", ""), "HOME": str(workdir), "SYSTEMROOT": os.environ.get("SYSTEMROOT", ""),
-           "PYTHONPATH": os.pathsep.join(str(p) for p in (ROOT / "src", ROOT / "experiments/exp0_pk", ROOT / "experiments/exp1_calibration"))}
+           "PYTHONPATH": os.pathsep.join(str(p) for p in (workdir, ROOT / "src", ROOT / "experiments/exp0_pk", ROOT / "experiments/exp1_calibration"))}
     try:
         p = subprocess.run([sys.executable, "-I", str(script)], cwd=workdir, env=env, capture_output=True, text=True, timeout=timeout_s)
         out = (p.stdout + "\n" + p.stderr)
