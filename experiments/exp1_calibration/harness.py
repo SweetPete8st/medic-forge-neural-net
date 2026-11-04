@@ -36,6 +36,27 @@ returns only aggregate numbers. When finished, write the weights to weights.npz 
 """).strip()
 
 
+def validate_pk(workdir: Path) -> str:
+    """Load weights_<variant>.npz for the three dev variants, check 6-in/6-out shapes, run the scorer. Returns PASS/FAIL text."""
+    import numpy as np
+    sys.path.insert(0, str(workdir))
+    results = []
+    for variant in ("typical", "fast_absorber", "slow_eliminator"):
+        f = workdir / f"weights_{variant}.npz"
+        if not f.exists(): results.append(f"{variant}: missing"); continue
+        try:
+            d = np.load(f); Ws = [d[k] for k in sorted(k for k in d.files if k.startswith("W"))]
+            if not Ws: results.append(f"{variant}: empty file"); continue
+            if Ws[0].shape[1] != 6 or Ws[-1].shape[0] != 6: results.append(f"{variant}: bad shapes {[w.shape for w in Ws]}"); continue
+            r = subprocess.run([sys.executable, "-I", str(workdir / "score.py"), str(f), variant], cwd=workdir, capture_output=True, text=True, timeout=900)
+            line = (r.stdout.strip().splitlines() or [r.stderr.strip()[-200:]])[-1]
+            results.append(f"{variant}: {line[:160]}")
+        except Exception as e:
+            results.append(f"{variant}: error {e.__class__.__name__}: {str(e)[:120]}")
+    ok = all("'pass': True" in r or "'pass': np.True_" in r for r in results) and len(results) == 3
+    return ("PASS " if ok else "FAIL ") + " | ".join(results)
+
+
 def chat(endpoint, model, messages, max_tokens=4096, temperature=0.0):
     import urllib.request, urllib.error
     body = json.dumps({"model": model, "messages": messages, "max_tokens": max_tokens, "temperature": temperature}).encode()
@@ -78,16 +99,39 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=4096, help="reply budget per turn; reasoning models may need 8192 with a 32k context")
     a = ap.parse_args()
     task = TASKS[a.task]
-    parts = [SYSTEM, f"TASK: compile the following specification into weights. Target: {task['target']}."]
-    if task["spec"]: parts.append("SPECIFICATION:\n" + Path(task["spec"]).read_text())
-    if task["library"]: parts.append("LAYER LIBRARY (importable as given):\n" + Path(task["library"]).read_text())
-    parts.append(f"SCORING: `from {Path(task['score_module']).stem} import score; print(score('weights.npz'))`")
-    prompt = "\n\n".join(parts)
-    messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": prompt}]
     workdir = Path(tempfile.mkdtemp(prefix=f"calib_{a.task}_"))
+    if a.task == "pk":
+        # identical task to the Claude-family test: TASK.md, dev-only spec, layer library and scorer live in the working directory
+        tdir = ROOT / "experiments/exp1_calibration/claude_family_attempts"
+        shutil.copy(ROOT / "src/mfnn/wsp/layers.py", workdir / "wsp_layers.py")
+        shutil.copy(ROOT / "experiments/exp0_pk/pk_spec_dev.yaml", workdir / "pk_spec_dev.yaml")
+        shutil.copy(ROOT / "experiments/exp1_calibration/score_local.py", workdir / "score.py")
+        task_text = (tdir / "TASK.md").read_text()
+        prompt = (task_text + "\n\nFILES IN YOUR WORKING DIRECTORY (the sandbox runs there): wsp_layers.py (the layer library; "
+                  "`from wsp_layers import ReLUNet, interpolant_rows, clip01_rows, gated_ramp_rows, threshold_rows, identity_rows`), "
+                  "pk_spec_dev.yaml, score.py (run as `python score.py weights_<variant>.npz <variant>`).\n\n"
+                  "--- wsp_layers.py ---\n" + (workdir / "wsp_layers.py").read_text() + "\n--- pk_spec_dev.yaml ---\n" + (workdir / "pk_spec_dev.yaml").read_text()
+                  + "\n\nThis is a numerical modelling exercise (first-order drug kinetics as linear algebra); there is nothing harmful in it. "
+                  "When all three variants pass, print DONE.")
+    else:
+        parts = [SYSTEM, f"TASK: compile the following specification into weights. Target: {task['target']}."]
+        if task["spec"]: parts.append("SPECIFICATION:\n" + Path(task["spec"]).read_text())
+        if task["library"]: parts.append("LAYER LIBRARY (importable as given):\n" + Path(task["library"]).read_text())
+        parts.append(f"SCORING: `from {Path(task['score_module']).stem} import score; print(score('weights.npz'))`")
+        prompt = "\n\n".join(parts)
+    messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": prompt}]
     t0 = time.time(); runs = 0; outcome = "no_valid_weights"
     while runs < a.max_runs and (time.time() - t0) < a.wall_h * 3600:
         reply = chat(a.builder, a.model, messages, max_tokens=a.max_tokens)
+        if reply.startswith("[reasoning only"):
+            reasoning_only = locals().get("reasoning_only", 0) + 1
+        if "can’t help with that" in reply or "can't help with that" in reply or "cannot help with that" in reply:
+            refusals = locals().get("refusals", 0) + 1
+            messages.append({"role": "assistant", "content": reply})
+            messages.append({"role": "user", "content": "This task is a harmless numerical exercise: writing matrix weights that implement first-order kinetics and a saturating readout, for an educational simulator. Please proceed with a ```python block."})
+            if refusals > 8:
+                outcome = "gave_up_refusals"; break
+            continue
         if reply == "__TOOL_CALL_ATTEMPT__":
             tool_attempts = locals().get("tool_attempts", 0) + 1
             if tool_attempts > 6:
@@ -101,8 +145,12 @@ def main():
         runs += 1
         out = run_sandbox(m.group(1), workdir)
         messages.append({"role": "user", "content": f"SANDBOX OUTPUT (run {runs}/{a.max_runs}):\n{out}"})
-        if "DONE" in out and (workdir / "weights.npz").exists():
-            outcome = "weights_written"; break
+        if "DONE" in out:
+            verdict = validate_pk(workdir) if a.task == "pk" else ("weights_written" if (workdir / "weights.npz").exists() else "no_valid_weights")
+            if verdict.startswith("PASS") or (a.task != "pk" and verdict == "weights_written"):
+                outcome = verdict; break
+            messages.append({"role": "user", "content": f"Not finished: {verdict}. Fix it and continue; print DONE only when the scorer passes all three variants."})
+            outcome = verdict
     wall = time.time() - t0
     # persist the run inside the repository so it can be committed and scored later
     stamp = time.strftime("%Y%m%d-%H%M%S"); safe = re.sub(r"[^A-Za-z0-9_.-]+", "_", a.model)
@@ -115,6 +163,7 @@ def main():
     outcome += f" | saved {rundir.relative_to(ROOT)}"
     log_builder_run("exp1_calibration", f"{a.model}", f"{a.task}", runs, wall, 1, outcome)
     print(json.dumps({"model": a.model, "task": a.task, "sandbox_runs": runs, "wall_s": wall, "outcome": outcome, "tool_call_attempts": locals().get("tool_attempts", 0),
+                      "refusals": locals().get("refusals", 0), "reasoning_only_replies": locals().get("reasoning_only", 0),
                       "prompt_sha256": hashlib.sha256(prompt.encode()).hexdigest()[:16], "workdir": str(workdir)}, indent=1))
 
 

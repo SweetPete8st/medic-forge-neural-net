@@ -289,3 +289,4 @@ NOTE | 2026-11-04 | exp4_calibrate | the auto FP line for the code finite-differ
 
 ### exp3_brain_v2 held-out outcome (frozen 9c9992111e4fdb6f, corrected harness): 14/18 PASS, 4 FAIL (late-session threshold-timing shifts with spurious silent_chest events), 0 crashes, replay bit-exact. FAIL under the all-cases rule. See experiments/exp3_brain/RESULTS.md.
 [auto] BR 7 | 2026-11-04 | gpt-oss-32k | pk | sandbox runs: 10 | wall: 4377s | attempts: 1 | weights_written | saved experiments\exp1_calibration\runs\pk_gpt-oss-32k_20261104-180647
+NOTE | 2026-11-04 | exp1_calibration | BR 7 (gpt-oss-32k, Task C, home PC, harness v1) outcome corrected: `weights_written` was a false completion; weights.npz was an empty archive (22 bytes); no network was produced. 12 refusals, ~7 reasoning-only replies, 9 import-path crashes, 2 tool-call attempts. Harness v2 (files in the working directory, validated and scored completion) replaces v1 from here; see RESULTS_local_builders.md.
