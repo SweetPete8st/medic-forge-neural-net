@@ -8,3 +8,24 @@ code-fd step  6 loss 4.479e-03 port [0.5678, 0.0285, 0.0171] (12s)
 code-fd step  7 loss 4.021e-03 port [0.5421, 0.03, 0.018] (14s)
 code-fd step  8 loss 3.282e-03 port [0.5184, 0.0313, 0.0188] (15s)
 code-fd step  9 loss 1.417e-03 port [0.4968, 0.0327, 0.0197] (17s)
+code-fd step 10 loss 5.015e-05 port [0.4775, 0.0341, 0.0206] (19s)
+code-fd step 11 loss 5.843e-04 port [0.4607, 0.0348, 0.021] (20s)
+code-fd step 12 loss 1.332e-03 port [0.4464, 0.0344, 0.0207] (22s)
+code-fd step 13 loss 8.480e-04 port [0.4342, 0.0338, 0.0204] (24s)
+code-fd step 14 loss 3.245e-04 port [0.4238, 0.0331, 0.02] (25s)
+code-fd: {
+ "recovered": {
+  "beta_agonist_responsiveness": 0.4237796060511927,
+  "progression_rate": 0.03312165820759276,
+  "fatigue_rate": 0.01997301066126781
+ },
+ "final_loss": 1.4505792290219008e-05,
+ "steps": 15,
+ "rollouts": 244,
+ "wall_s": 25.77038821699898,
+ "rel_err": {
+  "beta_agonist_responsiveness": 0.058267542108460704,
+  "progression_rate": 0.05366690835449264,
+  "fatigue_rate": 0.10961170340376734
+ }
+}

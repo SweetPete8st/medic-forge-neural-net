@@ -105,10 +105,34 @@ notes are preserved under `claude_family_attempts/`.
 
 ## 4. Does a brain buy anything the code does not? (exp4_calibrate)
 
-Protocol in `experiments/exp4_calibrate/PROTOCOL.md`: a hidden "instructor" patient (code engine with
-secret port values) supplies two corrected observable traces; recover the three port values from the
-spec defaults by (a) gradient descent through the torch-exported brain and (b) Nelder-Mead on the code
-engine, same loss, same budget. Results appended below once both halves completed.
+Task (PROTOCOL.md): a hidden instructor patient = the code engine with port values
+responsiveness 0.45, progression 0.035, fatigue 0.018; two corrected observable traces
+(SpO2, HR, RR, PaCO2 every 30 s over the timely and delayed scripts, 20-minute horizon after a logged
+budget reduction); recover the three values from the spec defaults (0.8, 0.02, 0.012).
+
+| Method | Rollouts | Wall | Final loss | Relative error (responsiveness / progression / fatigue) | Recovered values |
+|---|---|---|---|---|---|
+| CODE, Nelder-Mead (black box) | 160 | 51 s | 3.53e-04 | 66.1% / 16.3% / 23.1% | 0.748 / 0.0407 / 0.0139 |
+| CODE, finite-difference Adam (same schedule as brain) | 244 | 26 s | 1.45e-05 | 5.8% / 5.4% / 11.0% | 0.424 / 0.0331 / 0.0200 |
+| BRAIN, autograd Adam (torch export) | 30 | 3636 s | 2.35e-03 | 5.3% / 1.5% / 16.6% | 0.426 / 0.0345 / 0.0210 |
+
+Brain autograd best intermediate step: step 10, loss 2.42e-05. Brain wall time was measured
+while two other jobs shared the four CPU cores; uncontended, one Adam step took about 15 s (steps 11-14),
+so an uncontended run would be about 4 minutes, still 10x the finite-difference code run.
+
+## Verdict (demonstrated)
+- Gradient descent recovers instructor corrections far better than Nelder-Mead at this budget (both
+  gradient methods within 1-17% on every parameter; Nelder-Mead 16-66%).
+- **Differentiability of the brain is not what delivered that.** Finite differences on the code engine
+  match the brain's accuracy with 4x the rollouts but 100x less wall time, because the code engine
+  steps in 0.3 ms and the brain in 3-35 ms. With three parameters, finite differences are cheap.
+- The brain's advantage would appear only when many parameters are calibrated at once (dozens of spec
+  constants, or hidden weights), where finite differences scale linearly in cost and autograd does
+  not. That is a plausible extension, untested here, and it is also achievable by writing the code
+  engine in an autograd framework without any weight compilation.
+
+Decision per PROTOCOL.md: BRAIN-GRAD did not beat CODE on rollouts or wall time at equal accuracy.
+Differentiability is not an instructor-visible advantage at this scale.
 
 ## 5. What this means for Medic Forge (assessment)
 
@@ -122,10 +146,12 @@ engine, same loss, same budget. Results appended below once both halves complete
   nobody should hand-write that.
 - **Still true from Phase 1:** nothing here makes the network more accurate, faster or easier to
   review than the code it was compiled from. The code engine runs the same patient at 0.3 ms per
-  tick; the brain needs 3 to 4 ms in numpy. The brain's distinct claims are the uniform tensor runtime
-  and differentiability (exp4). If exp4 shows gradient calibration recovers instructor corrections
-  better than black-box fitting of the code, the brain has one concrete advantage; if not, it has none
-  yet, and the honest recommendation remains code first, brain as an export format.
+  tick; the brain needs 3 to 4 ms in numpy. The brain's distinct claims were the uniform tensor
+  runtime and differentiability. **exp4 tested differentiability and it did not win:** gradient descent
+  beats black-box fitting, but finite-difference gradients on the code engine match the brain's
+  accuracy at 100x less wall time with three parameters. The honest recommendation is unchanged: code
+  first; the compiled brain is a reproducible export format and a research instrument, not yet a
+  better patient.
 
 ## 6. Hardware: 40-series at home now, 5090 at work as the end goal
 
