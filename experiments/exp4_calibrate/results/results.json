@@ -1,0 +1,29 @@
+{
+ "true": {
+  "beta_agonist_responsiveness": 0.45,
+  "progression_rate": 0.035,
+  "fatigue_rate": 0.018
+ },
+ "start": {
+  "beta_agonist_responsiveness": 0.8,
+  "progression_rate": 0.02,
+  "fatigue_rate": 0.012
+ },
+ "minutes": 30,
+ "code_search": {
+  "recovered": {
+   "beta_agonist_responsiveness": 0.7476373715581368,
+   "progression_rate": 0.04070230036001767,
+   "fatigue_rate": 0.013850565946054839
+  },
+  "final_loss": 0.0003525099315241416,
+  "evaluations": 80,
+  "rollouts": 160,
+  "wall_s": 51.48146756099959,
+  "rel_err": {
+   "beta_agonist_responsiveness": 0.661416381240304,
+   "progression_rate": 0.16292286742907625,
+   "fatigue_rate": 0.23052411410806445
+  }
+ }
+}

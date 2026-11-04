@@ -11,10 +11,22 @@
     "fp": 204,
     "frozen": "ad34aa59bc425591"
   },
+  "exp1_calibration": {
+    "br": 6,
+    "dc": 0,
+    "fp": 1836,
+    "frozen": null
+  },
   "exp2_asthma": {
     "br": 0,
     "dc": 0,
     "fp": 873,
+    "frozen": null
+  },
+  "exp3_brain": {
+    "br": 0,
+    "dc": 0,
+    "fp": 24,
     "frozen": null
   }
 }
