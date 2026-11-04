@@ -33,12 +33,23 @@ When finished, write the weights to weights.npz and print DONE.
 """).strip()
 
 
-def chat(endpoint, model, messages, max_tokens=8000, temperature=0.0):
-    import urllib.request
+def chat(endpoint, model, messages, max_tokens=4096, temperature=0.0):
+    import urllib.request, urllib.error
     body = json.dumps({"model": model, "messages": messages, "max_tokens": max_tokens, "temperature": temperature}).encode()
     req = urllib.request.Request(endpoint.rstrip("/") + "/chat/completions", data=body, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=3600) as r:
-        return json.loads(r.read())["choices"][0]["message"]["content"]
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(req, timeout=3600) as r:
+                js = json.loads(r.read())
+            msg = js["choices"][0]["message"]
+            return (msg.get("content") or "") + ("" if msg.get("content") else f"\n[reasoning only, no content]\n{msg.get('reasoning', '')[-2000:]}")
+        except urllib.error.HTTPError as e:
+            detail = e.read().decode(errors="replace")[:2000]
+            print(f"SERVER ERROR {e.code} from {endpoint}: {detail}", file=sys.stderr)
+            if attempt == 0 and e.code >= 500:
+                time.sleep(5); continue
+            raise SystemExit(f"builder server returned HTTP {e.code}; see the message above (common causes: model tag not pulled or misspelled, "
+                             f"model does not fit in VRAM/RAM, context window too small for the prompt: set OLLAMA_CONTEXT_LENGTH=32768 and restart Ollama)")
 
 
 def run_sandbox(code: str, workdir: Path, timeout_s: int = 600) -> str:
@@ -59,6 +70,7 @@ def main():
     ap.add_argument("--model", required=True, help="model id as the server names it, e.g. gpt-oss:20b")
     ap.add_argument("--task", choices=TASKS, required=True); ap.add_argument("--toy", default="addition")
     ap.add_argument("--max-runs", type=int, default=40); ap.add_argument("--wall-h", type=float, default=6.0)
+    ap.add_argument("--max-tokens", type=int, default=4096, help="reply budget per turn; reasoning models may need 8192 with a 32k context")
     a = ap.parse_args()
     task = TASKS[a.task]
     parts = [SYSTEM, f"TASK: compile the following specification into weights. Target: {task['target']}."]
@@ -70,7 +82,7 @@ def main():
     workdir = Path(tempfile.mkdtemp(prefix=f"calib_{a.task}_"))
     t0 = time.time(); runs = 0; outcome = "no_valid_weights"
     while runs < a.max_runs and (time.time() - t0) < a.wall_h * 3600:
-        reply = chat(a.builder, a.model, messages)
+        reply = chat(a.builder, a.model, messages, max_tokens=a.max_tokens)
         messages.append({"role": "assistant", "content": reply})
         m = re.search(r"```python\n(.*?)```", reply, re.S)
         if not m:
