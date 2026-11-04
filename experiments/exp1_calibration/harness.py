@@ -8,7 +8,7 @@ score() call is logged to LEDGER.md as a builder run / forward passes.
 
 Nothing in this file has been executed against a real builder in the authoring session."""
 from __future__ import annotations
-import argparse, hashlib, json, os, re, subprocess, sys, tempfile, textwrap, time
+import argparse, hashlib, json, os, re, shutil, subprocess, sys, tempfile, textwrap, time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -93,6 +93,15 @@ def main():
         if "DONE" in out and (workdir / "weights.npz").exists():
             outcome = "weights_written"; break
     wall = time.time() - t0
+    # persist the run inside the repository so it can be committed and scored later
+    stamp = time.strftime("%Y%m%d-%H%M%S"); safe = re.sub(r"[^A-Za-z0-9_.-]+", "_", a.model)
+    rundir = HERE / "runs" / f"{a.task}_{safe}_{stamp}"; rundir.mkdir(parents=True, exist_ok=True)
+    (rundir / "transcript.json").write_text(json.dumps({"model": a.model, "task": a.task, "builder": a.builder, "max_tokens": a.max_tokens,
+                                                        "sandbox_runs": runs, "wall_s": wall, "outcome": outcome, "messages": messages}, indent=1))
+    for f in workdir.iterdir():
+        if f.is_file() and f.suffix in (".npz", ".py", ".md", ".txt", ".json"):
+            shutil.copy(f, rundir / f.name)
+    outcome += f" | saved {rundir.relative_to(ROOT)}"
     log_builder_run("exp1_calibration", f"{a.model}", f"{a.task}", runs, wall, 1, outcome)
     print(json.dumps({"model": a.model, "task": a.task, "sandbox_runs": runs, "wall_s": wall, "outcome": outcome,
                       "prompt_sha256": hashlib.sha256(prompt.encode()).hexdigest()[:16], "workdir": str(workdir)}, indent=1))
