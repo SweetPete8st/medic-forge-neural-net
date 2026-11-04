@@ -265,3 +265,12 @@ DC 4 | 2026-11-04 | exp3_brain | tighter interpolants/products on the gas-exchan
 DC 5 | 2026-11-04 | exp3_brain | metric addition: shift-tolerant max error (min difference within +-30 s per tick); pass criterion uses it with the 30 s event rule; strict and away-from-events values still reported | reason: residual differences are timing shifts of threshold-driven transitions, which the strict and masked maxima cannot separate from amplitude errors. | DATA-INFORMED: yes
 [auto] FP 24 | 2026-11-04 | exp3_brain | +8: dev: brain rollouts (+replay) for 4 cases | dev
 [auto] FREEZE | 2026-11-04 | exp3_brain | weights sha256:2d18e68cc896fe47 | compiled asthma brain frozen (graph + compiler)
+
+### exp3_brain v1 held-out outcome (frozen 2d18e68cc896fe47): FAIL. Case V1_poorly_responsive/S6_nothing_90 produced NaN at tick 4802: after arrest the code engine raises PaCO2 by 0.05 mmHg/s without bound (251 mmHg at 80 min), the brain's PaCO2 input left its declared range [10,200], and the arrest-blend gate (exact only for |x| <= M) leaked, after which the recurrence grew geometrically. Four earlier cases completed but the runner crashed before writing them. The v1 held-out set (V1-V3 x S1-S6) is BURNED.
+
+## exp3_brain_v2: bounded arrest tail, loud range guard, new held-out set (V4-V6 x S7-S12, defined in run_exp3.py before this run)
+
+DC 1 | 2026-11-04 | exp3_brain_v2 | engine arrest branch: PaCO2 placeholder climb capped at 150 mmHg; same cap in the graph's arrest branch | reason: unbounded post-arrest PaCO2 is physiologically meaningless and drove the held-out NaN; the cap changes the reference engine only after arrest. | DATA-INFORMED: yes (v1 held-out failure)
+DC 2 | 2026-11-04 | exp3_brain_v2 | brain shell: raise RuntimeError when any input leaves its declared interval or any output is non-finite | reason: a compiled brain is correct only inside its declared ranges; silent gate leakage must become a loud failure. | DATA-INFORMED: yes
+DC 3 | 2026-11-04 | exp3_brain_v2 | runner: per-case crash capture (a crash is a recorded FAIL, the run continues); experiment id and held-out block as arguments | reason: v1 runner lost four completed cases when one crashed. Infrastructure. | DATA-INFORMED: no
+[auto] FP 1164 | 2026-11-04 | exp2_asthma | +291: four trajectories + interaction sweep (code control) | dev

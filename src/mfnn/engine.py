@@ -207,7 +207,7 @@ class PatientEngine:
         if st.flags.get("arrest"):
             ph["HR"] = 0.0; ph["SBP"] = 0.0; ph["DBP"] = 0.0; ph["RR"] = 0.0
             ph["PaO2"] = max(ph["PaO2"] - 0.5 * dt, 10.0)
-            ph["PaCO2"] = ph["PaCO2"] + 0.05 * dt
+            ph["PaCO2"] = min(ph["PaCO2"] + 0.05 * dt, 150.0)   # bounded placeholder after arrest (DC, exp3 v1 held-out)
             ph["LOC"] = 0.0
             self._derive(st)
             return

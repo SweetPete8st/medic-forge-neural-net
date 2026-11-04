@@ -191,7 +191,7 @@ def build_asthma_graph(spec):
     zero = g.const(0.0)
     out = {}
     out["O"] = blend(O_new, O, "O_out"); out["F"] = blend(F_new, F, "F_out"); out["I"] = blend(I_new, I, "I_out")
-    out["PaCO2"] = blend(PaCO2_new, g.affine([(S["PaCO2"], 1.0)], 0.05 * DT, "PaCO2_arrest"), "PaCO2_out")
+    out["PaCO2"] = blend(PaCO2_new, g.min(g.affine([(S["PaCO2"], 1.0)], 0.05 * DT, "PaCO2_arrest_raw"), g.const(150.0), name="PaCO2_arrest"), "PaCO2_out")
     out["PaO2"] = blend(PaO2_new, g.max(g.affine([(S["PaO2"], 1.0)], -0.5 * DT, "PaO2_arrest_raw"), g.const(10.0), name="PaO2_arrest"), "PaO2_out")
     out["autoPEEP"] = blend(autoPEEP_new, S["autoPEEP"], "autoPEEP_out")
     out["HR"] = g.gate(HR_new, notflag, "HR_out"); out["SBP"] = g.gate(SBP_new, notflag, "SBP_out")

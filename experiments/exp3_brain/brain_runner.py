@@ -43,7 +43,15 @@ class BrainEngine(PatientEngine):
         return x
 
     def _physiology_step(self, st: PatientState) -> None:
-        y = self.net.forward(self._inputs(st)); oi = self.out_idx; ph = st.phys; p = self.p; dev = st.devices
+        x = self._inputs(st)
+        for n in self.graph.inputs:              # a compiled brain is valid only inside its declared ranges: fail loudly, never silently
+            v = x[n.params["index"]]
+            if not (n.lo - 1e-9 <= v <= n.hi + 1e-9) or not np.isfinite(v):
+                raise RuntimeError(f"brain input '{n.name}' = {v:.6g} outside declared range [{n.lo}, {n.hi}] at tick {st.tick}")
+        y = self.net.forward(x); oi = self.out_idx; ph = st.phys; p = self.p; dev = st.devices
+        if not np.all(np.isfinite(y)):
+            bad = [name for name, i in oi.items() if not np.isfinite(y[i])][:5]
+            raise RuntimeError(f"brain produced non-finite outputs {bad} at tick {st.tick}")
         for n in STATE:
             if n == "arrest":
                 if y[oi[n]] > 0.5: st.flags["arrest"] = True
