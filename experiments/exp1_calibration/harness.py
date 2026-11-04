@@ -27,9 +27,12 @@ TASKS = {
 SYSTEM = textwrap.dedent("""
 You are compiling an explicit, fully specified algorithm into neural-network weights by reasoning.
 Rules: no training, no gradient descent, no parameter search, no threshold tuning. Every weight you
-write must follow from the specification. You may run Python in a sandbox to check shapes and to
-call score(); score() returns only the aggregate numbers. Reply with one ```python block per turn.
-When finished, write the weights to weights.npz and print DONE.
+write must follow from the specification.
+IMPORTANT: you have NO tools. Do not call a python tool, a browser tool, or any function. The only way
+to run code is to put exactly one fenced block starting with ```python in the TEXT of your reply; the
+harness executes it after your reply and sends you the output in the next message. Code that is not
+inside such a fenced block is never executed. Use code to check shapes and to call score(), which
+returns only aggregate numbers. When finished, write the weights to weights.npz and print DONE.
 """).strip()
 
 
@@ -46,6 +49,8 @@ def chat(endpoint, model, messages, max_tokens=4096, temperature=0.0):
         except urllib.error.HTTPError as e:
             detail = e.read().decode(errors="replace")[:2000]
             print(f"SERVER ERROR {e.code} from {endpoint}: {detail}", file=sys.stderr)
+            if "parsing tool call" in detail:
+                return "__TOOL_CALL_ATTEMPT__"      # the model tried to use a built-in tool; caller re-prompts
             if attempt == 0 and e.code >= 500:
                 time.sleep(5); continue
             raise SystemExit(f"builder server returned HTTP {e.code}; see the message above (common causes: model tag not pulled or misspelled, "
@@ -83,10 +88,16 @@ def main():
     t0 = time.time(); runs = 0; outcome = "no_valid_weights"
     while runs < a.max_runs and (time.time() - t0) < a.wall_h * 3600:
         reply = chat(a.builder, a.model, messages, max_tokens=a.max_tokens)
+        if reply == "__TOOL_CALL_ATTEMPT__":
+            tool_attempts = locals().get("tool_attempts", 0) + 1
+            if tool_attempts > 6:
+                outcome = "gave_up_tool_calls"; break
+            messages.append({"role": "user", "content": "Your last reply tried to call a tool. You have no tools. Put the code you wanted to run inside one ```python fenced block in your reply text; it will be executed and the output returned to you."})
+            continue
         messages.append({"role": "assistant", "content": reply})
         m = re.search(r"```python\n(.*?)```", reply, re.S)
         if not m:
-            messages.append({"role": "user", "content": "Reply with exactly one ```python block."}); continue
+            messages.append({"role": "user", "content": "Reply with exactly one ```python block in your text (no tool calls)."}); continue
         runs += 1
         out = run_sandbox(m.group(1), workdir)
         messages.append({"role": "user", "content": f"SANDBOX OUTPUT (run {runs}/{a.max_runs}):\n{out}"})
@@ -103,7 +114,7 @@ def main():
             shutil.copy(f, rundir / f.name)
     outcome += f" | saved {rundir.relative_to(ROOT)}"
     log_builder_run("exp1_calibration", f"{a.model}", f"{a.task}", runs, wall, 1, outcome)
-    print(json.dumps({"model": a.model, "task": a.task, "sandbox_runs": runs, "wall_s": wall, "outcome": outcome,
+    print(json.dumps({"model": a.model, "task": a.task, "sandbox_runs": runs, "wall_s": wall, "outcome": outcome, "tool_call_attempts": locals().get("tool_attempts", 0),
                       "prompt_sha256": hashlib.sha256(prompt.encode()).hexdigest()[:16], "workdir": str(workdir)}, indent=1))
 
 
