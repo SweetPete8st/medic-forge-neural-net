@@ -31,8 +31,9 @@ continuous-state physiology instead of sequence processing. This session built i
   1e-9, effect within 0.01).
 - **The asthma brain.** The whole code engine step (13 physiology state variables, 24 drug compartments,
   8 dose inputs, 6 device inputs, 3 parameter-port inputs; 49 outputs including observables) written as
-  a 351-node program and compiled: 26 ReLU layers, widths up to 1,857, 9.2M dense / 517K nonzero
-  parameters, 3 to 4 ms per 1-second tick in pure numpy on this container, 0.2 s to compile.
+  a 352-node program and compiled: 26 ReLU layers, widths up to 1,859, 9.2M dense / 517K nonzero
+  parameters, 3 to 4 ms per 1-second tick in pure numpy on this container when the CPU is not shared
+  (35 ms when two other jobs share the four cores), 0.2 s to compile.
 - **The shell.** The same software shell as the code engine (actions, devices, FiO2 table, monitors,
   observation gating, events, stages, replay) with the physiology step replaced by the network.
 - **Torch export.** The compiled brain exported to torch reproduces the numpy rollout to 7e-10, and the
@@ -45,12 +46,15 @@ Per-tick check on 400 random states (physiology, drugs, devices, arrest): every 
 silent-chest mismatches after two logged fixes (a speech-level arithmetic error of mine, and the
 arrest reporting convention of the shell).
 
-Development trajectories (the four scripted paths), brain vs code, after the fixes and one logged
-knot tightening:
+Development trajectories (the four scripted paths), brain vs code. v1 numbers were taken after two
+logged fixes and one knot tightening; v2 (frozen 9c9992111e4fdb6f) adds a bound on the post-arrest
+PaCO2 placeholder in both engine and graph and a loud range guard in the shell (see the v1 held-out
+failure below). Strict = max over every tick; shift-tolerant = per tick, the smallest difference to
+the other trace within +-30 s.
 
 | Path | Strict max (% of range) | Away from events | Shift-tolerant (30 s) | Max event delay | Events missing/extra |
 |---|---|---|---|---|---|
-| untreated | 61.2 (EtCO2 at the arrest instant) | 3.5 | **0.17** | 5 s | 0 / 0 |
+| untreated | 61.2 (EtCO2 at the arrest instant) | 3.5 | **0.02** | 5 s | 0 / 0 |
 | timely treatment | 0.08 | 0.08 | **0.04** | 4 s | 0 / 0 |
 | delayed treatment | 2.15 (LOC) | 2.15 | **0.20** | 3 s | 0 / 0 |
 | inappropriate | 4.5 (LOC) | 1.1 | **3.6** | 4 s | 1 / 1 (loc_drop 58 s apart) |
@@ -63,9 +67,18 @@ relaxing toward 2.0 under sedation), where a 1e-3 difference becomes a 58 s timi
 a specification design issue (events on asymptotic approaches need hysteresis), not a compile error,
 and it would bite any two implementations.
 
-Held-out results (3 unseen parameter variants x 6 unseen action sequences, run after freezing the
-brain): see `experiments/exp3_brain/results/heldout_results.json` and the table appended below once
-the run completed.
+**v1 held-out: FAIL, and a finding.** The first frozen brain (2d18e68cc896fe47) produced a NaN on
+the long untreated held-out case at 80 minutes. Cause: after arrest the code engine raised PaCO2 by
+0.05 mmHg/s without bound (251 mmHg), the brain's PaCO2 input left its declared range [10, 200], and
+the arrest-blend gate, exact only inside its range, leaked; the recurrence then grew geometrically.
+Two lessons went into the ledger: the reference engine had a physiologically meaningless unbounded
+tail, and a compiled brain is valid only inside its declared ranges, so the shell now refuses loudly
+when any input leaves them. The v1 held-out set is burned; v2 uses three new variants and six new
+sequences defined before the run.
+
+Held-out v2 results (3 unseen parameter variants x 6 unseen action sequences, run after freezing
+the v2 brain): `experiments/exp3_brain/results/heldout_results_exp3_brain_v2.json`; table appended
+below once the run completed.
 
 ## 3. Can frontier models reliably and reproducibly write these networks? (exp1, Claude family)
 
