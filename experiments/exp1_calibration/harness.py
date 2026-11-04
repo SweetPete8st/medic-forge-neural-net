@@ -84,7 +84,7 @@ def run_sandbox(code: str, workdir: Path, timeout_s: int = 600) -> str:
     env = {"PATH": os.environ.get("PATH", ""), "HOME": str(workdir), "SYSTEMROOT": os.environ.get("SYSTEMROOT", ""),
            "PYTHONPATH": os.pathsep.join(str(p) for p in (workdir, ROOT / "src", ROOT / "experiments/exp0_pk", ROOT / "experiments/exp1_calibration"))}
     try:
-        p = subprocess.run([sys.executable, "-I", str(script)], cwd=workdir, env=env, capture_output=True, text=True, timeout=timeout_s)
+        p = subprocess.run([sys.executable, str(script)], cwd=workdir, env=env, capture_output=True, text=True, timeout=timeout_s)   # no -I: the builder's code must see the working directory and PYTHONPATH
         out = (p.stdout + "\n" + p.stderr)
     except subprocess.TimeoutExpired:
         out = f"TIMEOUT after {timeout_s}s"
