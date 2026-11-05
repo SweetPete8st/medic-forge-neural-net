@@ -48,7 +48,7 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
    measurable criterion to be adopted.
 3. **Runtime.** The compiled patient runs locally with instructor controls, event logs and replay.
 
-## Status (2026-11-04)
+## Status (updated 2026-11-05; see docs/HANDOFF.md)
 
 - Repository bootstrapped from the retired `book_bot` project. Old branches are preserved under
   `archive/*` tags.
@@ -62,7 +62,10 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
   set after one logged correction; the trained network did not. See `experiments/exp0_pk/RESULTS_v2.md`.
 - exp2_asthma: four trajectories pass their envelopes; 287-case interaction sweep clean.
 - Clinical drug constants in the asthma spec are unverified training knowledge pending reviewer sign-off.
-- Phase 2 (same day): a deterministic compiler turns the engine's physiology program (351 nodes) into a
+- Phase 3 (2026-11-05): conversational scenario builder (Claude Opus 5.5 default) and the
+  continuous-improvement pathway are built and tested on a mock backend; no live-model run yet.
+  See `docs/10_PARENT_AGENT.md`.
+- Phase 2 (2026-11-04): a deterministic compiler turns the engine's physiology program (351 nodes) into a
   26-layer ReLU brain (517K nonzero weights) that reproduces the code engine within a 30 s time shift on
   the development paths; six isolated Claude-family builder attempts all passed the PK compile on the
   first build, two of six were robust on held-out extremes. See `docs/09_PHASE2_PATIENT_BRAIN.md`.
