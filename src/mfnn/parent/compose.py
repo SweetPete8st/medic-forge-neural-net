@@ -49,6 +49,7 @@ def build_overlay(preset: Dict[str, Any], slots: Dict[str, Any]) -> Dict[str, An
         },
     }
     ov["traps"] = [t for t in _as_list(slots.get("traps")) if t in preset["traps"]]
+    ov["pace_label"] = str(slots.get("deterioration_pace", "typical"))
     ov["teaching_objectives"] = _as_list(slots.get("teaching_objectives"))
     ov["checkpoints"] = slots.get("checkpoints") or []
     return ov
@@ -70,8 +71,10 @@ def compose(preset: Dict[str, Any], overlay: Dict[str, Any], spec_id: str) -> Di
             "timely_treatment": {"description": "Canonical timely bundle.", "actions": preset["canonical_scripts"]["timely_treatment"], "expect": []},
             "delayed_treatment": {"description": "Canonical delayed bundle.", "actions": preset["canonical_scripts"]["delayed_treatment"], "expect": []}}
     trap_actions: List[Dict[str, Any]] = []
+    scale = preset.get("trap_time_scale", {}).get(overlay.get("pace_label", "typical"), 1.0)
     for t in overlay["traps"]:
-        trap_actions += preset["traps"][t]["script"]
+        for a in preset["traps"][t]["script"]:
+            a = dict(a); a["t_min"] = round(float(a["t_min"]) * scale, 1); trap_actions.append(a)
     traj["inappropriate_intervention"] = {"description": "Traps chosen by the instructor: " + (", ".join(overlay["traps"]) or "none"),
                                           "actions": sorted(trap_actions, key=lambda a: a["t_min"]) + [{"t_min": 25.0, "kind": "give_drug", "drug": "albuterol", "dose": 2.5}], "expect": []}
     for cp in overlay.get("checkpoints", []):

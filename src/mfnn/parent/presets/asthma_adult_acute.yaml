@@ -7,15 +7,16 @@ knobs:
   severity_on_arrival:              # initial hidden state at EMS arrival
     moderate:         {scenario.initial.O: 0.50, scenario.initial.F: 0.10, scenario.initial.PaCO2: 36, scenario.initial.PaO2: 78}
     severe:           {scenario.initial.O: 0.62, scenario.initial.F: 0.25, scenario.initial.PaCO2: 38, scenario.initial.PaO2: 70}
-    life_threatening: {scenario.initial.O: 0.76, scenario.initial.F: 0.45, scenario.initial.PaCO2: 48, scenario.initial.PaO2: 55}
+    life_threatening: {scenario.initial.O: 0.72, scenario.initial.F: 0.38, scenario.initial.PaCO2: 46, scenario.initial.PaO2: 58}
   deterioration_pace:               # untreated progression and fatigue accumulation
     slow:    {scenario.params.progression_rate.value: 0.012, scenario.params.fatigue_rate.value: 0.008}
     typical: {scenario.params.progression_rate.value: 0.020, scenario.params.fatigue_rate.value: 0.012}
-    fast:    {scenario.params.progression_rate.value: 0.035, scenario.params.fatigue_rate.value: 0.020}
+    fast:    {scenario.params.progression_rate.value: 0.030, scenario.params.fatigue_rate.value: 0.018}
   treatment_responsiveness:
     poor:    {scenario.params.beta_agonist_responsiveness.value: 0.30}
     typical: {scenario.params.beta_agonist_responsiveness.value: 0.80}
     good:    {scenario.params.beta_agonist_responsiveness.value: 1.00}
+trap_time_scale: {slow: 1.5, typical: 1.0, fast: 0.6}   # trap timings in the inappropriate path scale with the patient's pace
 traps:                              # inappropriate interventions the engine models; each names the canonical script used in the gate
   sedation: {drug: midazolam_iv, script: [{t_min: 5, kind: give_drug, drug: midazolam_iv, dose: 2.0}]}
   nitroglycerin_misdiagnosis: {drug: nitroglycerin_sl, script: [{t_min: 6, kind: give_drug, drug: nitroglycerin_sl, dose: 0.4}]}
