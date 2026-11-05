@@ -1,0 +1,3 @@
+[10:12] Instructor: I want a 60 year old COPD patient who gets worse on high-flow oxygen
+[10:12] Builder: Understood. How short of breath are they when you arrive, and how fast should they deteriorate?
+[10:13] Instructor: pretty bad, and fast

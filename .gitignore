@@ -10,3 +10,7 @@ experiments/exp1_calibration/data/
 experiments/exp1_calibration/ecg-wsp-v4/*.pt
 experiments/exp1_calibration/ecg-wsp-v4/*.png
 *.zip
+data/interviews/
+data/sft/
+scenarios/*/
+!scenarios/README.md

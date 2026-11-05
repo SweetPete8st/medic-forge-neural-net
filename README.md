@@ -16,6 +16,7 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
 | Path | What it is |
 |---|---|
 | `docs/00_RESEARCH_PACKAGE.md` | The full research package (Sections 1 to 8 of the brief). Start here. |
+| `docs/10_PARENT_AGENT.md` | The conversational scenario builder (parent agent) and the continuous-improvement pathway. |
 | `docs/09_PHASE2_PATIENT_BRAIN.md` | Phase 2: the patient as a compiled neural network (deterministic compiler, whole-engine brain, Claude-family builder test, differentiable calibration). |
 | `docs/instructor_explainer.md` | Plain-language explanation for paramedic instructors. |
 | `docs/evidence_table.md` | Literature evidence table with categories and verification levels. |
@@ -26,6 +27,7 @@ This repository treats that as an **engineering hypothesis**, not a conclusion. 
 | `spec/schema/patient_spec.schema.json` | JSON Schema for the human-readable patient specification (Layer 1). |
 | `spec/examples/asthma_adult_acute.yaml` | Worked specification: adult acute asthma exacerbation. |
 | `src/mfnn/` | Runtime: patient state interface, code-compiled engine (the control), observation gating, dialogue fact sheet, ledger tooling. |
+| `src/mfnn/parent/`, `src/mfnn/learning/` | Parent agent (interview, gate, deliverable, CLI) and the learning pathway (store, importer, grading, dataset, eval, promotion). |
 | `src/mfnn/wsp/` | Weight-space constructions (numpy re-implementation), the hand-set PK network, and `compiler.py`: a deterministic scalar-program-to-ReLU-weights compiler with error bounds. |
 | `experiments/exp3_brain/` | The whole asthma engine as a compiled recurrent ReLU network, checked tick-by-tick and over sessions against the code engine. |
 | `experiments/exp4_calibrate/` | Differentiable calibration of the compiled brain (torch) vs black-box fitting of the code engine. |

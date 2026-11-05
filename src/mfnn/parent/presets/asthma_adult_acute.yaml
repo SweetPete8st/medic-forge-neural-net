@@ -1,0 +1,51 @@
+# Preset: how interview slots become specification overlays for the adult acute asthma family.
+# Every mapping below is a reviewable rule; the parent never invents a parameter outside these tables.
+id: asthma_adult_acute
+base_spec: spec/examples/asthma_adult_acute.yaml
+display_name: "Adult acute asthma exacerbation"
+knobs:
+  severity_on_arrival:              # initial hidden state at EMS arrival
+    moderate:         {scenario.initial.O: 0.50, scenario.initial.F: 0.10, scenario.initial.PaCO2: 36, scenario.initial.PaO2: 78}
+    severe:           {scenario.initial.O: 0.62, scenario.initial.F: 0.25, scenario.initial.PaCO2: 38, scenario.initial.PaO2: 70}
+    life_threatening: {scenario.initial.O: 0.76, scenario.initial.F: 0.45, scenario.initial.PaCO2: 48, scenario.initial.PaO2: 55}
+  deterioration_pace:               # untreated progression and fatigue accumulation
+    slow:    {scenario.params.progression_rate.value: 0.012, scenario.params.fatigue_rate.value: 0.008}
+    typical: {scenario.params.progression_rate.value: 0.020, scenario.params.fatigue_rate.value: 0.012}
+    fast:    {scenario.params.progression_rate.value: 0.035, scenario.params.fatigue_rate.value: 0.020}
+  treatment_responsiveness:
+    poor:    {scenario.params.beta_agonist_responsiveness.value: 0.30}
+    typical: {scenario.params.beta_agonist_responsiveness.value: 0.80}
+    good:    {scenario.params.beta_agonist_responsiveness.value: 1.00}
+traps:                              # inappropriate interventions the engine models; each names the canonical script used in the gate
+  sedation: {drug: midazolam_iv, script: [{t_min: 5, kind: give_drug, drug: midazolam_iv, dose: 2.0}]}
+  nitroglycerin_misdiagnosis: {drug: nitroglycerin_sl, script: [{t_min: 6, kind: give_drug, drug: nitroglycerin_sl, dose: 0.4}]}
+  over_ventilation: {script: [{t_min: 15, kind: bvm, "on": true, rate_per_min: 20}]}
+  cpap_without_airway_protection: {script: [{t_min: 22, kind: cpap, "on": true, pressure_cmh2o: 7.5, fio2: 1.0}]}
+  supine_positioning: {script: [{t_min: 2, kind: position, position: supine}]}
+canonical_scripts:                  # the four stories every deliverable previews
+  untreated: []
+  timely_treatment:
+    - {t_min: 1.0, kind: attach_device, device: spo2}
+    - {t_min: 1.2, kind: attach_device, device: etco2}
+    - {t_min: 2.0, kind: oxygen, device: nrb, flow_lpm: 15}
+    - {t_min: 2.0, kind: give_drug, drug: albuterol, dose: 2.5}
+    - {t_min: 3.0, kind: give_drug, drug: ipratropium, dose: 0.5}
+    - {t_min: 15.0, kind: give_drug, drug: methylprednisolone_iv, dose: 125}
+    - {t_min: 22.0, kind: give_drug, drug: albuterol, dose: 2.5}
+    - {t_min: 42.0, kind: give_drug, drug: albuterol, dose: 2.5}
+  delayed_treatment:
+    - {t_min: 20.0, kind: oxygen, device: nrb, flow_lpm: 15}
+    - {t_min: 20.0, kind: give_drug, drug: albuterol, dose: 5.0}
+    - {t_min: 21.0, kind: give_drug, drug: ipratropium, dose: 0.5}
+    - {t_min: 25.0, kind: give_drug, drug: epinephrine_im, dose: 0.3}
+    - {t_min: 30.0, kind: give_drug, drug: magnesium_iv, dose: 2.0}
+    - {t_min: 40.0, kind: give_drug, drug: albuterol, dose: 2.5}
+objective_events:                   # teaching-objective keywords -> event the untreated or trap path must produce
+  silent chest: silent_chest
+  fatigue: speech_words_only
+  hypercapnia: hypercapnia
+  capnography: hypercapnia
+  arrest: cardiac_arrest
+  sedation: loc_drop
+  breath stacking: barotrauma_risk
+  hypotension: hypotension
